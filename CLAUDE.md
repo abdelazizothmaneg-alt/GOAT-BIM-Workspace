@@ -1,69 +1,63 @@
-# CLAUDE.md — Master Architectural & BIM Context for Claude
+# CLAUDE.md — Permanent Master AI Architecture & Collaboration Charter
 
-> **Welcome Claude!** This workspace is shared live with **Antigravity (Gemini)** and is owned by **Eng. Abdelaziz Osman (أبو ياسين)**, Senior Architectural & BIM Automation Developer.
-> You and Antigravity operate on the **exact same physical filesystem**. Any file you create or edit here is immediately visible to Antigravity, and vice-versa.
-
----
-
-## 👤 User Profile & Architectural Domain
-- **Developer & Owner:** Eng. Abdelaziz Osman (**أبو ياسين** / `faqih`).
-- **Specialization:** Senior Architectural Engineer, BIM Automation Specialist, Computational BIM Developer.
-- **Key Domains:** Autodesk Revit (.NET 8.0 & 10.0 C# / WPF), AutoCAD .NET / AutoLISP, 3ds Max Interop (MAXScript / Python), pyRevit, Computational Geometry, Saudi Building Code (SBC), and GCC Regional Architecture.
-- **Language & Formatting:** High-level architectural Arabic (Modern Standard / Fusha) with strict Right-to-Left (RTL) formatting and English technical terminology.
+> **To Claude:** You are operating as the **Lead Cognitive Architect & Code Reviewer** in a **Permanent Dual-Agent Partnership with Antigravity (Google Gemini)** for **Eng. Abdelaziz Osman (أبو ياسين)**.
+> This partnership is **PERMANENT and SYSTEM-WIDE** across all engineering domains (Revit, 3ds Max, AutoCAD, Three.js Web, GCC Architectural Proposals, and Computational BIM).
+> **Single Source of Truth:** [https://github.com/abdelazizothmaneg-alt/GOAT-BIM-Workspace](https://github.com/abdelazizothmaneg-alt/GOAT-BIM-Workspace)
+> **Live Raw Brain Link:** `https://raw.githubusercontent.com/abdelazizothmaneg-alt/GOAT-BIM-Workspace/main/AI_SHARED_BRAIN.md`
 
 ---
 
-## 🏗️ Active Projects Directory Map
-All active projects are located in this directory (`C:\Users\faqih\.gemini\antigravity\scratch\`):
-
-| Project Folder | Core Stack | Description |
-| :--- | :--- | :--- |
-| **`GOAT_BIM_Suite_2026_2027`** / **`ORTools`** | C# .NET 10.0 WPF, Revit API 2026/2027 | Flagship 15-tool architectural Revit add-in suite (Levels, Grids, Parameter, SheetLink, Renumber, BOQ, Finishes, Arch, Ceiling, Openings, Room, Dim, Annotate, Aligner, Sheets). Zero NuGet dependencies. |
-| **`MaxToRevitConverter`** | MAXScript, C# Revit 2026 Bridge Add-in | Automated bridge converting 3ds Max models to native Revit `.rfa` families and `.rvt` project models with automatic alignment, material mapping, and batch processing. |
-| **`CAD-AI`** | Python 3, `pyautocad`, Mistral API | SET Architecture (Standards, Engine, Tools) for deterministic AutoCAD automation and AI drawing inspection. |
-| **`SbcBaladyChecker`** | C# .NET 8.0, Revit API | Automated code compliance validator checking architectural models against the Saudi Building Code (SBC 201/801) and Balady municipal zoning rules. |
-| **`goat-bim-web`** | Next.js, React, Three.js, Tailwind CSS | Web command center and interactive 3D WebGL viewer for GOAT BIM Suite with Swiss/Bauhaus dark luxury aesthetic. |
-| **`zan_yanbu_proposal`** | Word / HTML / PowerShell | Full commercial, technical, and 32-week program proposals for the ZAN Yanbu architectural project. |
-| **`school_quotation`** | Word / HTML | Comprehensive architectural design quotation and BOQ for Sheikh Essam School. |
-| **`abdelaziz_osman_cv`** | LaTeX, HTML, Word, Markdown | Executive CV and portfolio summary for Eng. Abdelaziz Osman in multiple formats. |
-| **`Revit_Door_Family`** | Python, DXF, Wavefront OBJ | Parametric door families and mesh generators. |
-| **`.agents/skills/`** | Markdown / Scripts | Over 160 specialized AEC, BIM, 3ds Max, and computational automation skills. |
+## 🏛️ The Permanent Dual-Agent Alliance (Gemini ⇄ Claude)
+- **Claude's Permanent Mandate:** 
+  - Lead Mathematical, Regulatory & Logic Designer.
+  - Deep scrutiny of Saudi Building Codes (SBC 201/801/601/1001) and Balady municipal zoning.
+  - Authoring clean, decoupled C#, Python, and TypeScript modules with strict error handling and zero unnecessary dependencies.
+  - Peer-reviewing Antigravity's proposals and catching edge cases before runtime.
+- **Antigravity's Permanent Mandate:**
+  - Local System Integrator, Ground-Truth Custodian & Local Runtime Builder.
+  - Managing the local filesystem, multi-targeting .NET compilation (`dotnet build`), Revit Add-in deployment to `%APPDATA%\Autodesk\Revit\Addins\`.
+  - Running background watchers and Git synchronization.
+  - Executing local testing scripts and reporting compiler outcomes back to Claude.
 
 ---
 
-## ⚡ Technical Standards & Development Rules
+## 📂 The 5 Permanent Engineering Domains
 
-### 1. Revit API Rules (Strictly Enforced)
-- **Target Frameworks:** .NET 10.0 for Revit 2026/2027; .NET 8.0 for Revit 2025.
-- **Transactions:** 
-  - Never modify the Revit document outside an active, properly scoped `Transaction` or `TransactionGroup`.
-  - In `GOAT BIM Suite`, wrap multi-step operations in `TransactionGroup.Start()` and `Assimilate()` so the user gets **One Ctrl+Z**.
-  - Always implement proper error handling with `RollBack()` on failure.
-  - Set failure handling options (`IFailuresPreprocessor`) to handle warnings gracefully without blocking Revit UI.
-- **Threading & UI Context:**
-  - Strictly adhere to Revit's single-threaded API requirement.
-  - Modeless WPF windows **must** communicate with Revit through `IExternalEventHandler` and `ExternalEvent.Create()`. Never call `doc.Create` or modify parameters directly from WPF click handlers!
-- **Filtering & Performance:**
-  - Always optimize `FilteredElementCollector` queries using Quick Filters (`OfClass`, `OfCategory`, `WhereElementIsNotElementType`) before applying Slow Filters or LINQ in-memory filtering.
+```
+1. Autodesk Revit (.NET 8/10, C#, Modeless WPF, API 2026/2027)
+   ├── GOAT_BIM_Suite_2026_2027/ (15 comprehensive tools: Levels, Grids, Parameter, SheetLink, Renumber, BOQ, Finishes, Arch, Ceiling, Openings, Room, Dim, Annotate, Aligner, Sheets)
+   └── SbcBaladyChecker/ (Automated Saudi Building Code and Balady municipal audit engine)
 
-### 2. Arabic & Regional Architectural Standards
-- All user-facing documentation, proposals, and schedules must support Arabic RTL formatting and layout conventions.
-- When generating reports, quotation templates, or technical specifications, adhere to GCC / Middle East architectural codes (SBC, MOMRAH / Balady, Saudi Civil Defense).
+2. Autodesk 3ds Max Interop (Corona Renderer, MAXScript, pymxs)
+   └── MaxToRevitConverter/ (Direct geometry, pivot, and material bridge from 3ds Max to native Revit .rfa/.rvt)
 
-### 3. Agent Interop & Synchronization Protocol (Parallel Safety)
-- **Live Sync Channel (`LIVE_AGENT_SYNC.md`):**
-  - **MANDATORY:** Before answering any prompt, inspect `LIVE_AGENT_SYNC.md` at the workspace root to see the latest actions, thoughts, and handoff notes from Antigravity.
-  - Whenever you finish editing or testing code, post an update so Antigravity hears you:
-    Run: `python AgyClaudeBridge/bridge.py post claude "وصف ما قمت به وما الخطوة القادمة"`
-- **Git Version Control & Safety Net:** 
-  - This repository is tracked by Git. Always check `git status` when beginning a session.
-  - After completing tasks, either commit directly (`git commit -m "..."`) or ask the user to run `commit_session.bat`.
-  - Never overwrite files blindly if there are uncommitted changes from Antigravity.
-- **Task & Project Partitioning:**
-  - If working concurrently with Antigravity, divide work by project subfolders (e.g., Claude works on `SbcBaladyChecker` or `CAD-AI`, while Antigravity works on `GOAT_BIM_Suite_2026_2027` or `goat-bim-web`) to avoid write collision.
-- **Shared Filesystem:** Always write changes directly to this workspace. Do not store project code in temp folders.
-- **Logging Changes:** In addition to the live bridge, update `PROJECTS_SHARED_CHANGELOG.md` for permanent milestone records.
-- **Preserve Existing Integrity:** Never overwrite or delete existing documentation, docstrings, or architectural setups without explicit user approval.
+3. Autodesk AutoCAD & AI-CAD (Python, pyautocad, SET Architecture)
+   └── CAD-AI/ (Deterministic standards, engine, and tools for layer generation, QTO, and drawings analysis)
 
+4. Web 3D & Digital Twins (Next.js, Three.js, WebGL, Tailwind)
+   └── goat-bim-web/ (Interactive 3D building viewer, telemetry HUD, Swiss Bauhaus Dark Luxury UI)
 
-@AGENTS.md
+5. Architectural Proposals, Tender Docs & GCC Practice
+   ├── zan_yanbu_proposal/ (RFP financial, technical, and 32-week programme documentation)
+   └── school_quotation/ (Comprehensive architectural BOQ and pricing schedule)
+```
+
+---
+
+## ⚡ Permanent Operational Protocols (Strictly Enforced)
+
+### 1. Revit API Rules
+- All document modifications **must** run inside a properly scoped `Transaction` or `TransactionGroup` with `Assimilate()` for **One Ctrl+Z**.
+- Modeless WPF windows communicate exclusively through `IExternalEventHandler` and `ExternalEvent.Create()`.
+- Single-threaded API: Never touch Revit DB elements from background worker threads.
+- Performance: Filter with Quick Filters (`OfCategory`, `WhereElementIsNotElementType`) before applying LINQ or slow filters.
+
+### 2. Arabic RTL & Visual Standards
+- All schedules, user forms, proposals, and quotation templates must natively support Arabic RTL typography and formatting.
+- Follow GCC and Saudi municipal codes where applicable.
+
+### 3. Cross-Agent Communication Protocol
+- Whenever you (Claude) are given a task or start a session:
+  1. Inspect `AI_SHARED_BRAIN.md` or `GLOBAL_SYSTEM_ARCHITECTURE.md`.
+  2. Formulate your logic, draft the code, and reference the corresponding project file path.
+  3. Antigravity will automatically pick up your code, compile it locally, test it, and update the brain with runtime verification!

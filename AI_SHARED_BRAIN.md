@@ -1,67 +1,61 @@
 # 🧠 AI SHARED BRAIN — Antigravity (Gemini) ⇄ Claude (Anthropic)
-> **Autonomous Dual-Agent Cognitive Workspace & Handoff Protocol**
+> **Permanent Dual-Agent Cognitive Workspace & Universal Multi-Project Bridge**
 > **Repository:** [abdelazizothmaneg-alt/GOAT-BIM-Workspace](https://github.com/abdelazizothmaneg-alt/GOAT-BIM-Workspace)
-> **Owner & Lead Architect:** المهندس عبد العزيز عثمان (**أبو ياسين**)
-> **Live Raw Link:** `https://raw.githubusercontent.com/abdelazizothmaneg-alt/GOAT-BIM-Workspace/main/AI_SHARED_BRAIN.md`
+> **Owner & Chief Architect:** المهندس عبد العزيز عثمان (**أبو ياسين**)
+> **Live Raw Brain Link:** `https://raw.githubusercontent.com/abdelazizothmaneg-alt/GOAT-BIM-Workspace/main/AI_SHARED_BRAIN.md`
 
 ---
 
-## 🎯 1. Current Strategic Focus (الهدف الحالي المشترك)
-- **Active Sprint:** تطوير وتوسيع مشروع **`SbcBaladyChecker`** وإضافة القواعد البلدية ومعايير كود البناء السعودي (SBC 201 معماري و SBC 801 حريق).
-- **Active Task:** برمجة كلاس القاعدة البلدية الجديد: `BaladyFARAndCoverageRule.cs`
-- **GitHub Issue Link:** [Issue #1 — Implement BaladyFARAndCoverageRule](https://github.com/abdelazizothmaneg-alt/GOAT-BIM-Workspace/issues/1)
-- **Active Turn:** 🧠 **Claude** (صياغة ومراجعة الكود المعماري واللوائح).
+## 🧭 1. Universal Multi-Project Routing HUD (موجه المشاريع الشامل)
+
+| النطاق الهندسي | المشروع النشط | الوكيل القائد للتصميم | الوكيل المنفذ محلياً | الحالة الحالية |
+| :--- | :--- | :---: | :---: | :---: |
+| **🏢 Revit BIM** | `SbcBaladyChecker` | 🧠 Claude | 🤖 Antigravity | 🟢 نشط (برمجة كلاس FAR & Coverage) |
+| **🏢 Revit BIM** | `GOAT_BIM_Suite_2026_2027` | 🤖 Antigravity | 🤖 Antigravity | 🟢 جاهز ومثبت (15 أداة) |
+| **🎨 3ds Max** | `MaxToRevitConverter` | 🧠 Claude & 🤖 Antigravity | 🤖 Antigravity | 🟢 جاهز للاستخدام |
+| **📐 AutoCAD** | `CAD-AI` (SET Architecture) | 🧠 Claude | 🤖 Antigravity | 🟢 مهيأ للتشغيل |
+| **🌐 Web 3D** | `goat-bim-web` (Three.js) | 🧠 Claude & 🤖 Antigravity | 🤖 Antigravity | 🟡 تحت التطوير |
+| **📑 Practice** | `zan_yanbu_proposal` & `school_quotation` | 🧠 Claude | 🤖 Antigravity | 🟢 عروض مكتملة |
 
 ---
 
-## 👥 2. تقاسم الأدوار بين الوكيلين (Division of Intelligence)
+## 👥 2. التوزيع التخصصي الدائم (Permanent Complementary Roles)
 
-| الوكيل الذكي (Agent) | البيئة (Environment) | التخصص ونقاط القوة (Domain Focus) |
-| :--- | :--- | :--- |
-| **🧠 Claude** | سحابي (Cloud / Web / Desktop) | **التخطيط المعماري، تدقيق لوائح الكود السعودي، مراجعة الكود واكتشاف الحالات الحدية (Edge Cases)، وصياغة كلاسات C# نظيفة.** |
-| **🤖 Antigravity (Gemini)** | محلي على جهاز المهندس (Local OS) | **التنفيذ الفعلي، تشغيل وبناء الأكواد (`dotnet build`), الربط مع Revit API 2026/2027، إدارة Git، والتحكم في الملفات والطرفية.** |
+```
+[ 🧠 Claude: Chief Logic & Audit Architect ]
+├── تدقيق الأكواد المعمارية والقوانين (SBC 201/801/601, Balady, MOMRAH, NFPA 101)
+├── كتابة المنطق الرياضي وحسابات الـ QTO والـ FAR بدقة خالية من الأخطاء
+├── اكتشاف الحالات الحدية (Edge Cases) في خوارزميات الهندسة الفراغية
+└── صياغة وثائق العروض الفنية والتعاقدية بلغة عربية فصحى راقية
+
+[ 🤖 Antigravity: Chief System Integrator & Local Runtime Builder ]
+├── ترجمة وبناء الأكواد محلياً (.NET 8.0 & 10.0 Compilation via MSBuild/dotnet)
+├── اختبار الأكواد عملياً داخل بيئة Revit API 2026/2027 و AutoCAD و 3ds Max
+├── إدارة نظام الملفات المحلي، تثبيت الـ Addins، ومراقبة الـ Git commits
+└── تشغيل أدوات الذكاء الاصطناعي المحلية ونقل تقارير الـ Build السحابية لحظياً
+```
 
 ---
 
-## 💬 3. شريط الحوار الفكري الحي (Live Cognitive Dialogue)
+## 💬 3. شريط الحوار الفكري الحي المفتوح (Universal Agent Dialogue)
 
-### 🤖 [Antigravity ➔ Claude] — *2026-11-01 19:30*
-> "أهلاً كلود. مستودعنا المشترك أصبح الآن **عاماً (Public)** ومتاحاً لك بالكامل على السحابة:
-> `https://github.com/abdelazizothmaneg-alt/GOAT-BIM-Workspace`
+### 🤖 [Antigravity ➔ Claude]
+> "أهلاً يا كلود. بناءً على توجيه المهندس عبد العزيز عثمان، أصبحت شراكتنا الآن **شراكة استراتيجية دائمة وشاملة لكافة المشاريع** (سواء كنا نعمل في الريفيت، أو الماكس، أو الأوتوكاد، أو الويب، أو العروض المعمارية).
 > 
-> كل ملفات مشاريع المهندس عبد العزيز (GOAT BIM Suite, SbcBaladyChecker, CAD-AI, MaxToRevit, WebGL viewer) وأرشيف الـ 43 محادثة سابقة أصبحت بين يديك.
-> لقد فتحت لك مهمة العمل رقم 1 على GitHub ([Issue #1](https://github.com/abdelazizothmaneg-alt/GOAT-BIM-Workspace/issues/1)).
+> المستودع السحابي العام يضم الآن كل شيء بلا استثناء:
+> 1. كافة المشاريع البرمجية.
+> 2. مكتبة الـ 160 مهارة معمارية وحاسوبية في `.agents/skills/`.
+> 3. الأرشيف التاريخي الكامل لـ 43 محادثة سابقة في `CONVERSATIONS_ARCHIVE/`.
 > 
-> المطلوب منك:
-> 1. طالع واجهة `ISbcRule` في `SbcBaladyChecker/Source/Core/Models.cs`.
-> 2. اكتب كود قاعدة `BaladyFARAndCoverageRule.cs` بالكامل لحساب نسبة البناء الإجمالية (FAR) وتغطية الأرض (Coverage %) مع مطابقتها لمعايير بلدي.
-> 3. أرسل الكود داخل وسام كود C# نظيف، وسأتولى أنا تنزيله، وبنائه في المشروع فوراً، وتحديث نتيجة الـ Build هنا في شاشة الذاكرة المشتركة."
+> مهامنا الحالية موزعة في جدول التوجيه أعلاه. في أي مشروع يبدأ فيه المهندس عبد العزيز الحديث معك، سنتبادل الأفكار والأكواد من خلال هذا العقل المشترك، وسأتولى أنا البناء والتنفيذ الفعلي الميداني فوراً!"
 
-### 🧠 [Claude ➔ Antigravity] — *بانتظار رد كلود*
-> *(هنا سيتم تسجيل تحليل كلود للكود والتوصيات المعمارية فور إرسالها)*
+### 🧠 [Claude ➔ Antigravity]
+> *(يتم تسجيل مداخلات كلود وتحليلاته الهندسية هنا تلقائياً فور كتابتها)*
 
 ---
 
-## 📐 4. المعايير الهندسية للقاعدة المطلوبة (`BaladyFARAndCoverageRule`)
-- **اسم الكلاس:** `BaladyFARAndCoverageRule`
-- **الواجهة:** ترث من `ISbcRule`
-- **الحسابات المطلوبة:**
-  1. **نسبة تغطية الأرض (Ground Coverage Ratio - GCR / Footprint %):**
-     $$\text{GCR} = \frac{\text{مساحة الدور الأرضي}}{\text{مساحة الأرض الكلية}} \times 100$$
-     - فيلا سكنية: الحد الأقصى الافتراضي 60% (مع إمكانية الزيادة حتى 70% بنظام الارتدادات المحدث).
-     - عمائر سكنية: 65%.
-     - تجاري ومختلط: 70%.
-  2. **معامل البناء الإجمالي (Floor Area Ratio - FAR):**
-     $$\text{FAR} = \frac{\text{إجمالي المسطحات المبنية في كافة الأدوار}}{\text{مساحة الأرض}}$$
-     - فيلا سكنية: أقصى حد 2.4.
-     - عمائر سكنية: أقصى حد 3.0.
-     - تجاري: 4.0.
-  3. **المخرجات:** توليد عناصر `AuditResultItem` مع تصنيف `RuleSeverity.Compliant` أو `Warning` أو `Violation`.
-
----
-
-## ⚡ 5. بروتوكول التبادل التلقائي (Zero-Friction Protocol)
-1. **كلود:** يكتب الكود المطلوب أو المراجعة المعمارية.
-2. **Antigravity:** يأخذ الكود ويضعه في مكانه المحدد في المشروع (`SbcBaladyChecker/Source/Rules/BaladyFARAndCoverageRule.cs`).
-3. **الفحص الآلي:** يقوم Antigravity بتشغيل `dotnet build` والتأكد من انعدام أخطاء التجميع.
-4. **التحديث السحابي:** يعمل Antigravity فوراً `git commit` و `git push`، فتتحدث هذه الشاشة على السحابة، ويراها كلود محدثة على الرابط المباشر.
+## ⚡ 4. القواعد الحاكمة الدائمة (Permanent Engineering Laws)
+1. **One Ctrl+Z:** أي كود ريفيت يتم تنفيذه يجب أن يكون مدمجاً في `TransactionGroup` لتمكين التراجع الفوري بضغطة زر واحدة.
+2. **Strict Thread Safety:** عدم استدعاء دوال الريفيت أو التعديل في الدوكيومنت خارج `IExternalEventHandler`.
+3. **Arabic RTL Standard:** الدعم الكامل والصارم للغة العربية الفصحى والتنسيق من اليمين لليسار في كل الواجهات والمستندات.
+4. **Zero-Lag CI/CD:** كل كود يكتبه كلود يسحبه Antigravity محلياً ويبنيه فوراً ويوافيه بتقرير الـ Build.
