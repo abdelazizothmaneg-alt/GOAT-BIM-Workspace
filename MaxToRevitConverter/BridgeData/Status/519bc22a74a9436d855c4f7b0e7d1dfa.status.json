@@ -1,0 +1,17 @@
+{
+  "JobId": "519bc22a74a9436d855c4f7b0e7d1dfa",
+  "State": "Completed",
+  "Message": "Successfully converted 1 file(s).",
+  "OutputFiles": [
+    "C:\\Users\\faqih\\Desktop\\New folder (3)\\Shape13968.rfa"
+  ],
+  "Logs": [
+    "Using Family Template: Metric Window.rft",
+    "Resized Opening Width to 1100 mm.",
+    "Resized Opening Height to 2500 mm.",
+    "Imported DXF/DWG geometry with Material Layers (519bc22a74a9436d855c4f7b0e7d1dfa_Shape13968.dxf).",
+    "Aligned Window to Sill Height (800 mm).",
+    "Saved Family: C:\\Users\\faqih\\Desktop\\New folder (3)\\Shape13968.rfa"
+  ],
+  "CompletedAt": "2026-10-28T13:18:56.2681808\u002B03:00"
+}

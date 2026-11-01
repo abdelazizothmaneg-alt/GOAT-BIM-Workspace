@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض سعر - مشروع مدرسة الشيخ عصام الخاصة | شركة حسن فقيه للاستشارات الهندسية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+        :root {
+            --primary: #8b1e2d;
+            --primary-dark: #6e1622;
+            --secondary: #1f2937;
+            --accent: #b91c1c;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .action-bar {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .btn-print {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            font-size: 15px;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-print:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            background: #ffffff;
+            padding: 45px 55px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        /* Header Style matching Hassan Faqih PDF */
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 16px;
+            margin-bottom: 25px;
+        }
+
+        .company-ar {
+            text-align: right;
+        }
+        .company-ar h1 {
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 2px;
+        }
+        .company-ar p {
+            color: #475569;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .logo-box {
+            text-align: center;
+            padding: 0 15px;
+        }
+        .logo-box .badge {
+            background: var(--primary);
+            color: #fff;
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: 2px;
+            padding: 4px 14px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .logo-box span {
+            display: block;
+            font-size: 10px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .company-en {
+            text-align: left;
+            direction: ltr;
+        }
+        .company-en h2 {
+            color: var(--secondary);
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 2px;
+        }
+        .company-en p {
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .meta-strip {
+            display: flex;
+            justify-content: space-between;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #334155;
+        }
+
+        .recipient-box {
+            margin-bottom: 25px;
+        }
+        .recipient-box h3 {
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        .greeting {
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 12px;
+        }
+
+        .project-subject {
+            background: linear-gradient(to left, #fdf2f2, #ffffff);
+            border-right: 4px solid var(--primary);
+            padding: 12px 18px;
+            border-radius: 4px;
+            margin-bottom: 22px;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.8;
+        }
+
+        .intro-text {
+            font-size: 14px;
+            color: #334155;
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 17px;
+            font-weight: 800;
+            border-bottom: 2px solid #fee2e2;
+            padding-bottom: 6px;
+            margin-top: 25px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scope-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .scope-item {
+            margin-bottom: 14px;
+            padding-right: 20px;
+            position: relative;
+            font-size: 13.5px;
+        }
+        .scope-item::before {
+            content: "■";
+            position: absolute;
+            right: 0;
+            top: 2px;
+            color: var(--primary);
+            font-size: 11px;
+        }
+        .scope-title {
+            font-weight: 800;
+            color: #0f172a;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+        .scope-desc {
+            color: #475569;
+            margin-top: 2px;
+            line-height: 1.6;
+        }
+
+        /* Timeline Box */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .timeline-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-right: 4px solid var(--primary);
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13.5px;
+        }
+        .timeline-name {
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .timeline-duration {
+            background: #fee2e2;
+            color: var(--primary-dark);
+            font-weight: 800;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 12.5px;
+            white-space: nowrap;
+        }
+
+        /* Financial Table */
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            font-size: 13.5px;
+        }
+        .table-custom th, .table-custom td {
+            border: 1px solid #cbd5e1;
+            padding: 12px 14px;
+            text-align: right;
+        }
+        .table-custom th {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-weight: 800;
+        }
+        .table-custom tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .table-custom .price-cell {
+            text-align: center;
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+        .total-row {
+            background-color: #fef2f2 !important;
+            font-weight: 900;
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        .exclusions-box {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-right: 4px solid #f59e0b;
+            padding: 12px 18px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #92400e;
+            margin-bottom: 22px;
+        }
+        .exclusions-box strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 13.5px;
+        }
+        .exclusions-box ul {
+            padding-right: 18px;
+            margin-top: 4px;
+        }
+
+        .payment-milestones {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        .payment-milestones li {
+            padding: 8px 14px;
+            border-bottom: 1px dashed var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            font-size: 13.5px;
+        }
+        .payment-milestones li strong {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .signature-block {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        .sign-side {
+            text-align: center;
+            min-width: 200px;
+        }
+        .sign-side p {
+            font-size: 13px;
+            color: #475569;
+        }
+        .sign-side .sign-title {
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+        .stamp-box {
+            display: inline-block;
+            border: 2px dashed #94a3b8;
+            padding: 8px 18px;
+            border-radius: 6px;
+            color: #64748b;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Footer matching PDF */
+        .doc-footer {
+            margin-top: 40px;
+            border-top: 2px solid var(--primary);
+            padding-top: 12px;
+            text-align: center;
+            font-size: 11.5px;
+            color: #475569;
+            line-height: 1.8;
+            background: #fafafa;
+            border-radius: 0 0 6px 6px;
+            padding-bottom: 8px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .action-bar {
+                display: none;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 25px 35px;
+                max-width: 100%;
+                page-break-after: always;
+            }
+            .page:last-child {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="action-bar">
+        <div>
+            <strong>عرض السعر جاهز للطباعة أو التصدير كملف PDF</strong>
+            <span style="font-size: 13px; color: #64748b; display: block;">مشروع مدرسة الشيخ عصام الخاصة (مبنى بلدية الريان سابقاً)</span>
+        </div>
+        <button class="btn-print" onclick="window.print()">
+            🖨️ طباعة العرض / حفظ بصيغة PDF
+        </button>
+    </div>
+
+    <!-- الصفحة الأولى: الخطاب الرسمي ونطاق العمل -->
+    <div class="page">
+        <div class="doc-header">
+            <div class="company-ar">
+                <h1>شركة حسن محمد علي فقيه</h1>
+                <p>للإستشارات الهندسية</p>
+                <p style="font-size: 11px; color: #64748b;">مهندسون - معماريون - مخططون</p>
+            </div>
+            <div class="logo-box">
+                <div class="badge">HMF</div>
+                <span>CONSULTING ENGINEERS</span>
+            </div>
+            <div class="company-en">
+                <h2>HASSAN MOHAMED Ali FAQIH Co.</h2>
+                <p>FOR ENGINEERING CONSULTANTS</p>
+                <p>ARCHITECTS - ENGINEERS - PLANNERS</p>
+            </div>
+        </div>
+
+        <div class="meta-strip">
+            <div><strong>التاريخ:</strong> 28 / 10 / 2026 م</div>
+            <div><strong>رقم العرض:</strong> HMF-QT-2026-104</div>
+            <div><strong>الموقع:</strong> وادي جيزان - منطقة جازان</div>
+        </div>
+
+        <div class="recipient-box">
+            <h3>المكرم الشيخ / عصام ................................. المحترم</h3>
+            <p class="greeting">السلام عليكم ورحمة الله وبركاته ،،،</p>
+        </div>
+
+        <div class="project-subject">
+            <strong>الموضوع: </strong>
+            عرض فني ومالي لتقديم الخدمات الهندسية المتكاملة لإجراء الرفع المساحي وإعداد الدراسات والتصاميم الهندسية لإعادة تأهيل وتطوير مبنى بلدية الريان القائم وتحويله إلى مدرسة خاصة (رياض أطفال، روضة، وفصول من 1 إلى 3 ابتدائي) بمساحة أرض 6,444.37 م² بوادي جيزان - منطقة جازان.
+        </div>
+
+        <p class="intro-text">
+            يسر شركة <strong>حسن محمد فقيه للاستشارات الهندسية</strong> أن تتقدم لسعادتكم بهذا العرض الفني والمالي لمشروعكم التعليمي الطموح. ويهدف هذا العرض إلى تقديم حلول هندسية ومعمارية مبتكرة ومتوافقة تماماً مع اشتراطات وزارة التعليم وهيئة تطوير منطقة جازان والدفاع المدني وكود البناء السعودي (SBC)، لتحويل المبنى القائم من طابعه الإداري السابق إلى بيئة تعليمية عصرية وآمنة تلبي تطلعاتكم.
+        </p>
+
+        <h4 class="section-title">نطاق الأعمال الفنية (العرض الفني)</h4>
+
+        <ul class="scope-list">
+            <li class="scope-item">
+                <span class="scope-title">1. أعمال الرفوعات المساحية والموقع العام (As-Built Survey):</span>
+                <div class="scope-desc">
+                    إجراء رفع مساحي طبوغرافي شامل للموقع العام وحدود الأرض البالغة مساحتها (6,444.37 م²)، بالإضافة إلى عمل رفع معماري وإنشائي تفصيلي للوضع القائم لكافة مباني البلدية الحالية على الطبيعة، لتوثيق الأبعاد، المناسيب، سماكات الحوائط، أماكن الأعمدة والكمرات، والفتحات الحالية بدقة تامة لضمان سلامة التعديل، واستخراج وتحديث القرار المساحي للمشروع.
+                </div>
+            </li>
+
+            <li class="scope-item">
+                <span class="scope-title">2. تقرير السلامة والتقييم الإنشائي للمباني القائمة:</span>
+                <div class="scope-desc">
+                    فحص وتقييم الهيكل الإنشائي القائم للمباني للتأكد من قدرته على استيعاب الأحمال الحية التعليمية (Live Loads) المعتمدة في كود البناء السعودي للمنشآت المدرسية، وتقديم تقرير سلامة إنشائية معتمد يتضمن توصيات المعالجة والتدعيم إن دعت الحاجة.
+                </div>
+            </li>
+
+            <li class="scope-item">
+                <span class="scope-title">3. التصميمات المعمارية وإعادة توزيع الفراغات التعليمية:</span>
+                <div class="scope-desc">
+                    • إعادة تخطيط وتوزيع المساقط الأفقية للمبنى القائم بما يحقق اشتراطات وزارة التعليم الخاصة برياض الأطفال والصفوف الأولية (مساحات الفصول، الإضاءة الطبيعية، التهوية، الممرات، وغرف الأنشطة).<br>
+                    • تصميم واجهات معمارية خارجية عصرية ومناظير ثلاثية الأبعاد (3D Perspectives) تمنح المبنى هوية مدرسية جذابة وتلغي الطابع الإداري الحكومي القديم.<br>
+                    • تصميم الموقع العام وتخطيط ساحات اللعب المفتوحة والمظللة، ومسارات صعود ونزول الطلاب وحركة الحافلات والسيارات لضمان أعلى درجات الأمان.
+                </div>
+            </li>
+
+            <li class="scope-item">
+                <span class="scope-title">4. التصميمات الإنشائية والتنفيذية:</span>
+                <div class="scope-desc">
+                    تصميم المخططات التنفيذية لأي تعديلات معمارية أو فتحات إنشائية جديدة أو أسوار أو خزانات مياه أرضية وعلوية وخزانات صرف ومظلات الساحات طبقاً للكود السعودي.
+                </div>
+            </li>
+
+            <li class="scope-item">
+                <span class="scope-title">5. التصميمات الكهروميكانيكية المتكاملة (MEP):</span>
+                <div class="scope-desc">
+                    • <strong>الأعمال الكهربائية:</strong> إنارة الفصول المريحة للرؤية، مخارج القوى، لوحات التوزيع، وشبكات التيار الخفيف (كاميرات المراقبة، النداء الصوتي، الإذاعة المدرسية، شبكات الإنترنت والداتا).<br>
+                    • <strong>الأعمال الميكانيكية:</strong> شبكات التكييف والتهوية (HVAC) المناسبة للأجواء المناخية بجازان، وشبكات التغذية والصرف الصحي لدورات المياه الخاصة بالأطفال.
+                </div>
+            </li>
+
+            <li class="scope-item">
+                <span class="scope-title">6. أنظمة السلامة وتراخيص الدفاع المدني:</span>
+                <div class="scope-desc">
+                    تصميم واعتماد مخططات أنظمة الإنذار المبكر ومكافحة الحريق، ومخارج الطوارئ ومسارات الهروب بما يتوافق بدقة مع كود الدفاع المدني للمنشآت التعليمية الخاصة برياض الأطفال.
+                </div>
+            </li>
+
+            <li class="scope-item">
+                <span class="scope-title">7. جداول الكميات (BOQ) وإصدار رخصة البناء:</span>
+                <div class="scope-desc">
+                    إعداد جداول كميات ومواصفات تفصيلية لجميع بنود أعمال الترميم والتعديل، ومتابعة إصدار رخصة البناء / التعديل وتغيير الاستخدام عبر منصة "بلدي".
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- الصفحة الثانية: الخطة الزمنية والعرض المالي -->
+    <div class="page">
+        <div class="doc-header">
+            <div class="company-ar">
+                <h1>شركة حسن محمد علي فقيه</h1>
+                <p>للإستشارات الهندسية</p>
+            </div>
+            <div class="logo-box">
+                <div class="badge">HMF</div>
+                <span>CONSULTING ENGINEERS</span>
+            </div>
+            <div class="company-en">
+                <h2>HASSAN MOHAMED Ali FAQIH Co.</h2>
+                <p>FOR ENGINEERING CONSULTANTS</p>
+            </div>
+        </div>
+
+        <h4 class="section-title">المدة الزمنية المقترحة لإنجاز المشروع</h4>
+        <div class="timeline-grid">
+            <div class="timeline-card">
+                <span class="timeline-name">المرحلة الأولى: الرفع المساحي للموقع العام والمباني القائمة (As-Built) والمساقط الأولية</span>
+                <span class="timeline-duration">8 أيام عمل</span>
+            </div>
+            <div class="timeline-card">
+                <span class="timeline-name">المرحلة الثانية: إعداد التصميم المعماري المقترح والواجهات ثلاثية الأبعاد (3D) وعرضها للاعتماد</span>
+                <span class="timeline-duration">12 يوم عمل</span>
+            </div>
+            <div class="timeline-card">
+                <span class="timeline-name">المرحلة الثالثة: التنسيق ومراجعة البلدية والأمانة للاعتماد المبدئي للتصميم</span>
+                <span class="timeline-duration">7 أيام عمل</span>
+            </div>
+            <div class="timeline-card">
+                <span class="timeline-name">المرحلة الرابعة: إعداد المخططات التنفيذية التفصيلية لجميع التخصصات (إنشائي، كهروميكانيكي، دفاع مدني)</span>
+                <span class="timeline-duration">25 يوم عمل</span>
+            </div>
+            <div class="timeline-card">
+                <span class="timeline-name">المرحلة الخامسة: إعداد جداول الكميات (BOQ) ورفع طلب استخراج رخصة التعديل على منصة بلدي</span>
+                <span class="timeline-duration">7 أيام عمل</span>
+            </div>
+        </div>
+
+        <h4 class="section-title">العرض المالي (جدول الأتعاب)</h4>
+
+        <table class="table-custom">
+            <thead>
+                <tr>
+                    <th style="width: 8%; text-align: center;">م</th>
+                    <th style="width: 67%;">الوصف وبيان الأعمال</th>
+                    <th style="width: 25%; text-align: center;">التكلفة (ريال سعودي)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center; font-weight: 700;">1</td>
+                    <td>
+                        <strong>أعمال الرفع المساحي الشامل والتصاميم الهندسية المتكاملة:</strong><br>
+                        • أعمال الرفع المساحي للموقع العام والمباني القائمة (As-Built) واستخراج القرار المساحي.<br>
+                        • تقرير تقييم السلامة الإنشائية للهيكل القائم للمباني وتوصيات التدعيم.<br>
+                        • إعداد كافة المخططات المعمارية (المساقط، الواجهات، القطاعات، والمناظير 3D).<br>
+                        • المخططات الإنشائية والتنفيذية للتعديلات والأسوار والخزانات.<br>
+                        • المخططات الكهروميكانيكية (الكهرباء، التيار الخفيف، التكييف، التغذية والصرف).<br>
+                        • مخططات أنظمة الأمن والسلامة ومكافحة الحريق المعتمدة للدفاع المدني.<br>
+                        • إعداد جداول الكميات والمواصفات العامة (BOQ).
+                    </td>
+                    <td class="price-cell">125,000</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; font-weight: 700;">2</td>
+                    <td>
+                        <strong>أعمال المتابعة واستخراج رخصة البناء / التعديل:</strong><br>
+                        رفع المعاملة وإصدار رخصة التعديل والترميم وتغيير الاستخدام عبر منصة "بلدي".
+                    </td>
+                    <td class="price-cell">5,000</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2" style="text-align: left; font-size: 15px; padding-left: 20px;">
+                        إجمالي الأتعاب الهندسية (مائة وثلاثون ألف ريال سعودي فقط لا غير):
+                    </td>
+                    <td class="price-cell" style="color: var(--primary); font-size: 17px;">
+                        130,000 ريال
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="exclusions-box">
+            <strong>ملاحظات وشروط العرض المالي:</strong>
+            <ul>
+                <li>الأتعاب الموضحة أعلاه <strong>لا تشمل ضريبة القيمة المضافة (15%)</strong>.</li>
+                <li>لا تشمل الأتعاب الرسوم الحكومية الخاصة بمنصة بلدي، أو تقرير فحص التربة (إن لزم)، أو عقد الإشراف على التنفيذ وعقد حاوية المخلفات.</li>
+                <li>كل ما لم يرد ذكره صراحة في نطاق الأعمال يخضع لاتفاق ملحق منفصل بين الطرفين.</li>
+            </ul>
+        </div>
+
+        <h4 class="section-title">طريقة السداد (الدفعات)</h4>
+        <ul class="payment-milestones">
+            <li>
+                <span><strong>الدفعة الأولى (25%):</strong> مقدم تعاقد عند التوقيع والبدء في أعمال الرفع المساحي</span>
+                <span>32,500 ريال</span>
+            </li>
+            <li>
+                <span><strong>الدفعة الثانية (35%):</strong> عند اعتماد التصميم المعماري المقترح والواجهات ثلاثية الأبعاد (3D)</span>
+                <span>45,500 ريال</span>
+            </li>
+            <li>
+                <span><strong>الدفعة الثالثة (30%):</strong> بعد الانتهاء من المخططات التنفيذية للتخصصات (إنشائي، ميكانيكا، كهرباء، دفاع مدني)</span>
+                <span>39,000 ريال</span>
+            </li>
+            <li>
+                <span><strong>الدفعة الرابعة (10%):</strong> عند رفع طلب إصدار الرخصة على منصة بلدي</span>
+                <span>13,000 ريال</span>
+            </li>
+        </ul>
+
+        <div style="font-size: 13.5px; font-weight: 700; color: #1e293b; margin-top: 15px;">
+            • هذا العرض سارٍ لمدة <strong>15 يوماً</strong> من تاريخ صدوره.
+        </div>
+
+        <div class="signature-block">
+            <div class="sign-side">
+                <p>اعتماد وقبول الطرف الثاني (المالك):</p>
+                <p class="sign-title">الشيخ / عصام ..............................</p>
+                <div class="stamp-box">التوقيع / الختم</div>
+            </div>
+            <div class="sign-side">
+                <p>الطرف الأول (الاستشاري الهندسي):</p>
+                <p class="sign-title">شركة حسن محمد فقيه للاستشارات الهندسية</p>
+                <p style="font-weight: 800; color: var(--primary); margin-top: 5px;">م / حسن محمد فقيه</p>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            جازان - حي الصفا - شارع الملك فيصل (الستين) - بجوار وقت اللياقة | ص.ب: (58) | تليفاكس: 017/3311114<br>
+            جوال: 0505768890 - 0551932629 | بريد إلكتروني: info@hmfaqih.com | الموقع: www.hmfaqih.com | س.ت: 5900018320
+        </div>
+    </div>
+
+</body>
+</html>

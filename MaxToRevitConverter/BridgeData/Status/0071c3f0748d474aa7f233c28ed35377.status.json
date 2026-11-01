@@ -1,0 +1,17 @@
+{
+  "JobId": "0071c3f0748d474aa7f233c28ed35377",
+  "State": "Completed",
+  "Message": "Successfully converted 1 file(s).",
+  "OutputFiles": [
+    "C:\\Users\\faqih\\Desktop\\New folder (4)\\Shape13968.rfa"
+  ],
+  "Logs": [
+    "Using Family Template: Metric Window.rft",
+    "Resized Opening Width to 1100 mm.",
+    "Resized Opening Height to 2500 mm.",
+    "Native geometry: 1 Extrusion(s), 0 Free Form solid(s), 1 DirectShape(s), 0 failed.",
+    "Aligned Window to Sill Height (800 mm).",
+    "Saved Family: C:\\Users\\faqih\\Desktop\\New folder (4)\\Shape13968.rfa"
+  ],
+  "CompletedAt": "2026-10-28T13:21:15.5654338\u002B03:00"
+}

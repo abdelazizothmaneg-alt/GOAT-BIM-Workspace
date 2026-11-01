@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العرض الفني | شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF) - ZAN-YAN-RFP-001</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap');
+        :root {
+            --primary: #0f3d3e;
+            --secondary: #1b6b6d;
+            --accent: #c59b27;
+            --light-bg: #f4f7f7;
+            --border: #d1d9d9;
+            --text: #1e293b;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Tajawal', 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .toolbar {
+            max-width: 210mm;
+            margin: 0 auto 15px auto;
+            background: #0f3d3e;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .toolbar button {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        .toolbar button:hover { opacity: 0.9; }
+        .document {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 18mm 16mm;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+        .header-bar .firm-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .header-bar .firm-sub {
+            font-size: 13px;
+            color: #475569;
+        }
+        .cover-box {
+            background: linear-gradient(135deg, #0f3d3e 0%, #1b6b6d 100%);
+            color: #fff;
+            padding: 28px;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            border-right: 8px solid var(--accent);
+        }
+        .cover-box h1 {
+            margin: 0 0 8px 0;
+            font-family: 'Cairo', sans-serif;
+            font-size: 26px;
+        }
+        .cover-box h2 {
+            margin: 0 0 12px 0;
+            font-size: 17px;
+            font-weight: 600;
+            color: #fde68a;
+        }
+        .cover-box p {
+            margin: 4px 0;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+        h2.sec-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 19px;
+            color: #fff;
+            background: var(--primary);
+            padding: 8px 14px;
+            border-radius: 6px;
+            border-right: 6px solid var(--accent);
+            margin-top: 28px;
+            margin-bottom: 14px;
+        }
+        h3.sub-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 4px;
+            margin-top: 18px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 20px 0;
+            font-size: 13px;
+        }
+        th {
+            background: var(--primary);
+            color: #fff;
+            padding: 9px 10px;
+            text-align: right;
+            font-weight: 700;
+            border: 1px solid var(--primary);
+        }
+        td {
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        .alert-box {
+            background: #fffbeb;
+            border: 1px solid #f59e0b;
+            border-right: 5px solid #d97706;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin: 14px 0;
+            font-size: 13.5px;
+        }
+        .alert-box strong { color: #92400e; }
+        .badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+        .editable-hint {
+            background: #fef3c7;
+            padding: 1px 5px;
+            border-radius: 3px;
+            border: 1px dashed #d97706;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        .footer-bar {
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 2px solid var(--border);
+            font-size: 12px;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+        }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .toolbar { display: none; }
+            .document { box-shadow: none; padding: 0; max-width: 100%; }
+            .editable-hint { background: transparent; border: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="toolbar">
+    <div>
+        <strong>العرض الفني (Technical Proposal) – شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF)</strong>
+        <span style="font-size:12px; display:block; color:#cbd5e1;">مرجع الطلب: ZAN-YAN-RFP-001 | يمكنك تعديل أي نص مباشرة داخل الصفحة قبل الطباعة أو التصدير</span>
+    </div>
+    <div>
+        <button onclick="window.print()">طباعة / حفظ كـ PDF</button>
+        <button onclick="exportToWord()">تحميل كملف Word (.doc)</button>
+    </div>
+</div>
+
+<div class="document" id="proposal-content" contenteditable="true">
+    <div class="header-bar">
+        <div>
+            <div class="firm-title">شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF)</div>
+            <div class="firm-sub">Hassan Mohammed Ali Faqih Engineering Consultancy Co. | س.ت: 5900018330</div>
+        </div>
+        <div style="text-align:left; dir:ltr;">
+            <div style="font-weight:800; color:var(--primary); font-size:15px;">Ref: ZAN-YAN-RFP-001</div>
+            <div style="font-size:12px; color:#475569;">Date: 29/10/2026 | Technical Proposal</div>
+        </div>
+    </div>
+
+    <div class="cover-box">
+        <h1>العرض الفني (TECHNICAL PROPOSAL)</h1>
+        <h2>خدمات المعماري المسؤول (Architect of Record – AoR)، المسوحات والدراسات الميدانية، والدراسات البيئية ومسار الاعتمادات والتراخيص حتى إصدار رخصة البناء</h2>
+        <p><strong>المشروع:</strong> منتجع ينبع السياحي (منتجع عائلي شامل 5 نجوم على الشاطئ) – قطعة الأرض Med Yan-1-25، خور الجار، مدينة ينبع الصناعية</p>
+        <p><strong>المالك:</strong> شركة واجهة زان العقارية (زان لتطوير الوجهات) – س.ت: 1009026521 | الرقم الموحد: 7039072397</p>
+    </div>
+
+    <table>
+        <tr>
+            <th style="width:28%;">البيان / Item</th>
+            <th>التفاصيل / Details</th>
+        </tr>
+        <tr>
+            <td><strong>المالك / Owner</strong></td>
+            <td><strong>شركة واجهة زان العقارية (زان لتطوير الوجهات)</strong> – Wajhat Zan Real Estate Company (ZAN Destination Development)<br>س.ت (CR): 1009026521 | الرقم الموحد (Unified No.): 7039072397</td>
+        </tr>
+        <tr>
+            <td><strong>ممثل المالك / Owner's Rep.</strong></td>
+            <td><strong>سعادة المهندس / رامي العيسوي</strong> – المستشار التنفيذي للمشاريع والتطوير (r.aleisawi@alsoliman.com.sa)</td>
+        </tr>
+        <tr>
+            <td><strong>مرجع الطلب / RFP Reference</strong></td>
+            <td><strong>ZAN-YAN-RFP-001</strong> (شاملاً الردود على الاستفسارات CR-01 و CR-02 والمستندات BD-01 إلى BD-11)</td>
+        </tr>
+        <tr>
+            <td><strong>المكتب الاستشاري / Consultant</strong></td>
+            <td><strong>شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF)</strong> – س.ت (CR): 5900018330</td>
+        </tr>
+        <tr>
+            <td><strong>المفوض بالتوقيع ومدير المشروع</strong></td>
+            <td><strong>الأستاذ / أحمد حسن فقيه</strong> – نائب المدير العام (Deputy General Manager)<br><strong>المهندس / مصطفى شلتوت</strong> – مدير المشروع والتنسيق الفني (+966 54 274 7078)</td>
+        </tr>
+        <tr>
+            <td><strong>تاريخ التقديم وسريان العرض</strong></td>
+            <td>الخميس 29 / 10 / 2026 م | سريان العرض: تسعون (90) يوماً من تاريخ التقديم</td>
+        </tr>
+    </table>
+
+    <div class="alert-box">
+        <strong>القاعدة الحاكمة لدور المكتب في هذا العرض (مراجعة ومطابقة وختم واعتماد – وليس تصميم):</strong><br>
+        استناداً إلى القسم (4) من الكراسة، ومصفوفة مسؤوليات التصميم (<strong>BD-10</strong>)، والبند (<strong>ب-6</strong>) من الرد الموحّد (<strong>CR-02</strong>)، يتركز دور <strong>شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF)</strong> في النطاق الأساسي (<strong>أ</strong>) حصرياً في أعمال <strong>المعماري المسؤول (Architect of Record – AoR)</strong>: أي <strong>مراجعة المخططات المعدّة من المصمم الدولي وفرق التصميم، التحقق من مطابقتها للأكواد، إصدار تقارير الملاحظات، ختم المخططات بعد إغلاق الملاحظات، وتقديمها ومتابعة اعتمادها لدى الجهات الحكومية حتى إصدار رخصة البناء</strong>. ولا يقوم المكتب بإعداد التصاميم أو إعادة تصميم مخرجات الغير (Does Not Redo Others' Designs)، ولا يقوم بإعادة الحسابات الهندسية الكاملة (Without Full Recalculation)، وتبقى مسؤولية التصميم وتعديل الرسومات لإغلاق الملاحظات على عاتق المصمم الأصلي الذي أعدّها.
+    </div>
+
+    <h2 class="sec-title">1. خطاب التقديم والالتزام التنفيذي (Cover Letter)</h2>
+    <p><strong>السادة / شركة واجهة زان العقارية (زان لتطوير الوجهات) المحترمين</strong><br>
+    <strong>عناية سعادة المهندس / رامي العيسوي – المستشار التنفيذي للمشاريع والتطوير</strong></p>
+    <p>تتشرف <strong>شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF)</strong> (سجل تجاري رقم: 5900018330) بتقديم عرضها الفني المتكامل للقيام بدور <strong>المعماري المسؤول (Architect of Record – AoR)</strong>، وإنجاز <strong>المسوحات والدراسات الميدانية (النطاق ب)</strong>، و<strong>الدراسات البيئية والتصاريح الساحلية (النطاق ج)</strong>، وإدارة مسار الاعتمادات والتراخيص لمشروع <strong>منتجع ينبع السياحي (قطعة الأرض Med Yan-1-25)</strong> بمنطقة خور الجار في مدينة ينبع الصناعية ضمن نطاق الهيئة الملكية للجبيل وينبع (RCJY)، حتى إصدار رخصة البناء النهائية.</p>
+    <ul>
+        <li><strong>المطابقة الكاملة لوثائق العطاء:</strong> اطلعنا وراجعنا بدقة كافة وثائق طلب تقديم العروض (ZAN-YAN-RFP-001) والردود (CR-01 و CR-02) والمستندات (BD-01 إلى BD-11)، ونقر بحذف وعدم الاعتماد على الملاحق المسحوبة (Appendix G, D, M).</li>
+        <li><strong>شمول كامل النطاق الأساسي (أ + ب + ج) دون أي استثناءات:</strong> يغطي عرضنا كامل النطاق الأساسي الإلزامي (Scope A + Scope B + Scope C) بنسبة 100% دون أي استبعادات، وبسعر مقطوع وثابت يشمل كافة الردود على ملاحظات الجهات الرسمية وإعادات التقديم حتى إصدار رخصة البناء.</li>
+        <li><strong>البرنامج الزمني التنافسي (32 أسبوعاً) ومدة المراجعة السريعة:</strong> نلتزم ببرنامج زمني محكم لإصدار رخصة البناء خلال <strong>اثنين وثلاثين (32) أسبوعاً</strong> (بوفورات زمنية قدرها أسبوعان عن المدة الاسترشادية البالغة 34 أسبوعاً)، مع التزامنا بمدة مراجعة قياسية تبلغ <strong>سبعة (7) أيام عمل للمراجعة الأولى</strong> و<strong>أربعة (4) أيام عمل لإعادة المراجعة</strong> لكل تقديم.</li>
+        <li><strong>المسؤولية المهنية والغطاء التأميني:</strong> نلتزم بتوفير غطاء تأمين المسؤولية المهنية (PI Insurance) بقيمة تعادل 100% من قيمة العقد، وقبول سقف المسؤولية التعاقدية بقيمة العقد وفق البند (ب-17) من الرد الموحّد (CR-02).</li>
+    </ul>
+
+    <h2 class="sec-title">2. مصفوفة المطابقة لمعايير التقييم الفني (Evaluation Criteria Matrix - 50%)</h2>
+    <table>
+        <tr>
+            <th>معيار التقييم الفني (Criterion)</th>
+            <th style="width:10%;">الوزن</th>
+            <th>استجابة والتزام مكتب حسن محمد علي فقيه (HMF Value Proposition)</th>
+        </tr>
+        <tr>
+            <td><strong>1. الخبرة كمعماري مسؤول (AoR) مع مصممين دوليين، ومشاريع مماثلة ومعتمدة لدى الهيئة الملكية</strong></td>
+            <td><strong>15%</strong></td>
+            <td>تأهيل ساري المفعول لدى الهيئة الملكية، سجل حافل في اعتماد المشاريع عبر منصة <strong>يسير (EServiceId=44)</strong> وشركة <strong>مرافق</strong> والدفاع المدني، وخبرة مباشرة كمعماري مسؤول (AoR) في مراجعة ومواءمة وختم مخططات المكاتب العالمية للمشاريع الفندقية والساحلية.</td>
+        </tr>
+        <tr>
+            <td><strong>2. المنهجية وفهم متطلبات الموقع الساحلي</strong></td>
+            <td><strong>10%</strong></td>
+            <td>قراءة فنية تفصيلية للرفع الطبوغرافي القائم (WSP - 15 لوحة) شاملة مناسيب العبارات والمنشآت القائمة، وخطة متكاملة لردم فجوة غياب بيانات المد والجزر والتربة، ومسار هندسي واضح لاعتماد تجاوز المسطحات (GFA 29,000 m² مقابل 25,743 m²).</td>
+        </tr>
+        <tr>
+            <td><strong>3. الفريق المقترح (Proposed Team)</strong></td>
+            <td><strong>10%</strong></td>
+            <td>تسمية <strong>مدير المشروع م. مصطفى شلتوت بتفرغ 100%</strong> طوال مدة العقد، مدعوماً بكبار مراجعي التخصصات (معماري، إنشائي، كهرباء/مرافق، ميكانيكا، سلامة ودفاع مدني، تخطيط وبنية تحتية، وجدولة زمنية Primavera P6).</td>
+        </tr>
+        <tr>
+            <td><strong>4. البرنامج الزمني والالتزام بمواعيد الاعتماد</strong></td>
+            <td><strong>10%</strong></td>
+            <td>برنامج زمني مستهدف لمدة <strong>32 أسبوعاً</strong> (أسرع بأسبوعين من المدة الاسترشادية 34 أسبوعاً) مع فصل دقيق لمدد مراجعة المكتب (<strong>7 أيام عمل للمراجعة الأولى / 4 أيام لإعادة المراجعة</strong>) عن مدد اعتماد الجهات الرسمية.</td>
+        </tr>
+        <tr>
+            <td><strong>5. القدرة على الدراسات الميدانية والبيئية (ذاتياً أو بمقاولين معتمدين)</strong></td>
+            <td><strong>5%</strong></td>
+            <td>التحالف والتعاقد مع <strong>شركة سادن المتخصصة للاستشارات الجيولوجية (س.ت: 5855039814)</strong> للتحريات الجيوتقنية (25 جسة = 340 م.ط + 2 بيزوميتر) والشبكة الجيوديسية والرفع الطبوغرافي والدراسة الهيدرولوجية، بالإضافة لمقاول المسح البحري (IHO Order 1a) والاستشاري البيئي المسجل لدى الهيئة الملكية.</td>
+        </tr>
+    </table>
+
+    <h2 class="sec-title">3. مصفوفة الفصل الحاسم بين مسؤولية التصميم ومسؤولية المراجعة والختم (BD-10 & CR-02 B-6)</h2>
+    <table>
+        <tr>
+            <th style="width:22%;">العنصر / المرحلة (Element)</th>
+            <th style="width:24%;">الجهة المسؤولة عن إعداد التصميم وتعديله</th>
+            <th style="width:32%;">دور شركة حسن محمد فقيه (HMF AoR Role – مراجعة وختم وتقديم فقط)</th>
+            <th style="width:22%;">ما لا يدخل في مسؤولية مكتبنا (Excluded from AoR)</th>
+        </tr>
+        <tr>
+            <td><strong>1. الفكرة التصميمية والتصميم المعماري</strong></td>
+            <td>المصمم المعماري الدولي (يعيّنه المالك)</td>
+            <td>مراجعة المطابقة لاشتراطات الهيئة، إعداد مبررات المطابقة الفنية لتجاوز المسطحات، إرسال الملف لـ PrivateProjects@RCJY.GOV.SA، وحضور جلسة STUDIO بينبع (أ-2).</td>
+            <td>لا يقوم HMF بإعداد التصميم المعماري أو البدائل أو المناظير (Renders).</td>
+        </tr>
+        <tr>
+            <td><strong>2. المخطط العام ووثائق التخطيط</strong></td>
+            <td>المصمم المعماري الدولي (يعيّنه المالك)</td>
+            <td>مراجعة المخططات، التحقق من مواءمتها محلياً، ختمها، وتقديمها عبر منصة يسير (EServiceId=44) ومتابعة اعتمادها (أ-4).</td>
+            <td>تعديل رسومات المخطط العام لإغلاق الملاحظات يقع على المصمم الدولي.</td>
+        </tr>
+        <tr>
+            <td><strong>3. الأحمال الكهربائية والمرافق</strong></td>
+            <td>فريق التصميم التفصيلي (يعيّنه المالك)</td>
+            <td>مراجعة جداول وحسابات الأحمال الكهربائية والمائية، وتقديمها لـ IRDY@RCJY.GOV.SA ومتابعة استخراج موافقة شركة <strong>مرافق</strong> (أ-5).</td>
+            <td>إعداد جداول الأحمال الأصلية أو تصميم الشبكات خارج حدود القطعة.</td>
+        </tr>
+        <tr>
+            <td><strong>4. التصميم التفصيلي لجميع التخصصات (D-1 to D-7)</strong></td>
+            <td>فرق التصميم المعينة من المالك (داخل المملكة أو خارجها)</td>
+            <td><strong>مراجعة المطابقة فقط</strong> (SBC, RCJY, Civil Defense, MoT, SASO) والتحقق من معايير التصميم والأحمال والعناصر الحرجة، ثم <strong>الختم والتقديم</strong> بعد إغلاق الملاحظات (أ-6).</td>
+            <td><strong>لا يعيد HMF إعداد تصاميم الغير، ولا يقوم بإعادة حسابات كاملة، وتعديل الرسومات مسؤولية المصمم الذي أعدّها.</strong></td>
+        </tr>
+        <tr>
+            <td><strong>5. الأعمال التخصصية (Kitchens, Pools, Spa, Façade, BOH, ICT/BMS)</strong></td>
+            <td>متخصصون يعيّنهم المالك</td>
+            <td>مراجعة وختم الأجزاء التي تشكل <strong>جزءاً من تقديم نظامي فقط</strong>، والتأكد من تنسيق نقاط الربط مع الكهرباء (D-3) والميكانيكا (D-4) والسلامة (D-5).</td>
+            <td>مراجعة التفاصيل التشغيلية غير النظامية أو إعداد التصاميم التخصصية.</td>
+        </tr>
+        <tr>
+            <td><strong>6. التصميم الداخلي والتأثيث ومعايير المشغّل</strong></td>
+            <td>المالك / المشغّل الدولي</td>
+            <td><strong>خارج النطاق بالكامل</strong> (غير نظامي وفق BD-10 و CR-01 س7).</td>
+            <td>مستبعد بالكامل.</td>
+        </tr>
+        <tr>
+            <td><strong>7. المسوحات الميدانية والدراسة البيئية (ب-1 إلى ب-7 & ج)</strong></td>
+            <td><strong>شركة حسن محمد فقيه (HMF) ومقاولوها المعتمدون (شركة سادن والبيئي)</strong></td>
+            <td><strong>إعداد وتنفيذ وتقديم واعتماد كامل الدراسات الميدانية والبيئية والتصاريح الساحلية.</strong></td>
+            <td>تحديثات خطة CEMP للمقاول والرقابة البيئية أثناء التنفيذ.</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 class="sec-title">4. الفهم الفني للموقع ومنهجية العمل للنطاق الأساسي (أ) ومواءمة المسطحات</h2>
+    <h3 class="sub-title">4.1 القراءة الهندسية الفاحصة للرفع الطبوغرافي القائم (WSP Survey – 15 Sheets)</h3>
+    <ul>
+        <li><strong>نظام الإحداثيات ونقاط التحكم:</strong> الرفع القائم مربوط على نظام (WGS 1984 – UTM Zone 37N) والمرجع الرأسي (EGM 2008 Geoid). توجد 4 نقاط تحكم (TP100 إلى TP103) بمناسيب بين <strong>+1.959م و+2.318م</strong>. سيتم إنشاء <strong>3 نقاط تحكم جيوديسية خرسانية دائمة (GMN Benchmarks)</strong> وربطها بنقاط تحكم الهيئة الملكية فور استلام الأرض.</li>
+        <li><strong>المناسيب والعبارات القائمة (Culverts & Backwater Effect):</strong> أظهر فحصنا للوحتين (1 و15) من رفع WSP وجود عبارات تصريف سيول بمناسيب قاع (Invert Levels) منخفضة جداً تصل إلى <strong>-0.207م و-0.043م و+0.103م</strong>، مما يعني خضوعها لتأثير المد البحري العالي. ستقوم دراستنا الهيدرولوجية (ب-3) بنمذجة هيدروليكية مزدوجة تربط ذروة السيول مع أعلى مد فلكي (HAT) لتحديد منسوب الصفر المعماري الآمن (FFL).</li>
+        <li><strong>العوائق والمنشآت المؤقتة داخل القطعة:</strong> رصد فحصنا للوحتين (3 و7) وجود أسوار مؤقتة (Temporary Walls)، مظلات (Sheds)، كرفانات (Cabins)، وتجمعات مواد سائبة (Boundary of Loose Material)، وجدار بحري شرقي (اللوحتان 5 و6). سيتم حصرها وتحديد كميات إزالتها بدقة ضمن الدراسة (ب-6).</li>
+    </ul>
+
+    <h3 class="sub-title">4.2 منهجية التعامل مع غياب بيانات المد والجزر والتربة، ومسار اعتماد تجاوز المسطحات (GFA Exceedance)</h3>
+    <ul>
+        <li><strong>خطة المسار المتوازي للتربة والمد والجزر:</strong> في الأسبوع (1–2) نصدر مذكرة معايير جيوتقنية وبحرية تمهيدية تحفظية للمصمم الدولي بالتوازي مع تركيب محطة رصد المد والجزر (لمدة 30 يوماً) وبدء حفر الـ <strong>25 جسة برية (340 م.ط)</strong> بواسطة شركة سادن المتخصصة، وإصدار نتائج أولية في الأسبوع (5) والتقارير النهائية المعتمدة في الأسبوع (9) دون تأخير المصمم ليوم واحد.</li>
+        <li><strong>مسار اعتماد تجاوز المسطحات ونسبة التغطية (CR-02 بند ب-3):</strong> الضوابط الأولية في BD-08 تحدد نسبة تغطية 12% (8,581 م²) ومسطحات قصوى 25,743 م² (FAR 38%)، بينما البرنامج التشغيلي في BD-09 يبلغ 28,766 م² (أساس التسعير حتى 29,000 م² لـ 275 مفتاحاً). سيقدم مكتبنا في البداية <strong>مسودة تطوير شامل (Draft Comprehensive Development Master Plan)</strong> للهيئة الملكية مدعومة بالمبرر السوقي من المالك وبمذكرة التبرير الفني والعمراني المعدّة من مكتبنا (تثبت عدم تجاوز الارتفاع 14م/3 أدوار، وبقاء +84% من الأرض مفتوحة، وكفاية الـ 138 موقفاً).</li>
+    </ul>
+
+    <h2 class="sec-title">5. المنهجية والمحددات القياسية للمسوحات الميدانية (ب) والدراسات البيئية (ج) والمقاولون من الباطن</h2>
+    <table>
+        <tr>
+            <th style="width:8%;">البند</th>
+            <th style="width:22%;">الدراسة (Study)</th>
+            <th style="width:45%;">النطاق الأساسي المشمول في السعر المقطوع (Defined Baseline Scope)</th>
+            <th style="width:25%;">جهة التنفيذ المعتمدة (Subconsultant)</th>
+        </tr>
+        <tr>
+            <td><strong>ب-1</strong></td>
+            <td><strong>التحقق من الرفع الطبوغرافي والشبكة الجيوديسية</strong></td>
+            <td>إنشاء <strong>3 نقاط تحكم جيوديسية خرسانية دائمة</strong> مربوطة بالشبكة الوطنية (GMN) ونقاط تحكم الهيئة، والتحقق الميداني الشامل وتحديث رفع WSP لكامل المساحة (~70,000 م²) خلال 5 أيام عمل، وتسليم المخططات والنموذج ثلاثي الأبعاد (Civil 3D + DWG + PDF).</td>
+            <td><strong>شركة سادن المتخصصة للاستشارات الجيولوجية</strong> (س.ت: 5855039814 | عرض AGH-S3312-26-10) بإشراف HMF</td>
+        </tr>
+        <tr>
+            <td><strong>ب-2</strong></td>
+            <td><strong>التحريات الجيوتقنية (تقرير التربة)</strong></td>
+            <td>تنفيذ <strong>25 جسة برية بإجمالي 340 متراً طولياً</strong> وفق SBC 303 وASTM موزعة كالتالي:<br>
+            • المبنى الفندقي والمحلات: <strong>11 جسة × 15م = 165 م.ط</strong><br>
+            • الفلل الخارجية (30 فيلا): <strong>7 جسات × 15م = 105 م.ط</strong><br>
+            • منطقة ترفيه الأطفال: <strong>1 جسة × 10م = 10 م.ط</strong><br>
+            • منطقة الرياضات المائية: <strong>1 جسة × 10م = 10 م.ط</strong><br>
+            • المطعم الخارجي: <strong>3 جسات × 10م = 30 م.ط</strong><br>
+            • نادي الشاطئ والمطاعم: <strong>2 جسة × 10م = 20 م.ط</strong><br>
+            + تركيب <strong>عدد (2) بيزوميتر</strong> لرصد المياه الجوفية، والاختبارات الكيميائية والميكانيكية والتقرير الجيوتقني.</td>
+            <td><strong>شركة سادن المتخصصة للاستشارات الجيولوجية</strong> (س.ت: 5855039814 | عرض AGG-JZ3319-2026-10) بإشراف HMF</td>
+        </tr>
+        <tr>
+            <td><strong>ب-3</strong></td>
+            <td><strong>الدراسة الهيدرولوجية وتصريف السيول</strong></td>
+            <td>إعداد الدراسة الهيدرولوجية الأولية والتفصيلية لكامل المساحة (~70,000 م²) لفترات تكرار (10، 50، 100 سنة)، وتحليل العبارات القائمة وتأثير المد البحري، وتحديد مسارات الجريان ومناسيب الحماية ومنظومة التصريف.</td>
+            <td><strong>شركة سادن المتخصصة للاستشارات الجيولوجية</strong> (عرض AGH-S3312-26-10) وقسم البنية التحتية في HMF</td>
+        </tr>
+        <tr>
+            <td><strong>ب-4</strong></td>
+            <td><strong>الرفع البحري (Bathymetric Survey)</strong></td>
+            <td>مسح باثيمتري للمنطقة الشاطئية المقابلة للموقع بامتداد <strong>200 متر داخل البحر</strong> على طول الواجهة (~460م) بدقة <strong>IHO Order 1a</strong> ومرجع <strong>LAT</strong> بصيغة Civil 3D وDWG.</td>
+            <td><span class="editable-hint">[يُدرج اسم مقاول المسح البحري المعتمد]</span> تحت إشراف HMF</td>
+        </tr>
+        <tr>
+            <td><strong>ب-5</strong></td>
+            <td><strong>بيانات المد والجزر والمناسيب البحرية</strong></td>
+            <td>رصد ميداني للمد والجزر لمدة <strong>30 يوماً متواصلة كحد أدنى</strong>، وتحديد HAT وLAT وخط الشاطئ الفعلي ومنسوب المياه التصميمي (DWL).</td>
+            <td><span class="editable-hint">[يُدرج اسم مقاول المسح البحري المعتمد]</span> تحت إشراف HMF</td>
+        </tr>
+        <tr>
+            <td><strong>ب-6</strong></td>
+            <td><strong>رفع الخدمات القائمة والمخلفات</strong></td>
+            <td>مراجعة السجلات، مسح راداري أرضي شامل (<strong>GPR Scan</strong>) لكامل القطعة، تنفيذ <strong>5 حفر استكشافية (Trial Pits)</strong>، وحصر أعمال إزالة المباني المؤقتة والمخلفات.</td>
+            <td>فريق المساحة والرادار الأرضي في HMF بالتعاون مع شركة سادن</td>
+        </tr>
+        <tr>
+            <td><strong>ب-7</strong></td>
+            <td><strong>دراسة المرور (Traffic Impact Study)</strong></td>
+            <td>دراسة أساسية للمداخل والمخارج والـ 138 موقفاً والـ 6 نقاط إنزال (تُنفذ وتُدفع بأمر خطي من المالك إذا اشترطتها الهيئة الملكية وفق CR-01 ج4).</td>
+            <td>قسم هندسة المرور والنقل في شركة حسن محمد فقيه (HMF)</td>
+        </tr>
+        <tr>
+            <td><strong>ج (C)</strong></td>
+            <td><strong>الدراسات البيئية والتصاريح الساحلية</strong></td>
+            <td>التصنيف والشروط المرجعية (ToR)، دراسة تقييم الأثر البيئي الكاملة (<strong>EIA</strong> شاملة البيئة البحرية والساحلية)، التصريح البيئي للإنشاء من الهيئة الملكية بينبع، التقديم المتوازي للمركز الوطني لحماية المناطق الساحلية (<strong>NCCAP</strong>)، وخطة الإدارة البيئية لمرحلة التصميم (<strong>CEMP</strong>).</td>
+            <td><span class="editable-hint">[يُدرج اسم المكتب الاستشاري البيئي المسجل لدى إدارة حماية ومراقبة البيئة بالهيئة الملكية بينبع]</span></td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 class="sec-title">6. البرنامج الزمني المقترح (32 أسبوعاً) ومدة مراجعة المخططات (7 أيام / 4 أيام عمل)</h2>
+    <p>يلتزم مكتبنا بمدة مراجعة قياسية تبلغ <strong>سبعة (7) أيام عمل للمراجعة الأولى</strong> و<strong>أربعة (4) أيام عمل لإعادة المراجعة</strong> لكل تقديم (يشمل السعر الأساسي مراجعة أولى + إعادة مراجعة واحدة لكل تقديم، بالإضافة لكافة الردود على ملاحظات الجهات الحكومية). ويحقق برنامجنا المقترح إصدار رخصة البناء في <strong>الأسبوع 32 (بتوفير أسبوعين عن المدة الاسترشادية البالغة 34 أسبوعاً)</strong>:</p>
+    <table>
+        <tr>
+            <th>المرحلة (Stage)</th>
+            <th>البند</th>
+            <th>المخرج الرئيسي (Deliverable)</th>
+            <th>مدة مراجعة مكتب HMF</th>
+            <th>مدة مراجعة الجهات الحكومية (منفصلة)</th>
+            <th>المستهدف بالكراسة</th>
+            <th>الأسبوع المقترح من HMF</th>
+        </tr>
+        <tr>
+            <td><strong>1. التعبئة</strong></td>
+            <td>أ-1، أ-3</td>
+            <td>خطة العمل، استلام الأرض، والجدول الزمني المفصل (P6)</td>
+            <td>إعداد مباشر (أسبوعان)</td>
+            <td>3 – 5 أيام عمل (نقاط التحكم)</td>
+            <td>الأسبوع 2</td>
+            <td><strong>الأسبوع 2</strong></td>
+        </tr>
+        <tr>
+            <td><strong>2. الاشتراطات</strong></td>
+            <td>أ-1</td>
+            <td>تقرير الاشتراطات ونقاط الربط وخط الشاطئ وتقرير الفجوات</td>
+            <td>إعداد مباشر (أسبوعان)</td>
+            <td>5 أيام عمل (بيانات الهيئة ومرافق)</td>
+            <td>الأسبوع 4</td>
+            <td><strong>الأسبوع 4</strong></td>
+        </tr>
+        <tr>
+            <td><strong>3. الفكرة التصميمية</strong></td>
+            <td>أ-2</td>
+            <td>مراجعة مطابقة الفكرة ومبررات المسطحات وجلسة STUDIO بينبع</td>
+            <td>5 أيام عمل + 3 أيام إعادة</td>
+            <td>10 أيام عمل (جدولة وجلسة STUDIO)</td>
+            <td>الأسبوع 9</td>
+            <td><strong>الأسبوع 8</strong></td>
+        </tr>
+        <tr>
+            <td><strong>4. الدراسات الميدانية</strong></td>
+            <td>ب-1 إلى ب-7</td>
+            <td>الرفع المحدث، التربة (25 جسة)، الهيدرولوجيا، الرفع البحري، المد والجزر (30 يوماً)، GPR</td>
+            <td>5 أيام عمل (تدقيق التقارير)</td>
+            <td>5 أيام عمل (تثبيت المساحة والحدود)</td>
+            <td>الأسبوع 10</td>
+            <td><strong>الأسبوع 9</strong></td>
+        </tr>
+        <tr>
+            <td><strong>5. الموقع العام</strong></td>
+            <td>أ-4</td>
+            <td>اعتماد مسودة التطوير الشامل والموقع العام عبر منصة يسير (EServiceId=44)</td>
+            <td>7 أيام عمل + 4 أيام إعادة</td>
+            <td>15 يوم عمل (منصة يسير على دورتين)</td>
+            <td>الأسبوع 16</td>
+            <td><strong>الأسبوع 15</strong></td>
+        </tr>
+        <tr>
+            <td><strong>6. الأحمال الكهربائية</strong></td>
+            <td>أ-5</td>
+            <td>مراجعة حسابات الأحمال الكهربائية والمائية وموافقة شركة مرافق (IRDY)</td>
+            <td>5 أيام عمل + 3 أيام إعادة</td>
+            <td>15 يوم عمل (IRDY وشركة مرافق)</td>
+            <td>الأسبوع 18</td>
+            <td><strong>الأسبوع 17</strong></td>
+        </tr>
+        <tr>
+            <td><strong>7. البيئة والساحل</strong></td>
+            <td>ج (C)</td>
+            <td>التصريح البيئي للإنشاء (RCJY) وتصريح المناطق الساحلية (NCCAP) وخطة CEMP</td>
+            <td>5 أيام عمل (تدقيق التكامل)</td>
+            <td>35 – 40 يوم عمل (البيئة وNCCAP بالتوازي)</td>
+            <td>الأسبوع 22</td>
+            <td><strong>الأسبوع 20</strong></td>
+        </tr>
+        <tr>
+            <td><strong>8. التصميم النهائي</strong></td>
+            <td>أ-6</td>
+            <td>مراجعة وختم واعتماد مخططات جميع التخصصات عبر منصة يسير والدفاع المدني</td>
+            <td><strong>7 أيام عمل + 4 أيام إعادة</strong></td>
+            <td>25 يوم عمل (يسير والدفاع المدني والسياحة)</td>
+            <td>الأسبوع 30</td>
+            <td><strong>الأسبوع 28</strong></td>
+        </tr>
+        <tr>
+            <td><strong>9. رخصة البناء</strong></td>
+            <td>أ-7</td>
+            <td>استكمال المتطلبات والرفع النهائي وإصدار رخصة البناء</td>
+            <td>3 أيام عمل (تدقيق نهائي)</td>
+            <td>10 – 15 يوم عمل (إصدار الرخصة)</td>
+            <td>الأسبوع 34</td>
+            <td><strong>الأسبوع 32</strong></td>
+        </tr>
+    </table>
+
+    <h2 class="sec-title">7. الفريق المقترح ونسب التفرغ (Proposed Team & Time Commitment - 10%)</h2>
+    <table>
+        <tr>
+            <th style="width:5%;">#</th>
+            <th style="width:26%;">الدور الوظيفي في المشروع (Role)</th>
+            <th style="width:22%;">الاسم المقترح (Name)</th>
+            <th style="width:12%;">الخبرة</th>
+            <th style="width:12%;">نسبة التفرغ</th>
+            <th>المهام الرئيسية (Key Responsibilities)</th>
+        </tr>
+        <tr>
+            <td><strong>1</strong></td>
+            <td><strong>مدير المشروع (Named Project Manager)</strong></td>
+            <td><strong>م. مصطفى شلتوت (Eng. Mostafa Shaltout)</strong></td>
+            <td>+15 سنة</td>
+            <td><strong>100% (تفرغ كامل)</strong></td>
+            <td>القيادة الشاملة للمشروع، نقطة الاتصال الوحيدة مع المالك والمصمم الدولي والهيئة الملكية بينبع، حضور جلسة STUDIO والاجتماعات الدورية.</td>
+        </tr>
+        <tr>
+            <td><strong>2</strong></td>
+            <td><strong>كبير المراجعين المعماريين ومختص الكود والسياحة</strong></td>
+            <td><span class="editable-hint">م. [يُدرج الاسم]</span></td>
+            <td>+15 سنة</td>
+            <td><strong>75%</strong></td>
+            <td>مراجعة الفكرة والمخطط العام والتصميم المعماري (D-1)، مطابقة كود SBC 201 ومعايير وزارة السياحة (5 نجوم)، والختم المعماري.</td>
+        </tr>
+        <tr>
+            <td><strong>3</strong></td>
+            <td><strong>كبير المهندسين الإنشائيين والجيوتقنيين</strong></td>
+            <td><span class="editable-hint">م. [يُدرج الاسم]</span></td>
+            <td>+15 سنة</td>
+            <td><strong>50%</strong></td>
+            <td>الإشراف على تقرير التربة والـ 25 جسة (ب-2)، ومراجعة المخططات والحسابات الإنشائية والأحمال الحرجة (D-2 & SBC 301/303).</td>
+        </tr>
+        <tr>
+            <td><strong>4</strong></td>
+            <td><strong>كبير مهندسي الكهرباء ومنسق شركة مرافق</strong></td>
+            <td><span class="editable-hint">م. [يُدرج الاسم]</span></td>
+            <td>+15 سنة</td>
+            <td><strong>50%</strong></td>
+            <td>حصر نقاط الربط، مراجعة حسابات الأحمال واستخراج موافقة IRDY ومرافق (أ-5)، ومراجعة وختم مخططات الكهرباء والتيار الخفيف (D-3).</td>
+        </tr>
+        <tr>
+            <td><strong>5</strong></td>
+            <td><strong>كبير مهندسي الميكانيكا والتكييف والسباكة</strong></td>
+            <td><span class="editable-hint">م. [يُدرج الاسم]</span></td>
+            <td>+15 سنة</td>
+            <td><strong>50%</strong></td>
+            <td>مراجعة وختم مخططات التكييف والسباكة (D-4) وتنسيق واجهات الربط مع المطابخ والمغسلة والمسابح والسبا (BD-10).</td>
+        </tr>
+        <tr>
+            <td><strong>6</strong></td>
+            <td><strong>كبير مهندسي السلامة والوقاية من الحريق</strong></td>
+            <td><span class="editable-hint">م. [يُدرج الاسم]</span></td>
+            <td>+12 سنة</td>
+            <td><strong>50%</strong></td>
+            <td>مراجعة وختم مخططات السلامة ومكافحة الحريق (D-5 & SBC 801) واستخراج موافقة الدفاع المدني.</td>
+        </tr>
+        <tr>
+            <td><strong>7</strong></td>
+            <td><strong>كبير مهندسي التخطيط والبنية التحتية والمرور</strong></td>
+            <td><span class="editable-hint">م. [يُدرج الاسم]</span></td>
+            <td>+14 سنة</td>
+            <td><strong>75%</strong></td>
+            <td>الإشراف على الدراسة الهيدرولوجية (ب-3) ودراسة المرور (ب-7) ومراجعة البنية التحتية (D-6) واللاندسكيب (D-7).</td>
+        </tr>
+        <tr>
+            <td><strong>8</strong></td>
+            <td><strong>مهندس التخطيط والجدول الزمني والتقارير (P6)</strong></td>
+            <td><span class="editable-hint">م. [يُدرج الاسم]</span></td>
+            <td>+10 سنوات</td>
+            <td><strong>50%</strong></td>
+            <td>إعداد وتحديث جدول Primavera P6 أسبوعياً (أ-3)، إدارة سجل المخططات، وإعداد التقرير الأسبوعي للمالك (أ-8).</td>
+        </tr>
+        <tr>
+            <td><strong>9</strong></td>
+            <td><strong>منسق التراخيص الحكومية ومنصة يسير بينبع</strong></td>
+            <td><span class="editable-hint">م. [يُدرج الاسم]</span></td>
+            <td>+10 سنوات</td>
+            <td><strong>100%</strong></td>
+            <td>المتابعة الميدانية والرقمية اليومية في ينبع مع الهيئة الملكية ومنصة يسير ومرافق والدفاع المدني والبيئة.</td>
+        </tr>
+    </table>
+
+    <h2 class="sec-title">8. الافتراضات الفنية، عدم وجود استثناءات، والغطاء التأميني</h2>
+    <ul>
+        <li><strong>عدم وجود أي استثناءات من النطاق الأساسي:</strong> نقر بعدم استبعاد أي جزء من النطاق الأساسي (أ + ب + ج) التزاماً بالبند (ب-14) من الرد الموحّد (CR-02).</li>
+        <li><strong>البنود الاختيارية (د، هـ، و، ز، د-9):</strong> تم تدوين "غير مقدّم / Not Offered" أمام البنود الاختيارية وفق البند (س5) من الرد (CR-01) للتركيز الكامل على دور المعماري المسؤول (AoR) والدراسات الميدانية والبيئية.</li>
+        <li><strong>متطلبات تمكين العمل الميداني للدراسات (ب-1، ب-2):</strong> يلتزم المكتب بإجراء المسح الراداري الأرضي (GPR - بند ب-6) قبل بدء حفر الجسات الـ 25 للتأكد من خلو مواقع الجسات من أي عوائق تحت سطحية، ويتم إصدار تصاريح الدخول الميدانية بالتنسيق مع المالك والهيئة الملكية.</li>
+        <li><strong>الرسوم الحكومية وتراخيص التشغيل:</strong> الأسعار المقطوعة لا تشمل الرسوم الحكومية الرسمية أو رسوم إيصال المرافق (يتحملها المالك)، كما لا يشمل النطاق تراخيص التشغيل والتصنيف السياحي اللاحقة للإنشاء.</li>
+        <li><strong>غطاء التأمين المهني وسقف المسؤولية:</strong> يلتزم المكتب بتوفير وثيقة تأمين المسؤولية المهنية (PI Insurance) تغطي 100% من قيمة العقد، ويكون سقف المسؤولية التعاقدية محدداً بقيمة العقد وفق البند (ب-17) من الرد الموحّد (CR-02).</li>
+    </ul>
+
+    <div style="margin-top:30px; border:2px solid var(--primary); padding:18px; border-radius:8px; background:#f8fafc;">
+        <strong>اعتماد العرض الفني – شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF):</strong><br><br>
+        <div style="display:flex; justify-content:space-between;">
+            <div><strong>الاسم:</strong> أ. أحمد حسن فقيه</div>
+            <div><strong>المسمى الوظيفي:</strong> نائب المدير العام</div>
+            <div><strong>التاريخ:</strong> 29 / 10 / 2026 م</div>
+            <div><strong>التوقيع والختم:</strong> .................................</div>
+        </div>
+    </div>
+
+    <div class="footer-bar">
+        <div>شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF) | س.ت: 5900018330</div>
+        <div>العرض الفني – مشروع منتجع ينبع السياحي (Med Yan-1-25) | ZAN-YAN-RFP-001</div>
+    </div>
+</div>
+
+<script>
+function exportToWord() {
+    var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+        "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+        "xmlns='http://www.w3.org/TR/REC-html40' dir='rtl' lang='ar'><head><meta charset='utf-8'><title>Technical Proposal HMF</title>" +
+        "<style>body{font-family:'Arial',sans-serif;direction:rtl;text-align:right;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #333;padding:6px;text-align:right;} th{background:#0f3d3e;color:#fff;}</style></head><body>";
+    var footer = "</body></html>";
+    var sourceHTML = header + document.getElementById("proposal-content").innerHTML + footer;
+    var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+    var fileDownload = document.createElement("a");
+    document.body.appendChild(fileDownload);
+    fileDownload.href = source;
+    fileDownload.download = 'ZAN-YAN-RFP-001_HMF_Technical_Proposal.doc';
+    fileDownload.click();
+    document.body.removeChild(fileDownload);
+}
+</script>
+
+</body>
+</html>

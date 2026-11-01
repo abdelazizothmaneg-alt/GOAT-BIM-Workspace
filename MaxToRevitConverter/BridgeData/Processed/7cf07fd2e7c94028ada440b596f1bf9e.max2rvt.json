@@ -1,0 +1,22 @@
+{
+  "JobId": "7cf07fd2e7c94028ada440b596f1bf9e",
+  "OutputMode": "RFA",
+  "TargetRevitVersion": "2026",
+  "FamilyTemplatePath": "C:\\ProgramData\\Autodesk\\RVT 2026\\Family Templates\\English\\Metric Window.rft",
+  "ProjectTemplatePath": "C:\\ProgramData\\Autodesk\\RVT 2026\\Templates\\English\\DefaultMetric.rte",
+  "CategoryName": "Windows",
+  "GeometryFormat": "NATIVE",
+  "ImportUnits": "mm",
+  "HideMeshEdges": true,
+  "OpenInRevitAfterSave": true,
+  "FamilyParameters": {
+    "WorkPlaneBased": false,
+    "AlwaysVertical": true,
+    "CutWithVoidsWhenLoaded": false,
+    "CanHostRebar": false,
+    "Shared": false,
+    "RoomCalculationPoint": false
+  },
+  "Materials": [{"LayerName":"Mat_Material #-2147483641","MaterialName":"Material #-2147483641","R":185,"G":185,"B":185,"Transparency":0,"Shininess":50},{"LayerName":"Mat_Material #-2147483640","MaterialName":"Material #-2147483640","R":185,"G":185,"B":185,"Transparency":0,"Shininess":50}],
+  "Items": [{"ObjectName":"Window_Tuhama_01","GeometryFilePath":"C:\\Users\\faqih\\.gemini\\antigravity\\scratch\\MaxToRevitConverter\\BridgeData\\Staging\\7cf07fd2e7c94028ada440b596f1bf9e_Window_Tuhama_01.m2r","TargetOutputPath":"C:\\Users\\faqih\\Desktop\\New folder (4)\\Window_Tuhama_01.rfa","WidthMm":1100.0,"DepthMm":60.0586,"HeightMm":2500.0}]
+}

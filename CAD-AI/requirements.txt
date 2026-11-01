@@ -1,0 +1,4 @@
+pyautocad
+google-auth
+mistralai
+python-dotenv

@@ -1,0 +1,189 @@
+<Window x:Class="ORTools.UI.GoatRenumberWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GOAT BIM | GOAT RENUMBER — Smart Spatial, Path &amp; Room-Based Renumbering Engine"
+        Width="1040" Height="700"
+        MinWidth="920" MinHeight="620"
+        WindowStartupLocation="CenterScreen"
+        Background="#F8FAFC"
+        FontFamily="Segoe UI"
+        FontSize="12">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- TOP DARK NAVY BANNER -->
+        <Border Grid.Row="0" Background="#0F172A" CornerRadius="8" Padding="16,14" Margin="0,0,0,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Width="48" Height="48" Background="Black" BorderBrush="White" BorderThickness="1.5" CornerRadius="6" Margin="0,0,14,0">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="GOAT" Foreground="White" FontSize="9" FontWeight="ExtraBold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="1·2·3" Foreground="#10B981" FontSize="10" FontWeight="ExtraBold" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="GOAT RENUMBER — Smart Spatial, Interactive Pick &amp; Door-by-Room Renumbering" Foreground="White" FontSize="17" FontWeight="Bold"/>
+                    <TextBlock Text="Rooms · Doors by Room (101A, 101B) · Windows · Grids · Sheets · Viewports · Zero Duplicate Mark Warnings (Auto-Swap)" Foreground="#CBD5E1" FontSize="12" Margin="0,4,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <TextBlock Text="Revit 2026 / 2027 (.NET 10)" Foreground="#94A3B8" FontSize="11" HorizontalAlignment="Right"/>
+                    <TextBlock Text="● Conflict-Free Swap" Foreground="#10B981" FontSize="11" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,2,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- MAIN WORKSPACE -->
+        <Grid Grid.Row="1" Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="380"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- LEFT: SETTINGS -->
+            <Border Grid.Column="0" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="6" Padding="16">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock Text="1. Target Category &amp; Scope" Foreground="#0F172A" FontSize="13.5" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="115"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Category:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                            <ComboBox x:Name="CbCategory" Grid.Column="1" Height="28" VerticalContentAlignment="Center" SelectionChanged="Config_Changed">
+                                <ComboBoxItem Content="Rooms (Number)" IsSelected="True"/>
+                                <ComboBoxItem Content="Doors (Mark)"/>
+                                <ComboBoxItem Content="Windows (Mark)"/>
+                                <ComboBoxItem Content="Grids (Name)"/>
+                                <ComboBoxItem Content="Sheets (Sheet Number)"/>
+                                <ComboBoxItem Content="Viewports on Active Sheet (Detail Number)"/>
+                                <ComboBoxItem Content="Furniture &amp; Casework (Mark)"/>
+                                <ComboBoxItem Content="Parking (Mark)"/>
+                            </ComboBox>
+                        </Grid>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
+                            <RadioButton x:Name="RbScopeActiveView" Content="Active View" IsChecked="True" FontWeight="SemiBold" Margin="0,0,18,0" Checked="Scope_Changed"/>
+                            <RadioButton x:Name="RbScopeEntireModel" Content="Entire Project" FontWeight="SemiBold" Checked="Scope_Changed"/>
+                        </StackPanel>
+
+                        <TextBlock Text="2. Renumbering Algorithm" Foreground="#0F172A" FontSize="13.5" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <Border Background="#F8FAFC" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,0,16">
+                            <StackPanel>
+                                <RadioButton x:Name="RbModeSpatialXY" Content="Spatial Scan: Left-to-Right, Bottom-to-Top (X then Y)" IsChecked="True" FontWeight="SemiBold" Margin="0,0,0,8" Checked="Rule_Changed"/>
+                                <RadioButton x:Name="RbModeSpatialYX" Content="Spatial Scan: Top-to-Bottom, Left-to-Right (Y then X)" FontWeight="SemiBold" Margin="0,0,0,8" Checked="Rule_Changed"/>
+                                <RadioButton x:Name="RbModeByHostRoom" Content="By Host Room Number (e.g. Door 101A, 101B)" FontWeight="Bold" Foreground="#0284C7" Margin="0,0,0,8" Checked="Rule_Changed"/>
+                                <RadioButton x:Name="RbModeInteractivePick" Content="Interactive Click One-by-One in View" FontWeight="SemiBold" Checked="Rule_Changed"/>
+                            </StackPanel>
+                        </Border>
+
+                        <TextBlock Text="3. Numbering Format" Foreground="#0F172A" FontSize="13.5" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="125"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Prefix:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                            <TextBox x:Name="TxtPrefix" Grid.Column="1" Text="" Height="28" VerticalContentAlignment="Center" Padding="6,0" BorderBrush="#CBD5E1" TextChanged="Format_Changed"/>
+                        </Grid>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="125"/><ColumnDefinition Width="90"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Start Number:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                            <TextBox x:Name="TxtStartNum" Grid.Column="1" Text="101" Height="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#CBD5E1" TextChanged="Format_Changed"/>
+                            <TextBlock Grid.Column="2" Text="(or A, B, C)" Foreground="#64748B" FontSize="11" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                        </Grid>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="125"/><ColumnDefinition Width="90"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="70"/></Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Increment Step:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                            <TextBox x:Name="TxtStep" Grid.Column="1" Text="1" Height="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#CBD5E1" TextChanged="Format_Changed"/>
+                            <TextBlock Grid.Column="2" Text="Digits:" FontWeight="SemiBold" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                            <TextBox x:Name="TxtPadding" Grid.Column="3" Text="3" Height="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#CBD5E1" TextChanged="Format_Changed"/>
+                        </Grid>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="125"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Suffix:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                            <TextBox x:Name="TxtSuffix" Grid.Column="1" Text="" Height="28" VerticalContentAlignment="Center" Padding="6,0" BorderBrush="#CBD5E1" TextChanged="Format_Changed"/>
+                        </Grid>
+
+                        <Grid Margin="0,4,0,0">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="125"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Room Multi-Door:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                            <ComboBox x:Name="CbRoomSuffixStyle" Grid.Column="1" Height="28" VerticalContentAlignment="Center" SelectionChanged="Config_Changed">
+                                <ComboBoxItem Content="Alphabetical (101A, 101B, 101C)" IsSelected="True"/>
+                                <ComboBoxItem Content="Hyphen Numeric (101-1, 101-2, 101-3)"/>
+                            </ComboBox>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <!-- RIGHT: LIVE PREVIEW TABLE -->
+            <Border Grid.Column="2" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="6">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Background="#F1F5F9" BorderBrush="#CBD5E1" BorderThickness="0,0,0,1" Padding="14,10">
+                        <Grid>
+                            <TextBlock Text="LIVE RENUMBER PREVIEW (Before → After)" Foreground="#0F172A" FontSize="13" FontWeight="Bold" VerticalAlignment="Center"/>
+                            <Button Content="🔄 Rescan Elements" Click="BtnRescan_Click" HorizontalAlignment="Right" Padding="10,3" FontSize="11" Background="White" BorderBrush="#CBD5E1" Cursor="Hand"/>
+                        </Grid>
+                    </Border>
+                    <DataGrid x:Name="DgPreview"
+                              Grid.Row="1"
+                              Margin="10"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              HeadersVisibility="Column"
+                              GridLinesVisibility="Horizontal"
+                              HorizontalGridLinesBrush="#E2E8F0"
+                              RowBackground="White"
+                              AlternatingRowBackground="#F8FAFC"
+                              BorderBrush="#CBD5E1"
+                              BorderThickness="1"
+                              RowHeight="29"
+                              FontSize="11.5">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="✔" Binding="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="34"/>
+                            <DataGridTextColumn Header="ElementId" Binding="{Binding IdValue}" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Room / Element Name (Editable ✎)" Binding="{Binding ElementTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*" IsReadOnly="False"/>
+                            <DataGridTextColumn Header="Host Room" Binding="{Binding HostRoomNumber}" Width="90" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Current Value" Binding="{Binding CurrentNumber}" Width="110" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="New Proposed Value (✎)" Binding="{Binding ProposedNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" IsReadOnly="False">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Foreground" Value="#0284C7"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Margin" Value="6,0"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- FOOTER -->
+        <Border Grid.Row="2" Background="#E2E8F0" CornerRadius="6" Padding="16,10">
+            <Grid>
+                <TextBlock x:Name="TxtStatus" Text="Ready — Zero duplicate mark warnings guaranteed via two-pass Auto-Swap." Foreground="#0F172A" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Close" Click="BtnClose_Click" Height="36" Padding="16,0" Margin="0,0,10,0" Background="White" BorderBrush="#94A3B8" Foreground="#0F172A" FontWeight="Bold" Cursor="Hand"/>
+                    <Button x:Name="BtnApply" Content="🚀 Apply Renumbering" Click="BtnApply_Click" Height="36" Padding="24,0" Background="#0F172A" BorderThickness="0" Foreground="White" FontWeight="Bold" Cursor="Hand"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

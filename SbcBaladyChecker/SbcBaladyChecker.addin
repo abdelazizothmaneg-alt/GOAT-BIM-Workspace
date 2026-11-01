@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>SBC Balady Code Auditor</Name>
+    <Assembly>SbcBaladyChecker\SbcBaladyChecker.dll</Assembly>
+    <FullClassName>SbcBaladyChecker.App</FullClassName>
+    <ClientId>8F7A1B2C-3D4E-5F6A-7B8C-9D0E1F2A3B4C</ClientId>
+    <VendorId>GOAT_BIM</VendorId>
+    <VendorDescription>GOAT BIM Suite - Saudi Building Code &amp; Balady Automation, https://goatbim.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

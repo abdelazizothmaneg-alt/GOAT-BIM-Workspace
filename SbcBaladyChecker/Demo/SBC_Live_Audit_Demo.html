@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تقرير فحص كود البناء السعودي ومنصة بلدي - مشروع فيلا الياسمين (DEMO)</title>
+  <style>
+    :root {
+      --primary: #006C35;
+      --gold: #C5A059;
+      --danger: #D32F2F;
+      --warning: #F57C00;
+      --success: #2E7D32;
+      --dark: #0F172A;
+      --gray: #64748B;
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+    }
+    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--dark); margin: 0; padding: 24px; direction: rtl; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .header { background: linear-gradient(135deg, #004d25, #006C35); color: white; padding: 32px; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); position: relative; }
+    .header h1 { margin: 0 0 8px 0; font-size: 24px; }
+    .header p { margin: 0; opacity: 0.9; font-size: 14px; }
+    .demo-tag { position: absolute; left: 32px; top: 32px; background: var(--gold); color: white; padding: 6px 14px; border-radius: 20px; font-weight: bold; font-size: 12px; }
+    .meta-bar { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 13px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid #E2E8F0; }
+    .stat-card.danger { border-top: 4px solid var(--danger); }
+    .stat-card.warning { border-top: 4px solid var(--warning); }
+    .stat-card.success { border-top: 4px solid var(--success); }
+    .stat-card.primary { border-top: 4px solid var(--primary); }
+    .stat-title { font-size: 13px; color: var(--gray); margin-bottom: 8px; }
+    .stat-value { font-size: 32px; font-weight: 700; }
+    .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .badge.violation { background: #FFEBEE; color: var(--danger); }
+    .badge.warning { background: #FFF3E0; color: var(--warning); }
+    .badge.compliant { background: #E8F5E9; color: var(--success); }
+    .table-card { background: var(--card); border-radius: 16px; border: 1px solid #E2E8F0; overflow: hidden; margin-bottom: 24px; }
+    .table-header { padding: 18px 24px; border-bottom: 1px solid #E2E8F0; background: #FAFBFD; font-weight: 700; font-size: 15px; display: flex; justify-content: space-between; align-items: center; }
+    table { width: 100%; border-collapse: collapse; text-align: right; }
+    th { background: #F1F5F9; padding: 14px 16px; font-size: 13px; color: var(--dark); border-bottom: 1px solid #E2E8F0; }
+    td { padding: 14px 16px; font-size: 13px; border-bottom: 1px solid #F1F5F9; vertical-align: top; }
+    tr:hover { background: #F8FAFC; }
+    .recommendation { margin-top: 6px; padding: 8px 12px; background: #F8FAFC; border-right: 3px solid var(--gold); border-radius: 4px; font-size: 12px; color: #334155; }
+    .footer { text-align: center; color: var(--gray); font-size: 13px; padding: 24px 0; border-top: 1px solid #E2E8F0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="demo-tag">DEMO معاينة مباشرة</span>
+      <h1>تقرير التدقيق المسبق لكود البناء السعودي ومنصة بلدي (SBC Audit)</h1>
+      <p>فحص آلي شامل للمخططات والنموذج قبل الرفع الرسمي لمنصة بلدي لتفادي الرفض الفني والغرامات</p>
+      <div class="meta-bar">
+        <div><strong>المشروع:</strong> مشروع فيلا الياسمين السكنية - الرياض</div>
+        <div><strong>التصنيف:</strong> 🏡 سكني - فيلا خاصة</div>
+        <div><strong>تاريخ الفحص:</strong> 2026-11-01 18:00</div>
+        <div><strong>الكود المطبق:</strong> SBC 201 / SBC 801 / بلدي</div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card primary">
+        <div class="stat-title">نسبة الامتثال للكود</div>
+        <div class="stat-value" style="color: var(--primary);">71.4%</div>
+      </div>
+      <div class="stat-card danger">
+        <div class="stat-title">مخالفات صريحة (تسبب الرفض)</div>
+        <div class="stat-value" style="color: var(--danger);">2</div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-title">ملاحظات وتنبيهات</div>
+        <div class="stat-value" style="color: var(--warning);">1</div>
+      </div>
+      <div class="stat-card success">
+        <div class="stat-title">بنود مطابقة للكود</div>
+        <div class="stat-value" style="color: var(--success);">4</div>
+      </div>
+    </div>
+
+    <div class="table-card">
+      <div class="table-header">
+        <span>سجل الملاحظات والمخالفات الفنية المفصلة</span>
+        <span class="badge violation">إجمالي البنود: 7</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>الحالة</th>
+            <th>مرجع الكود</th>
+            <th>العنصر</th>
+            <th>الوصف والمخالفة</th>
+            <th>القيمة المسجلة</th>
+            <th>الحد النظامي</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge violation">مخالفة صريحة (مرفوض)</span></td>
+            <td><strong>MOMRAH-GCR-01</strong><br><small style="color: var(--gray);">اشتراطات بلدي والارتدادات</small></td>
+            <td>صك الأرض والحدود العقارية<br><small style="color: var(--gray);">ID: 412891</small></td>
+            <td>
+              <strong>تجاوز نسبة البناء المسموحة للأرضي (64.2%)</strong>
+              <div style="color: var(--gray); font-size: 13px; margin-top: 4px;">مساحة مسطح الأرضي هي 321 م² من إجمالي صك الأرض 500 م²، وهو ما يتجاوز الحد النظامي المسموح 60%.</div>
+              <div class="recommendation"><strong>💡 التوصية لتجاوز الفحص:</strong> تقليص مسطح بناء الدور الأرضي بمقدار 21 م² أو زيادة الارتدادات لتفادي رفض رخصة منصة بلدي.</div>
+            </td>
+            <td style="font-weight: 700; color: var(--danger);">64.2%</td>
+            <td style="color: var(--primary); font-weight: 600;">≤ 60.0%</td>
+            <td>412891</td>
+          </tr>
+          <tr>
+            <td><span class="badge violation">مخالفة صريحة (مرفوض)</span></td>
+            <td><strong>SBC 201 - 1011.5.2</strong><br><small style="color: var(--gray);">كود البناء المعماري</small></td>
+            <td>درج المدخل الرئيسي (Main Stair)<br><small style="color: var(--gray);">ID: 389201</small></td>
+            <td>
+              <strong>ارتفاع قائمة درج المدخل يتجاوز الحد الأقصى للكود</strong>
+              <div style="color: var(--gray); font-size: 13px; margin-top: 4px;">ارتفاع القائمة المسجل هو 195 مم، وهو أكبر من الحد الأقصى الإلزامي (180 مم).</div>
+              <div class="recommendation"><strong>💡 التوصية لتجاوز الفحص:</strong> زيادة عدد درجات السلم (Desired Risers) لخفض الارتفاع إلى 175 مم لتفادي الرفض الفني.</div>
+            </td>
+            <td style="font-weight: 700; color: var(--danger);">195 مم</td>
+            <td style="color: var(--primary); font-weight: 600;">100 مم - 180 مم</td>
+            <td>389201</td>
+          </tr>
+          <tr>
+            <td><span class="badge warning">ملاحظة / تنبيه</span></td>
+            <td><strong>SBC 201 - 1010.1.1</strong><br><small style="color: var(--gray);">كود البناء المعماري</small></td>
+            <td>باب غرفة النوم الرئيسية<br><small style="color: var(--gray);">ID: 310245</small></td>
+            <td>
+              <strong>عرض باب غرفة النوم أقل من اشتراط الغرف السكنية (800 مم)</strong>
+              <div style="color: var(--gray); font-size: 13px; margin-top: 4px;">عرض الباب المسجل 780 مم. الكود ينص على ألا يقل العرض الصافي للأبواب السكنية عن 800 مم.</div>
+              <div class="recommendation"><strong>💡 التوصية لتجاوز الفحص:</strong> ترقية فتحة الباب إلى مقاس 800 مم على الأقل لسهولة الحركة ونقل الأثاث.</div>
+            </td>
+            <td style="font-weight: 700; color: var(--warning);">780 مم</td>
+            <td style="color: var(--primary); font-weight: 600;">≥ 800 مم</td>
+            <td>310245</td>
+          </tr>
+          <tr>
+            <td><span class="badge compliant">مطابق للكود</span></td>
+            <td><strong>MOMRAH-PARKING-01</strong><br><small style="color: var(--gray);">معايير مواقف السيارات</small></td>
+            <td>كراج الفيلا الداخلي<br><small style="color: var(--gray);">ID: 501230</small></td>
+            <td>
+              <strong>موقف سيارة واحد داخل الملكية محقق ومطابق</strong>
+              <div style="color: var(--gray); font-size: 13px; margin-top: 4px;">تم نمذجة موقف سيارة داخل حد الملكية مطابق لاشتراطات كود الفلل السكنية.</div>
+            </td>
+            <td style="font-weight: 700; color: var(--success);">1 موقف</td>
+            <td style="color: var(--primary); font-weight: 600;">≥ 1 موقف</td>
+            <td>501230</td>
+          </tr>
+          <tr>
+            <td><span class="badge compliant">مطابق للكود</span></td>
+            <td><strong>SBC 201 - 1208.2</strong><br><small style="color: var(--gray);">كود البناء المعماري</small></td>
+            <td>مجلس الضيوف (رقم 102)<br><small style="color: var(--gray);">ID: 290184</small></td>
+            <td>
+              <strong>الارتفاع الصافي لفراغ المجلس مطابق للاشتراطات</strong>
+              <div style="color: var(--gray); font-size: 13px; margin-top: 4px;">الارتفاع الصافي المسجل 3.10 م، وهو أعلى من الحد الأدنى الإلزامي (2.40 م).</div>
+            </td>
+            <td style="font-weight: 700; color: var(--success);">3.10 م</td>
+            <td style="color: var(--primary); font-weight: 600;">≥ 2.40 م</td>
+            <td>290184</td>
+          </tr>
+          <tr>
+            <td><span class="badge compliant">مطابق للكود</span></td>
+            <td><strong>SBC 201 - 1003.3</strong><br><small style="color: var(--gray);">التنسيق الإنشائي</small></td>
+            <td>المسارات الإنشائية والمعمارية<br><small style="color: var(--gray);">ID: 198273</small></td>
+            <td>
+              <strong>الخلوص الرأسي للكمرات الإنشائية سليم ولا يتعارض مع الأبواب</strong>
+              <div style="color: var(--gray); font-size: 13px; margin-top: 4px;">لم يتم رصد أي هبوط للكمرات الساقطة فوق عتب الأبواب.</div>
+            </td>
+            <td style="font-weight: 700; color: var(--success);">خلوص 2.45 م</td>
+            <td style="color: var(--primary); font-weight: 600;">≥ 2.03 م</td>
+            <td>198273</td>
+          </tr>
+          <tr>
+            <td><span class="badge compliant">مطابق للكود</span></td>
+            <td><strong>SBC 201 - 1011.2</strong><br><small style="color: var(--gray);">كود البناء المعماري</small></td>
+            <td>درج المدخل الرئيسي<br><small style="color: var(--gray);">ID: 389201</small></td>
+            <td>
+              <strong>عمق نائمة الدرج مطابقة للكود (300 مم)</strong>
+              <div style="color: var(--gray); font-size: 13px; margin-top: 4px;">عمق النائمة المسجل 300 مم (الحد الأدنى الإلزامي 280 مم).</div>
+            </td>
+            <td style="font-weight: 700; color: var(--success);">300 مم</td>
+            <td style="color: var(--primary); font-weight: 600;">≥ 280 مم</td>
+            <td>389201</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      GOAT BIM Suite © 2026 - نظام الأتمتة والذكاء الاصطناعي لكود البناء السعودي ومنصة بلدي
+    </div>
+  </div>
+</body>
+</html>

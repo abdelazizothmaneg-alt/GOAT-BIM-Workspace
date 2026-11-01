@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AssemblyName>ORTools</AssemblyName>
+    <RootNamespace>ORTools</RootNamespace>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <MSBuildWarningsAsMessages>MSB3277</MSBuildWarningsAsMessages>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Revit2026Path>C:\Program Files\Autodesk\Revit 2026</Revit2026Path>
+    <Revit2027Path>C:\Program Files\Autodesk\Revit 2027</Revit2027Path>
+    <RevitApiPath Condition="Exists('$(Revit2026Path)\RevitAPI.dll')">$(Revit2026Path)</RevitApiPath>
+    <RevitApiPath Condition="'$(RevitApiPath)' == '' And Exists('$(Revit2027Path)\RevitAPI.dll')">$(Revit2027Path)</RevitApiPath>
+    <RevitApiPath Condition="'$(RevitApiPath)' == ''">$(Revit2026Path)</RevitApiPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="RevitAPI">
+      <HintPath>$(RevitApiPath)\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>$(RevitApiPath)\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Gemini_Generated_Image_36tlik36tlik36tl.jpg" />
+    <Resource Include="Resources\LEVELS.jpg" />
+    <Resource Include="Resources\or_level_32.png" />
+    <Resource Include="Resources\or_level_16.png" />
+    <Resource Include="Resources\Gemini_Generated_Image_lb50vrlb50vrlb50.jpg" />
+    <Resource Include="Resources\GRIDS.jpg" />
+    <Resource Include="Resources\or_grid_32.png" />
+    <Resource Include="Resources\or_grid_16.png" />
+    <Resource Include="Resources\SHEETS.jpg" />
+    <Resource Include="Resources\or_sheets_32.png" />
+    <Resource Include="Resources\or_sheets_16.png" />
+    <Resource Include="Resources\PARAMETER.jpg" />
+    <Resource Include="Resources\or_parameter_32.png" />
+    <Resource Include="Resources\or_parameter_16.png" />
+    <Resource Include="Resources\SHEETLINK.jpg" />
+    <Resource Include="Resources\or_sheetlink_32.png" />
+    <Resource Include="Resources\or_sheetlink_16.png" />
+    <Resource Include="Resources\DOOR_VIEW.jpg" />
+    <Resource Include="Resources\d_view_32.png" />
+    <Resource Include="Resources\d_view_16.png" />
+    <Resource Include="Resources\WINDOW_VIEW.jpg" />
+    <Resource Include="Resources\w_view_32.png" />
+    <Resource Include="Resources\w_view_16.png" />
+  </ItemGroup>
+
+</Project>

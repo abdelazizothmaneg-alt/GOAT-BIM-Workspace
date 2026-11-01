@@ -1,0 +1,17 @@
+{
+  "JobId": "7cf07fd2e7c94028ada440b596f1bf9e",
+  "State": "Completed",
+  "Message": "Successfully converted 1 file(s).",
+  "OutputFiles": [
+    "C:\\Users\\faqih\\Desktop\\New folder (4)\\Window_Tuhama_01.rfa"
+  ],
+  "Logs": [
+    "Using Family Template: Metric Window.rft",
+    "Resized Opening Width to 1100 mm.",
+    "Resized Opening Height to 2500 mm.",
+    "Native geometry: 1 Extrusion(s), 0 Free Form solid(s), 1 DirectShape(s), 0 failed.",
+    "Aligned Window to Sill Height (800 mm).",
+    "Saved Family: C:\\Users\\faqih\\Desktop\\New folder (4)\\Window_Tuhama_01.rfa"
+  ],
+  "CompletedAt": "2026-10-28T16:30:54.4270908\u002B03:00"
+}

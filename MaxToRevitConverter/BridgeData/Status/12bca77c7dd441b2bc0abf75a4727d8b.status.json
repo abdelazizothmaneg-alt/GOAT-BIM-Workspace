@@ -1,0 +1,17 @@
+{
+  "JobId": "12bca77c7dd441b2bc0abf75a4727d8b",
+  "State": "Completed",
+  "Message": "Successfully converted 1 file(s).",
+  "OutputFiles": [
+    "C:\\Users\\faqih\\AppData\\Local\\Temp\\MaxToRevit_Exports\\Shape13968.rfa"
+  ],
+  "Logs": [
+    "Using Family Template: Metric Window.rft",
+    "Resized Opening Width to 1100 mm.",
+    "Resized Opening Height to 2500 mm.",
+    "Native geometry: 1 Extrusion(s), 0 Free Form solid(s), 1 DirectShape(s), 0 failed.",
+    "Aligned Window to Sill Height (800 mm).",
+    "Saved Family: C:\\Users\\faqih\\AppData\\Local\\Temp\\MaxToRevit_Exports\\Shape13968.rfa"
+  ],
+  "CompletedAt": "2026-10-28T13:20:04.2979918\u002B03:00"
+}

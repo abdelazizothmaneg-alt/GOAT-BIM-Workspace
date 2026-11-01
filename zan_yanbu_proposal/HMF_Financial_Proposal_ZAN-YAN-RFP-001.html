@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العرض المالي | شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF) - ZAN-YAN-RFP-001</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap');
+        :root {
+            --primary: #0f3d3e;
+            --secondary: #1b6b6d;
+            --accent: #c59b27;
+            --border: #cbd5e1;
+            --text: #1e293b;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Tajawal', 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            color: var(--text);
+            line-height: 1.65;
+            background: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .toolbar {
+            max-width: 210mm;
+            margin: 0 auto 15px auto;
+            background: #0f3d3e;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .toolbar button {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        .document {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 16mm 15mm;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .header-bar .firm-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .cover-box {
+            background: linear-gradient(135deg, #0f3d3e 0%, #1b6b6d 100%);
+            color: #fff;
+            padding: 22px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-right: 8px solid var(--accent);
+        }
+        .cover-box h1 { margin: 0 0 6px 0; font-family: 'Cairo', sans-serif; font-size: 24px; }
+        .cover-box h2 { margin: 0; font-size: 16px; color: #fde68a; }
+        h2.sec-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 17px;
+            color: #fff;
+            background: var(--primary);
+            padding: 7px 14px;
+            border-radius: 6px;
+            border-right: 6px solid var(--accent);
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 18px 0;
+            font-size: 12.5px;
+        }
+        th {
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 10px;
+            text-align: right;
+            font-weight: 700;
+            border: 1px solid var(--primary);
+        }
+        td {
+            padding: 7px 10px;
+            border: 1px solid var(--border);
+            vertical-align: middle;
+        }
+        tr:nth-child(even) td { background: #f8fafc; }
+        .subtotal-row td {
+            background: #e2e8f0 !important;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .total-row td {
+            background: #0f3d3e !important;
+            color: #fff !important;
+            font-weight: 800;
+            font-size: 14px;
+        }
+        .price-input {
+            background: #fef9c3;
+            font-weight: 700;
+            text-align: center;
+            cursor: text;
+        }
+        .center { text-align: center; }
+        .page-break { page-break-before: always; }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .toolbar { display: none; }
+            .document { box-shadow: none; padding: 0; max-width: 100%; }
+            .price-input { background: transparent; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="toolbar">
+    <div>
+        <strong>العرض المالي (Financial Proposal) – شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF)</strong>
+        <span style="font-size:12px; display:block; color:#cbd5e1;">عدّل أي مبلغ في الخلايا الصفراء وسيتم تحديث المجاميع والضريبة وجدول الدفعات تلقائياً</span>
+    </div>
+    <div>
+        <button onclick="recalcAll()">تحديث الحسابات</button>
+        <button onclick="window.print()">طباعة / حفظ كـ PDF</button>
+        <button onclick="exportFinancialToWord()">تحميل كملف Word (.doc)</button>
+    </div>
+</div>
+
+<div class="document" id="financial-content">
+    <div class="header-bar">
+        <div>
+            <div class="firm-title">شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF)</div>
+            <div style="font-size:12px; color:#475569;">Hassan Mohammed Ali Faqih Engineering Consultancy Co. | س.ت: 5900018330</div>
+        </div>
+        <div style="text-align:left; dir:ltr;">
+            <div style="font-weight:800; color:var(--primary); font-size:15px;">Ref: ZAN-YAN-RFP-001</div>
+            <div style="font-size:12px; color:#475569;">Date: 29/10/2026 | Financial Proposal</div>
+        </div>
+    </div>
+
+    <div class="cover-box">
+        <h1>العرض المالي – جدول الأسعار وجدول الدفعات (FINANCIAL PROPOSAL)</h1>
+        <h2>المعماري المسؤول (AoR) والدراسات ومسار الاعتمادات والتراخيص – منتجع ينبع السياحي (Med Yan-1-25)</h2>
+    </div>
+
+    <h2 class="sec-title">أولاً: جدول الأسعار الرئيسي بالريال السعودي (Price Schedule – SAR per Section 8)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width:10%;" class="center">البند<br>Item</th>
+                <th style="width:55%;">الوصف<br>Description</th>
+                <th style="width:18%;" class="center">المبلغ قبل الضريبة (ر.س)<br>Amount excl. VAT</th>
+                <th style="width:17%;" class="center">المدة (أسبوع)<br>Duration (weeks)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="center"><strong>أ-1 / A-1</strong></td>
+                <td><strong>التعبئة وتقرير الاشتراطات (واستلام الأرض ونقاط التحكم وتقرير الفجوات)</strong><br>Mobilisation and requirements report</td>
+                <td class="price-input" contenteditable="true" data-group="A" oninput="recalcAll()">45,000</td>
+                <td class="center" contenteditable="true">4</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>أ-2 / A-2</strong></td>
+                <td><strong>مراجعة الفكرة وجلسة STUDIO (ومبررات مواءمة المسطحات)</strong><br>Concept review and STUDIO session</td>
+                <td class="price-input" contenteditable="true" data-group="A" oninput="recalcAll()">55,000</td>
+                <td class="center" contenteditable="true">4</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>أ-3 / A-3</strong></td>
+                <td><strong>الجدول الزمني (إعداد جدول Primavera P6 وتحديثه أسبوعياً)</strong><br>Programme</td>
+                <td class="price-input" contenteditable="true" data-group="A" oninput="recalcAll()">25,000</td>
+                <td class="center" contenteditable="true">2 (يُحدّث لـ 32 أسبوعاً)</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>أ-4 / A-4</strong></td>
+                <td><strong>الموقع العام والوثائق التخطيطية حتى الاعتماد (عبر منصة يسير)</strong><br>Master plan and planning documents to approval</td>
+                <td class="price-input" contenteditable="true" data-group="A" oninput="recalcAll()">70,000</td>
+                <td class="center" contenteditable="true">7</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>أ-5 / A-5</strong></td>
+                <td><strong>الأحمال الكهربائية وموافقة مرافق (IRDY & Marafiq)</strong><br>Electrical loads and Marafiq approval</td>
+                <td class="price-input" contenteditable="true" data-group="A" oninput="recalcAll()">40,000</td>
+                <td class="center" contenteditable="true">5</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>أ-6 / A-6</strong></td>
+                <td><strong>مراجعة وختم التصميم التفصيلي لجميع التخصصات حتى الاعتماد (مراجعة وختم فقط دون تصميم)</strong><br>Detailed design review and stamping, all disciplines, to approval</td>
+                <td class="price-input" contenteditable="true" data-group="A" id="cell-A6" oninput="recalcAll()">230,000</td>
+                <td class="center" contenteditable="true">12</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>أ-7 / A-7</strong></td>
+                <td><strong>رخصة البناء (استكمال المتطلبات والرفع حتى إصدار الرخصة)</strong><br>Building permit</td>
+                <td class="price-input" contenteditable="true" data-group="A" oninput="recalcAll()">40,000</td>
+                <td class="center" contenteditable="true">4</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>أ-8 / A-8</strong></td>
+                <td><strong>إدارة التصميم والتقارير (سجل المخططات، التقارير الأسبوعية، والاجتماعات)</strong><br>Design management and reporting</td>
+                <td class="price-input" contenteditable="true" data-group="A" oninput="recalcAll()">75,000</td>
+                <td class="center" contenteditable="true">32 (طوال المشروع)</td>
+            </tr>
+            <tr class="subtotal-row">
+                <td class="center">مجموع (أ)</td>
+                <td>إجمالي النطاق (أ): المعماري المسؤول ومسار الاعتمادات (Subtotal Scope A)</td>
+                <td class="center" id="sub-A">580,000</td>
+                <td class="center">32 أسبوعاً (متداخلة)</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-1 / B-1</strong></td>
+                <td><strong>التحقق من الرفع الطبوغرافي وربطه بنقاط تحكم الهيئة وتثبيت 3 نقاط جيوديسية (GMN)</strong><br>Topographic survey verification tied to RCJY control points</td>
+                <td class="price-input" contenteditable="true" data-group="B" oninput="recalcAll()">22,000</td>
+                <td class="center" contenteditable="true">2</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-2 / B-2</strong></td>
+                <td><strong>التحريات الجيوتقنية – تقرير التربة (25 جسة برية = 340 م.ط + 2 بيزوميتر وفق SBC 303)</strong><br>Geotechnical investigation (25 onshore boreholes = 340 L.M & report)</td>
+                <td class="price-input" contenteditable="true" data-group="B" oninput="recalcAll()">58,000</td>
+                <td class="center" contenteditable="true">5</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-3 / B-3</strong></td>
+                <td><strong>الدراسة الهيدرولوجية وتصريف السيول (أولية وتفصيلية لكامل المساحة ~70,000 م²)</strong><br>Hydrology and flood drainage study</td>
+                <td class="price-input" contenteditable="true" data-group="B" oninput="recalcAll()">100,000</td>
+                <td class="center" contenteditable="true">6</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-4 / B-4</strong></td>
+                <td><strong>الرفع البحري (Bathymetric Survey) بمدى 200م بدقة IHO Order 1a ومرجع LAT بصيغة Civil 3D</strong><br>Bathymetric survey (nearshore 200m extent in Civil 3D)</td>
+                <td class="price-input" contenteditable="true" data-group="B" oninput="recalcAll()">55,000</td>
+                <td class="center" contenteditable="true">4</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-5 / B-5</strong></td>
+                <td><strong>بيانات المد والجزر والمناسيب البحرية (رصد 30 يوماً وتحديد HAT/LAT وخط الشاطئ)</strong><br>Tidal data and marine levels (min. 30 days observation)</td>
+                <td class="price-input" contenteditable="true" data-group="B" oninput="recalcAll()">40,000</td>
+                <td class="center" contenteditable="true">6</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-6 / B-6</strong></td>
+                <td><strong>رفع الخدمات القائمة والمخلفات (مسح راداري GPR شامل + 5 حفر استكشافية)</strong><br>Existing utilities and debris survey (GPR scan & 5 trial pits)</td>
+                <td class="price-input" contenteditable="true" data-group="B" oninput="recalcAll()">30,000</td>
+                <td class="center" contenteditable="true">3</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-7 / B-7</strong></td>
+                <td><strong>دراسة المرور للمداخل والمخارج والمواقف (تُنفذ وتُدفع بأمر خطي إذا اشترطتها الهيئة)</strong><br>Traffic impact study (executed & paid upon Owner's written instruction)</td>
+                <td class="price-input" contenteditable="true" data-group="B" oninput="recalcAll()">35,000</td>
+                <td class="center" contenteditable="true">4</td>
+            </tr>
+            <tr class="subtotal-row">
+                <td class="center">مجموع (ب)</td>
+                <td>إجمالي النطاق (ب): المسوحات والدراسات الميدانية (Subtotal Scope B)</td>
+                <td class="center" id="sub-B">340,000</td>
+                <td class="center">9 أسابيع (متداخلة)</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ج / C</strong></td>
+                <td><strong>الدراسات البيئية والتصاريح الساحلية (EIA + تصريح الهيئة الملكية + تصريح NCCAP + خطة CEMP)</strong><br>Environmental studies and coastal permits</td>
+                <td class="price-input" contenteditable="true" data-group="C" oninput="recalcAll()">160,000</td>
+                <td class="center" contenteditable="true">15</td>
+            </tr>
+            <tr class="total-row">
+                <td class="center">—</td>
+                <td>إجمالي النطاق الأساسي (أ + ب + ج) قبل الضريبة | Base scope total (A + B + C) excl. VAT</td>
+                <td class="center" id="base-total">1,080,000</td>
+                <td class="center">32 أسبوعاً</td>
+            </tr>
+            <tr class="subtotal-row">
+                <td class="center">15%</td>
+                <td>ضريبة القيمة المضافة 15% | VAT 15%</td>
+                <td class="center" id="vat-total">162,000</td>
+                <td class="center">—</td>
+            </tr>
+            <tr class="total-row">
+                <td class="center">—</td>
+                <td>إجمالي النطاق الأساسي شامل الضريبة | Base scope total incl. VAT</td>
+                <td class="center" id="grand-total">1,242,000</td>
+                <td class="center">32 أسبوعاً</td>
+            </tr>
+            <tr>
+                <td class="center">د-1 – د-8<br>D-1 – D-8</td>
+                <td>اختياري: التصميم التفصيلي (كل تخصص بسطر مستقل) | Optional: detailed design</td>
+                <td class="center" contenteditable="true">غير مقدّم / Not Offered</td>
+                <td class="center">—</td>
+            </tr>
+            <tr>
+                <td class="center">هـ / E</td>
+                <td>اختياري: الفكرة التصميمية | Optional: design concept</td>
+                <td class="center" contenteditable="true">غير مقدّم / Not Offered</td>
+                <td class="center">—</td>
+            </tr>
+            <tr>
+                <td class="center">و / F</td>
+                <td>اختياري: وثائق الطرح | Optional: tender documents</td>
+                <td class="center" contenteditable="true">غير مقدّم / Not Offered</td>
+                <td class="center">—</td>
+            </tr>
+            <tr>
+                <td class="center">ز / G</td>
+                <td>اختياري: الإشراف على التنفيذ (سعر شهري) | Optional: construction supervision (monthly rate)</td>
+                <td class="center" contenteditable="true">غير مقدّم / Not Offered</td>
+                <td class="center">—</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 class="sec-title">ثانياً: تفصيل البند (أ-6) حسب التخصص وأسعار دورات المراجعة الإضافية (CR-01 Q8 & CR-02 B-7/B-8)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th class="center">رمز التخصص</th>
+                <th>التخصص الهندسي الخاضع للمراجعة والختم (Discipline under A-6)</th>
+                <th class="center">المبلغ ضمن (أ-6) (ر.س)</th>
+                <th class="center">الدورات المشمولة</th>
+                <th class="center">مدة المراجعة</th>
+                <th class="center">سعر الدورة الإضافية بسبب المصمم (ر.س)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="center"><strong>D-1</strong></td>
+                <td>المعماري والأجزاء النظامية من الأعمال التخصصية المعمارية</td>
+                <td class="center" contenteditable="true">55,000</td>
+                <td class="center">مراجعة أولى + إعادة مراجعة 1</td>
+                <td class="center">7 أيام / 4 أيام عمل</td>
+                <td class="center" contenteditable="true">10,000</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>D-2</strong></td>
+                <td>الإنشائي ومذكرة الحسابات</td>
+                <td class="center" contenteditable="true">45,000</td>
+                <td class="center">مراجعة أولى + إعادة مراجعة 1</td>
+                <td class="center">7 أيام / 4 أيام عمل</td>
+                <td class="center" contenteditable="true">8,500</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>D-3</strong></td>
+                <td>الكهرباء والتيار الخفيف والمحطات الفرعية</td>
+                <td class="center" contenteditable="true">35,000</td>
+                <td class="center">مراجعة أولى + إعادة مراجعة 1</td>
+                <td class="center">7 أيام / 4 أيام عمل</td>
+                <td class="center" contenteditable="true">7,000</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>D-4</strong></td>
+                <td>الميكانيكا والتكييف والسباكة</td>
+                <td class="center" contenteditable="true">35,000</td>
+                <td class="center">مراجعة أولى + إعادة مراجعة 1</td>
+                <td class="center">7 أيام / 4 أيام عمل</td>
+                <td class="center" contenteditable="true">7,000</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>D-5</strong></td>
+                <td>السلامة والوقاية من الحريق والدفاع المدني</td>
+                <td class="center" contenteditable="true">25,000</td>
+                <td class="center">مراجعة أولى + إعادة مراجعة 1</td>
+                <td class="center">7 أيام / 4 أيام عمل</td>
+                <td class="center" contenteditable="true">5,500</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>D-6</strong></td>
+                <td>البنية التحتية داخل الموقع والطرق</td>
+                <td class="center" contenteditable="true">20,000</td>
+                <td class="center">مراجعة أولى + إعادة مراجعة 1</td>
+                <td class="center">7 أيام / 4 أيام عمل</td>
+                <td class="center" contenteditable="true">4,500</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>D-7</strong></td>
+                <td>اللاندسكيب والمناطق الشاطئية</td>
+                <td class="center" contenteditable="true">15,000</td>
+                <td class="center">مراجعة أولى + إعادة مراجعة 1</td>
+                <td class="center">7 أيام / 4 أيام عمل</td>
+                <td class="center" contenteditable="true">3,500</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="sec-title">ثالثاً: تفصيل كميات الجسات الـ (25) في البند (ب-2) وأسعار الوحدة للدراسات الإضافية (CR-02 B-10 & B-11)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>البند المرتبط</th>
+                <th>وصف البند الإضافي / سعر الوحدة (Additional / Optional Unit Rate Item)</th>
+                <th class="center">الوحدة</th>
+                <th class="center">سعر الوحدة قبل الضريبة (ر.س)</th>
+                <th>تفاصيل النطاق الأساسي المشمول</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="center"><strong>ب-1 (B-1)</strong></td>
+                <td>عمل <strong>رفع طبوغرافي جديد بالكامل</strong> لكامل مساحة القطعة (~70,000 م²) (بند اختياري منفصل)</td>
+                <td class="center">مقطوع (L.S)</td>
+                <td class="center" contenteditable="true">28,000</td>
+                <td>الأساسي يشمل تحديث رفع WSP + 3 نقاط جيوديسية GMN</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-1 (B-1)</strong></td>
+                <td>إنشاء نقطة تحكم جيوديسية خرسانية إضافية (Additional Geodetic Control Benchmark)</td>
+                <td class="center">للنقطة (No.)</td>
+                <td class="center" contenteditable="true">2,000</td>
+                <td>الأساسي يشمل 3 نقاط تحكم جيوديسية دائمة</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-2 (B-2)</strong></td>
+                <td>حفر واختبار <strong>متر طولي إضافي في التربة العادية (Normal Soil up to 15m)</strong> وفق SBC 303</td>
+                <td class="center">متر طولي (L.M)</td>
+                <td class="center" contenteditable="true">120</td>
+                <td>الأساسي يشمل <strong>25 جسة برية (340 م.ط)</strong>: الفندق (11×15م=165م.ط)، الفلل (7×15م=105م.ط)، منطقة الأطفال (1×10م)، الرياضات المائية (1×10م)، المطعم الخارجي (3×10م=30م.ط)، نادي الشاطئ (2×10م=20م.ط)</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-2 (B-2)</strong></td>
+                <td>حفر واختبار <strong>متر طولي في الصخر (Drilling in Rock up to 15m - Rate Only)</strong></td>
+                <td class="center">متر طولي (L.M)</td>
+                <td class="center" contenteditable="true">250</td>
+                <td>سعر وحدة فقط يُطبق عند مصادفة طبقات صخرية</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-2 (B-2)</strong></td>
+                <td>تركيب <strong>بيزوميتر إضافي</strong> لرصد المياه الجوفية (Additional Piezometer)</td>
+                <td class="center">بالعدد (No.)</td>
+                <td class="center" contenteditable="true">1,000</td>
+                <td>الأساسي يشمل 2 بيزوميتر + التقرير الجيوتقني المعتمد</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-6 (B-6)</strong></td>
+                <td>تنفيذ <strong>حفرة استكشافية إضافية (Additional Trial Pit)</strong> للكشف عن المرافق</td>
+                <td class="center">لكل حفرة</td>
+                <td class="center" contenteditable="true">1,500</td>
+                <td>الأساسي يشمل مسح GPR شامل + 5 حفر استكشافية</td>
+            </tr>
+            <tr>
+                <td class="center"><strong>ب-7 (B-7)</strong></td>
+                <td>إعداد <strong>محاكاة مرورية ديناميكية (Traffic Micro-Simulation)</strong> (بند اختياري منفصل)</td>
+                <td class="center">مقطوع (L.S)</td>
+                <td class="center" contenteditable="true">30,000</td>
+                <td>يُنفذ فقط إذا طلبته الهيئة الملكية بالإضافة للدراسة الأساسية</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="sec-title">رابعاً: جدول الدفعات المقترح المرتبط بالمخرجات والاعتمادات (Milestone Payment Schedule)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th class="center" style="width:7%;">#</th>
+                <th style="width:45%;">المرحلة / المخرج المرتبط بالاستحقاق (Deliverable & Approval Milestone)</th>
+                <th class="center" style="width:12%;">النسبة (%)</th>
+                <th class="center" style="width:18%;">القيمة قبل الضريبة (ر.س)</th>
+                <th class="center" style="width:18%;">القيمة شاملة الضريبة 15% (ر.س)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="center">1</td>
+                <td><strong>الدفعة المقدمة (Advance Payment)</strong> مقابل ضمان بنكي / سند لأمر بنفس القيمة</td>
+                <td class="center">10%</td>
+                <td class="center ms-excl" data-pct="0.10">108,000</td>
+                <td class="center ms-incl" data-pct="0.10">124,200</td>
+            </tr>
+            <tr>
+                <td class="center">2</td>
+                <td>إنجاز التعبئة، الجدول الزمني التكاملي (P6)، وتقرير الاشتراطات والفجوات (الأسبوع 4)</td>
+                <td class="center">10%</td>
+                <td class="center ms-excl" data-pct="0.10">108,000</td>
+                <td class="center ms-incl" data-pct="0.10">124,200</td>
+            </tr>
+            <tr>
+                <td class="center">3</td>
+                <td>مراجعة الفكرة التصميمية وعقد جلسة (STUDIO) في الهيئة الملكية بينبع (الأسبوع 8)</td>
+                <td class="center">10%</td>
+                <td class="center ms-excl" data-pct="0.10">108,000</td>
+                <td class="center ms-incl" data-pct="0.10">124,200</td>
+            </tr>
+            <tr>
+                <td class="center">4</td>
+                <td>تسليم واعتماد مخرجات المسوحات والدراسات الميدانية (ب-1 إلى ب-6، وب-7 إن طُلبت) (الأسبوع 9)</td>
+                <td class="center">20%</td>
+                <td class="center ms-excl" data-pct="0.20">216,000</td>
+                <td class="center ms-incl" data-pct="0.20">248,400</td>
+            </tr>
+            <tr>
+                <td class="center">5</td>
+                <td>اعتماد الموقع العام في منصة يسير (أ-4) وموافقة شركة مرافق على الأحمال (أ-5) (الأسبوع 17)</td>
+                <td class="center">15%</td>
+                <td class="center ms-excl" data-pct="0.15">162,000</td>
+                <td class="center ms-incl" data-pct="0.15">186,300</td>
+            </tr>
+            <tr>
+                <td class="center">6</td>
+                <td>إصدار التصريح البيئي للإنشاء (RCJY) وتصريح المركز الوطني الساحلي (NCCAP) وخطة CEMP (الأسبوع 20)</td>
+                <td class="center">10%</td>
+                <td class="center ms-excl" data-pct="0.10">108,000</td>
+                <td class="center ms-incl" data-pct="0.10">124,200</td>
+            </tr>
+            <tr>
+                <td class="center">7</td>
+                <td>مراجعة وختم واعتماد مخططات التصميم التفصيلي لجميع التخصصات في منصة يسير والدفاع المدني (الأسبوع 28)</td>
+                <td class="center">15%</td>
+                <td class="center ms-excl" data-pct="0.15">162,000</td>
+                <td class="center ms-incl" data-pct="0.15">186,300</td>
+            </tr>
+            <tr>
+                <td class="center">8</td>
+                <td><strong>الدفعة النهائية:</strong> إصدار رخصة البناء النهائية وتسليم الملفات المصدرية (الأسبوع 32)</td>
+                <td class="center">10%</td>
+                <td class="center ms-excl" data-pct="0.10">108,000</td>
+                <td class="center ms-incl" data-pct="0.10">124,200</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size:12px; color:#334155;">• الأسعار مقطوعة وثابتة شاملة جميع مراحل إعادة التقديم والرد على ملاحظات الجهات، وغير شاملة للرسوم الحكومية الرسمية التي يتحملها المالك.<br>
+    • وفق البند (ب-17) من الرد الموحّد (CR-02): إذا تأخر اعتماد الجهة الحكومية لأكثر من 30 يوماً لسبب لا يعود للاستشاري، يجوز فوترة 80% من دفعة المرحلة عند التقديم والباقي (20%) عند الاعتماد، وتُسدد الفواتير خلال 30 يوماً من اعتمادها.</p>
+
+    <div style="margin-top:24px; border:2px solid var(--primary); padding:16px; border-radius:8px; background:#f8fafc;">
+        <strong>اعتماد العرض المالي – شركة حسن محمد علي فقيه للاستشارات الهندسية (HMF):</strong><br><br>
+        <div style="display:flex; justify-content:space-between;">
+            <div><strong>الاسم:</strong> أ. أحمد حسن فقيه</div>
+            <div><strong>المسمى الوظيفي:</strong> نائب المدير العام</div>
+            <div><strong>التاريخ:</strong> 29 / 10 / 2026 م</div>
+            <div><strong>التوقيع والختم:</strong> .................................</div>
+        </div>
+    </div>
+</div>
+
+<script>
+function parseNum(str) {
+    return parseFloat(String(str).replace(/[^0-9.-]+/g, "")) || 0;
+}
+function fmtNum(n) {
+    return Math.round(n).toLocaleString('en-US');
+}
+function recalcAll() {
+    var sumA = 0, sumB = 0, sumC = 0;
+    document.querySelectorAll('[data-group="A"]').forEach(function(el) { sumA += parseNum(el.innerText); });
+    document.querySelectorAll('[data-group="B"]').forEach(function(el) { sumB += parseNum(el.innerText); });
+    document.querySelectorAll('[data-group="C"]').forEach(function(el) { sumC += parseNum(el.innerText); });
+    var baseTotal = sumA + sumB + sumC;
+    var vat = baseTotal * 0.15;
+    var grandTotal = baseTotal + vat;
+
+    document.getElementById('sub-A').innerText = fmtNum(sumA);
+    document.getElementById('sub-B').innerText = fmtNum(sumB);
+    document.getElementById('base-total').innerText = fmtNum(baseTotal);
+    document.getElementById('vat-total').innerText = fmtNum(vat);
+    document.getElementById('grand-total').innerText = fmtNum(grandTotal);
+
+    document.querySelectorAll('.ms-excl').forEach(function(el) {
+        var pct = parseFloat(el.getAttribute('data-pct'));
+        el.innerText = fmtNum(baseTotal * pct);
+    });
+    document.querySelectorAll('.ms-incl').forEach(function(el) {
+        var pct = parseFloat(el.getAttribute('data-pct'));
+        el.innerText = fmtNum(grandTotal * pct);
+    });
+}
+function exportFinancialToWord() {
+    var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+        "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+        "xmlns='http://www.w3.org/TR/REC-html40' dir='rtl' lang='ar'><head><meta charset='utf-8'><title>Financial Proposal HMF</title>" +
+        "<style>body{font-family:'Arial',sans-serif;direction:rtl;text-align:right;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #333;padding:6px;text-align:right;} th{background:#0f3d3e;color:#fff;}</style></head><body>";
+    var footer = "</body></html>";
+    var sourceHTML = header + document.getElementById("financial-content").innerHTML + footer;
+    var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+    var fileDownload = document.createElement("a");
+    document.body.appendChild(fileDownload);
+    fileDownload.href = source;
+    fileDownload.download = 'ZAN-YAN-RFP-001_HMF_Financial_Proposal.doc';
+    fileDownload.click();
+    document.body.removeChild(fileDownload);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,498 @@
+<Window x:Class="ORTools.UI.GoatFinishesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GOAT BIM | GOAT FINISHES — Automated Room Finishes &amp; Data Engine"
+        Width="1220" Height="820"
+        MinWidth="1060" MinHeight="720"
+        WindowStartupLocation="CenterScreen"
+        Background="#F8FAFC"
+        FontFamily="Segoe UI"
+        FontSize="12">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 1. TOP DARK NAVY BANNER -->
+        <Border Grid.Row="0" Background="#0F172A" CornerRadius="8" Padding="16,14" Margin="0,0,0,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Width="48" Height="48" Background="Black" BorderBrush="White" BorderThickness="1.5" CornerRadius="6" Margin="0,0,14,0">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="GOAT" Foreground="White" FontSize="9" FontWeight="ExtraBold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="FINISHES" Foreground="#10B981" FontSize="8" FontWeight="ExtraBold" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="GOAT FINISHES — Automated Room Finishes &amp; Data Engine" Foreground="White" FontSize="17" FontWeight="Bold"/>
+                    <TextBlock Text="Parametric Walls, Skirting, Floors, and Ceilings Generator based on Room Boundaries" Foreground="#CBD5E1" FontSize="12" Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <TextBlock Text="Revit 2026 / 2027 (.NET 10)" Foreground="#94A3B8" FontSize="11" HorizontalAlignment="Right"/>
+                    <TextBlock x:Name="TxtModelReadyBadge" Text="● Model &amp; Data Ready" Foreground="#10B981" FontSize="11" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,2,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- 2. THREE-COLUMN MAIN WORKSPACE -->
+        <Grid Grid.Row="1" Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="335"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="345"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- LEFT COLUMN: 1. SELECT ROOMS -->
+            <Border Grid.Column="0" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="6">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="#F1F5F9" BorderBrush="#CBD5E1" BorderThickness="0,0,0,1" Padding="14,10">
+                        <Grid>
+                            <TextBlock Text="1. Select Rooms" Foreground="#0F172A" FontSize="13" FontWeight="Bold" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="TxtSelectedRoomsBadge" Text="0 Selected" Foreground="#64748B" FontSize="11" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <Grid Grid.Row="1" Margin="10,10,10,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton x:Name="RbScopeActiveView" Grid.Column="0" Content="Active View" IsChecked="True" FontWeight="SemiBold" FontSize="11.5" Margin="0,0,12,0" Checked="ScopeRadio_Changed"/>
+                        <RadioButton x:Name="RbScopeEntireProject" Grid.Column="1" Content="Entire Project" FontWeight="SemiBold" FontSize="11.5" Checked="ScopeRadio_Changed"/>
+                        <Button Grid.Column="3" Content="🔄 Refresh" Click="BtnRefreshRooms_Click" FontSize="11" Padding="8,2" Background="#F1F5F9" BorderBrush="#CBD5E1" Cursor="Hand"/>
+                    </Grid>
+
+                    <Border Grid.Row="2" Margin="10,2,10,8" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="4">
+                        <DataGrid x:Name="DgRooms"
+                                  AutoGenerateColumns="False"
+                                  CanUserAddRows="False"
+                                  CanUserDeleteRows="False"
+                                  HeadersVisibility="Column"
+                                  GridLinesVisibility="Horizontal"
+                                  HorizontalGridLinesBrush="#E2E8F0"
+                                  RowBackground="White"
+                                  AlternatingRowBackground="#F8FAFC"
+                                  BorderThickness="0"
+                                  RowHeight="29"
+                                  FontSize="11.5"
+                                  SelectionMode="Single"
+                                  SelectionChanged="DgRooms_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="32">
+                                    <DataGridTemplateColumn.Header>
+                                        <CheckBox x:Name="ChkHeaderSelectAll" IsChecked="True" Click="ChkHeaderSelectAll_Click"/>
+                                    </DataGridTemplateColumn.Header>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                      HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                      Click="RoomRowCheckBox_Click"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Room Name" Binding="{Binding DisplayName}" Width="*" IsReadOnly="True"/>
+                                <DataGridTemplateColumn Header="Status" Width="88" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding HealthStatus}" Foreground="{Binding HealthColor}" FontWeight="SemiBold" FontSize="10.5" VerticalAlignment="Center" Margin="4,0"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Creates" Width="62" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding CreatesSummary}" Foreground="#0284C7" FontFamily="Consolas" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+
+                    <Grid Grid.Row="3" Margin="10,0,10,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Select All" Click="BtnSelectAllRooms_Click" FontSize="11" Padding="10,4" Margin="0,0,6,0" Background="White" BorderBrush="#CBD5E1" Cursor="Hand"/>
+                        <Button Grid.Column="1" Content="Select None" Click="BtnSelectNoneRooms_Click" FontSize="11" Padding="10,4" Background="White" BorderBrush="#CBD5E1" Cursor="Hand"/>
+                        <Button Grid.Column="3" Content="🔍 Zoom to Room" Click="BtnZoomToRoom_Click" FontSize="11" Padding="10,4" Background="#F1F5F9" BorderBrush="#94A3B8" Foreground="#0F172A" FontWeight="SemiBold" Cursor="Hand"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- MIDDLE COLUMN: 6 SETTINGS TABS -->
+            <Border Grid.Column="2" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="6">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Custom Tab Bar matching Mockup -->
+                    <Border Grid.Row="0" Background="#F1F5F9" BorderBrush="#CBD5E1" BorderThickness="0,0,0,1">
+                        <UniformGrid Rows="1" Columns="6">
+                            <Button x:Name="BtnTabWalls" Content="Walls" Click="TabButton_Click" Tag="0" Height="38" Background="White" Foreground="#0F172A" FontWeight="Bold" BorderBrush="#0F172A" BorderThickness="0,0,0,3" Cursor="Hand"/>
+                            <Button x:Name="BtnTabSkirting" Content="Skirting" Click="TabButton_Click" Tag="1" Height="38" Background="#F1F5F9" Foreground="#64748B" FontWeight="Bold" BorderBrush="Transparent" BorderThickness="0,0,0,3" Cursor="Hand"/>
+                            <Button x:Name="BtnTabFloors" Content="Floors" Click="TabButton_Click" Tag="2" Height="38" Background="#F1F5F9" Foreground="#64748B" FontWeight="Bold" BorderBrush="Transparent" BorderThickness="0,0,0,3" Cursor="Hand"/>
+                            <Button x:Name="BtnTabCeilings" Content="Ceilings" Click="TabButton_Click" Tag="3" Height="38" Background="#F1F5F9" Foreground="#64748B" FontWeight="Bold" BorderBrush="Transparent" BorderThickness="0,0,0,3" Cursor="Hand"/>
+                            <Button x:Name="BtnTabData" Content="Data" Click="TabButton_Click" Tag="4" Height="38" Background="#F1F5F9" Foreground="#64748B" FontWeight="Bold" BorderBrush="Transparent" BorderThickness="0,0,0,3" Cursor="Hand"/>
+                            <Button x:Name="BtnTabOptions" Content="Options" Click="TabButton_Click" Tag="5" Height="38" Background="#F1F5F9" Foreground="#64748B" FontWeight="Bold" BorderBrush="Transparent" BorderThickness="0,0,0,3" Cursor="Hand"/>
+                        </UniformGrid>
+                    </Border>
+
+                    <!-- Tab Content Pages -->
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="18">
+                        <Grid>
+                            <!-- TAB 0: WALLS -->
+                            <StackPanel x:Name="PanelWalls" Visibility="Visible">
+                                <CheckBox x:Name="ChkCreateWalls" Content="Create finish walls in selected rooms" IsChecked="True" FontSize="13.5" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,16" Checked="SettingChanged_UpdatePreview" Unchecked="SettingChanged_UpdatePreview"/>
+
+                                <Border BorderBrush="#E2E8F0" BorderThickness="0,0,0,1" Padding="0,0,0,16" Margin="0,0,0,16">
+                                    <StackPanel>
+                                        <Grid Margin="0,0,0,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="130"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Wall Type:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                            <ComboBox x:Name="CbWallTypes" Grid.Column="1" Height="28" VerticalContentAlignment="Center" SelectionChanged="ComboType_SelectionChanged"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="130"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <RadioButton x:Name="RbWallSameAll" Content="Same on all walls" IsChecked="True" FontWeight="SemiBold" Margin="0,0,18,0" Checked="SettingChanged_UpdatePreview"/>
+                                                <RadioButton x:Name="RbWallFromRoom" Content="Read from Room Data (Fallback to Default)" FontWeight="SemiBold" Checked="SettingChanged_UpdatePreview"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border BorderBrush="#E2E8F0" BorderThickness="0,0,0,1" Padding="0,0,0,16" Margin="0,0,0,16">
+                                    <StackPanel>
+                                        <TextBlock Text="Vertical Extents" Foreground="#0F172A" FontWeight="Bold" FontSize="12.5" Margin="0,0,0,10"/>
+                                        <Grid Margin="0,0,0,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="130"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Base Constraint:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <RadioButton x:Name="RbWallBaseSlab" Content="On Structural Slab" IsChecked="True" FontWeight="SemiBold" Margin="0,0,18,0" Checked="SettingChanged_UpdatePreview"/>
+                                                <RadioButton x:Name="RbWallBaseFinishFloor" Content="Top of Finish Floor" FontWeight="SemiBold" Checked="SettingChanged_UpdatePreview"/>
+                                            </StackPanel>
+                                        </Grid>
+
+                                        <Grid Margin="0,0,0,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="130"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Top Constraint:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <RadioButton x:Name="RbWallTopCeiling" Content="Underside of Ceiling" IsChecked="True" FontWeight="SemiBold" Margin="0,0,18,0" Checked="SettingChanged_UpdatePreview"/>
+                                                <RadioButton x:Name="RbWallTopSlabAbove" Content="Slab Above" FontWeight="SemiBold" Checked="SettingChanged_UpdatePreview"/>
+                                            </StackPanel>
+                                        </Grid>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="130"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="Ceiling Void Offset:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                            <TextBox x:Name="TxtCeilingVoidOffset" Grid.Column="1" Text="150" Width="75" Height="28" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="#CBD5E1" TextChanged="TxtNumeric_TextChanged"/>
+                                            <TextBlock Grid.Column="2" Text="mm above ceiling" Foreground="#64748B" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+
+                                <StackPanel>
+                                    <TextBlock Text="Columns Handling" Foreground="#0F172A" FontWeight="Bold" FontSize="12.5" Margin="0,0,0,10"/>
+                                    <Grid Margin="0,0,0,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="130"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="Column Faces:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                            <RadioButton x:Name="RbColWrapSame" Content="Wrap (Same as wall)" IsChecked="True" FontWeight="SemiBold" Margin="0,0,14,0" Checked="SettingChanged_UpdatePreview"/>
+                                            <RadioButton x:Name="RbColSpecificType" Content="Specific Type" FontWeight="SemiBold" Margin="0,0,14,0" Checked="SettingChanged_UpdatePreview"/>
+                                            <RadioButton x:Name="RbColIgnore" Content="Ignore" FontWeight="SemiBold" Checked="SettingChanged_UpdatePreview"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid x:Name="RowColWallType" Visibility="Collapsed">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="130"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="Column Wall Type:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                        <ComboBox x:Name="CbColumnWallTypes" Grid.Column="1" Height="28" VerticalContentAlignment="Center"/>
+                                    </Grid>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- TAB 1: SKIRTING -->
+                            <StackPanel x:Name="PanelSkirting" Visibility="Collapsed">
+                                <CheckBox x:Name="ChkCreateSkirting" Content="Create skirting in selected rooms" IsChecked="True" FontSize="13.5" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,16" Checked="SettingChanged_UpdatePreview" Unchecked="SettingChanged_UpdatePreview"/>
+
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Modeling Method:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                        <RadioButton x:Name="RbSkirtMethodWall" Content="Parametric Skirting Wall" IsChecked="True" FontWeight="SemiBold" Margin="0,0,16,0" Checked="SkirtMethod_Changed"/>
+                                        <RadioButton x:Name="RbSkirtMethodSweep" Content="Hosted Wall Sweep" FontWeight="SemiBold" Checked="SkirtMethod_Changed"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Skirting Type:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                    <ComboBox x:Name="CbSkirtingTypes" Grid.Column="1" Height="28" VerticalContentAlignment="Center"/>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Skirting Height:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="TxtSkirtingHeight" Grid.Column="1" Text="100" Width="75" Height="28" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="#CBD5E1" TextChanged="TxtNumeric_TextChanged"/>
+                                    <TextBlock Grid.Column="2" Text="mm" Foreground="#64748B" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,12">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Placement:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                        <RadioButton x:Name="RbSkirtInFront" Content="In front of finish wall" IsChecked="True" FontWeight="SemiBold" Margin="0,0,16,0" Checked="SettingChanged_UpdatePreview"/>
+                                        <RadioButton x:Name="RbSkirtBelowFlush" Content="Below finish wall (Flush)" FontWeight="SemiBold" Checked="SettingChanged_UpdatePreview"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <CheckBox x:Name="ChkJoinSkirting" Content="Auto-Join skirting with finish wall" IsChecked="True" FontWeight="SemiBold" Foreground="#334155" Margin="0,4,0,12"/>
+                                <TextBlock Text="Skirting automatically breaks at doors and openings based on the Room boundary segments." Foreground="#64748B" FontSize="11.5" TextWrapping="Wrap"/>
+                            </StackPanel>
+
+                            <!-- TAB 2: FLOORS -->
+                            <StackPanel x:Name="PanelFloors" Visibility="Collapsed">
+                                <CheckBox x:Name="ChkCreateFloors" Content="Create finish floors in selected rooms" IsChecked="True" FontSize="13.5" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,16" Checked="SettingChanged_UpdatePreview" Unchecked="SettingChanged_UpdatePreview"/>
+
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Floor Type:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                    <ComboBox x:Name="CbFloorTypes" Grid.Column="1" Height="28" VerticalContentAlignment="Center"/>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,14">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                        <RadioButton x:Name="RbFloorSameAll" Content="Same on all rooms" IsChecked="True" FontWeight="SemiBold" Margin="0,0,18,0"/>
+                                        <RadioButton x:Name="RbFloorFromRoom" Content="Read from Room Data (Fallback to Default)" FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,14">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Base Slab Offset:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="TxtFloorOffset" Grid.Column="1" Text="0" Width="75" Height="28" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="#CBD5E1" TextChanged="TxtNumeric_TextChanged"/>
+                                    <TextBlock Grid.Column="2" Text="mm above structural slab" Foreground="#64748B" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                                </Grid>
+
+                                <CheckBox x:Name="ChkFloorDoorThresholds" Content="Extend floor boundary into door thresholds (Under door leaf)" IsChecked="True" FontWeight="SemiBold" Foreground="#334155" Margin="0,0,0,10"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Threshold Depth:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="TxtDoorThresholdDepth" Grid.Column="1" Text="100" Width="75" Height="28" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="#CBD5E1"/>
+                                    <TextBlock Grid.Column="2" Text="mm into frame" Foreground="#64748B" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- TAB 3: CEILINGS -->
+                            <StackPanel x:Name="PanelCeilings" Visibility="Collapsed">
+                                <CheckBox x:Name="ChkCreateCeilings" Content="Create ceilings in selected rooms" IsChecked="True" FontSize="13.5" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,16" Checked="SettingChanged_UpdatePreview" Unchecked="SettingChanged_UpdatePreview"/>
+
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Ceiling Type:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                    <ComboBox x:Name="CbCeilingTypes" Grid.Column="1" Height="28" VerticalContentAlignment="Center"/>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,14">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                        <RadioButton x:Name="RbCeilingSameAll" Content="Same on all rooms" IsChecked="True" FontWeight="SemiBold" Margin="0,0,18,0"/>
+                                        <RadioButton x:Name="RbCeilingFromRoom" Content="Read from Room Data (Fallback to Default)" FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Ceiling Height:" FontWeight="SemiBold" Foreground="#334155" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="TxtCeilingHeight" Grid.Column="1" Text="2700" Width="75" Height="28" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="#CBD5E1" TextChanged="TxtNumeric_TextChanged"/>
+                                    <TextBlock Grid.Column="2" Text="mm above room level" Foreground="#64748B" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- TAB 4: DATA -->
+                            <StackPanel x:Name="PanelData" Visibility="Collapsed">
+                                <CheckBox x:Name="ChkWriteRoomData" Content="Write generated finish data back to Room parameters" IsChecked="True" FontSize="13.5" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,14"/>
+                                <RadioButton x:Name="RbDataUseTypeName" Content="Write actual Revit ElementType Name (e.g. Int-Finish-Paint-15mm)" IsChecked="True" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                                <RadioButton x:Name="RbDataUseCustomCode" Content="Write custom finish schedule codes below:" FontWeight="SemiBold" Margin="0,0,0,12"/>
+
+                                <Grid Margin="0,0,0,8">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="130"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Wall Finish:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="TxtDataWallCode" Grid.Column="1" Text="WF-01 (Paint)" Height="28" VerticalContentAlignment="Center" Padding="6,0" BorderBrush="#CBD5E1"/>
+                                </Grid>
+                                <Grid Margin="0,0,0,8">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="130"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Base Finish:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="TxtDataBaseCode" Grid.Column="1" Text="SK-01 (Wood 100mm)" Height="28" VerticalContentAlignment="Center" Padding="6,0" BorderBrush="#CBD5E1"/>
+                                </Grid>
+                                <Grid Margin="0,0,0,8">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="130"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Floor Finish:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="TxtDataFloorCode" Grid.Column="1" Text="FF-01 (Porcelain)" Height="28" VerticalContentAlignment="Center" Padding="6,0" BorderBrush="#CBD5E1"/>
+                                </Grid>
+                                <Grid Margin="0,0,0,8">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="130"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Ceiling Finish:" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="TxtDataCeilingCode" Grid.Column="1" Text="CF-01 (Gypsum Board)" Height="28" VerticalContentAlignment="Center" Padding="6,0" BorderBrush="#CBD5E1"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- TAB 5: OPTIONS -->
+                            <StackPanel x:Name="PanelOptions" Visibility="Collapsed">
+                                <TextBlock Text="Geometry &amp; Smart Execution Rules" Foreground="#0F172A" FontSize="13.5" FontWeight="Bold" Margin="0,0,0,14"/>
+                                <CheckBox x:Name="ChkOptBreakAtDoors" Content="Break finish walls &amp; skirting at door openings" IsChecked="True" FontWeight="SemiBold" Foreground="#334155" Margin="0,0,0,12" Checked="SettingChanged_UpdatePreview" Unchecked="SettingChanged_UpdatePreview"/>
+                                <CheckBox x:Name="ChkOptAutoJoin" Content="Auto-Join finish walls with host structural/architectural walls (Cuts Windows &amp; Doors automatically)" IsChecked="True" FontWeight="SemiBold" Foreground="#334155" Margin="0,0,0,12"/>
+                                <CheckBox x:Name="ChkOptSmartReplace" Content="Smart Replace / Update: Remove old finishes generated for the same room before re-generating" IsChecked="True" FontWeight="SemiBold" Foreground="#334155" Margin="0,0,0,12"/>
+                                <CheckBox x:Name="ChkOptSkipUnenclosed" Content="Automatically skip unenclosed / redundant rooms" IsChecked="True" FontWeight="SemiBold" Foreground="#334155" Margin="0,0,0,12"/>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <!-- RIGHT COLUMN: LIVE PLAN & SECTION PREVIEW -->
+            <Grid Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="14"/>
+                    <RowDefinition Height="1.25*"/>
+                </Grid.RowDefinitions>
+
+                <!-- PLAN PREVIEW -->
+                <Border Grid.Row="0" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="6">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Background="#F1F5F9" BorderBrush="#CBD5E1" BorderThickness="0,0,0,1" Padding="10,6">
+                            <TextBlock x:Name="TxtPlanPreviewHeader" Text="PLAN PREVIEW: Room Boundary &amp; Walls" Foreground="#0F172A" FontSize="11" FontWeight="Bold"/>
+                        </Border>
+                        <Border Grid.Row="1" Background="#F8FAFC" Padding="8">
+                            <Canvas x:Name="CanvasPlanPreview" ClipToBounds="True" SizeChanged="PreviewCanvas_SizeChanged"/>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- SECTION PREVIEW -->
+                <Border Grid.Row="2" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="6">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Background="#F1F5F9" BorderBrush="#CBD5E1" BorderThickness="0,0,0,1" Padding="10,6">
+                            <TextBlock Text="SECTION PREVIEW: Vertical Layers" Foreground="#0F172A" FontSize="11" FontWeight="Bold"/>
+                        </Border>
+                        <Border Grid.Row="1" Background="#F8FAFC" Padding="8">
+                            <Canvas x:Name="CanvasSectionPreview" ClipToBounds="True" SizeChanged="PreviewCanvas_SizeChanged"/>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- 3. FOOTER -->
+        <Border Grid.Row="2" Background="#E2E8F0" CornerRadius="6" Padding="16,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="TxtFooterStats" Grid.Column="0" Text="Ready — Scanning rooms..." Foreground="#0F172A" FontSize="12" FontWeight="SemiBold" VerticalAlignment="Center"/>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button Content="📊 Export Data to Excel" Click="BtnExportExcel_Click" Height="36" Padding="16,0" Margin="0,0,10,0" Background="White" BorderBrush="#94A3B8" Foreground="#0F172A" FontWeight="Bold" Cursor="Hand"/>
+                    <Button Content="Cancel" Click="BtnCancel_Click" Height="36" Padding="16,0" Margin="0,0,10,0" Background="White" BorderBrush="#94A3B8" Foreground="#0F172A" FontWeight="Bold" Cursor="Hand"/>
+                    <Button Content="🚀 Generate Finishes" Click="BtnGenerateFinishes_Click" Height="36" Padding="24,0" Background="#0F172A" BorderThickness="0" Foreground="White" FontWeight="Bold" Cursor="Hand"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

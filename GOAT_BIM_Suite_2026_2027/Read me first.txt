@@ -1,0 +1,13 @@
+========================================================================
+OR Architectural Tools - Standalone Revit Add-in (.NET 10 / v40)
+Prepared for: Arch. Abdelaziz Osman
+========================================================================
+
+1. New in v40 (OR SHEETS):
+   - Added 'OR SHEETS' button to the OR Ribbon tab.
+   - Batch creation of Revit sheets with customizable Sheet Number and Name.
+   - Title block selector integrated with project families.
+
+2. One-Click Setup:
+   - Close Autodesk Revit.
+   - Double-click "Install.cmd".

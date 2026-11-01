@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>GOAT BIM Suite</Name>
+    <Assembly>ORTools\ORTools.dll</Assembly>
+    <AddInId>8A4F7D3E-5B92-4C1A-9F2E-7D6B3C8E1A20</AddInId>
+    <FullClassName>ORTools.App</FullClassName>
+    <VendorId>GOAT_BIM</VendorId>
+    <VendorDescription>GOAT BIM Suite - Eng. Abdelaziz Osman</VendorDescription>
+  </AddIn>
+</RevitAddIns>

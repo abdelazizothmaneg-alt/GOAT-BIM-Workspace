@@ -1,0 +1,311 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>عرض سعر - مشروع مدرسة الشيخ عصام</title>
+<!--[if gte mso 9]>
+<xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+  <w:DoNotOptimizeForBrowser/>
+ </w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+@page {
+    size: A4 portrait;
+    margin: 2.0cm 2.0cm 2.0cm 2.0cm;
+    mso-page-orientation: portrait;
+}
+body {
+    font-family: 'Traditional Arabic', 'Simplified Arabic', Tahoma, Arial, sans-serif;
+    direction: rtl;
+    text-align: right;
+    font-size: 14pt;
+    line-height: 1.5;
+    color: #111111;
+}
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+.header-table {
+    width: 100%;
+    border-bottom: 2pt solid #8B1E2D;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.header-ar {
+    text-align: right;
+    font-family: 'Simplified Arabic', Arial;
+}
+.header-en {
+    text-align: left;
+    direction: ltr;
+    font-family: Arial, sans-serif;
+}
+.title-ar {
+    font-size: 16pt;
+    font-weight: bold;
+    color: #8B1E2D;
+}
+.title-en {
+    font-size: 11pt;
+    font-weight: bold;
+    color: #1F2937;
+}
+.meta-box {
+    width: 100%;
+    background-color: #F8FAFC;
+    border: 1pt solid #CBD5E1;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    font-size: 12pt;
+}
+.project-box {
+    background-color: #FFF5F5;
+    border-right: 4pt solid #8B1E2D;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    font-size: 13pt;
+    font-weight: bold;
+    line-height: 1.6;
+}
+.section-title {
+    color: #8B1E2D;
+    font-size: 15pt;
+    font-weight: bold;
+    border-bottom: 1pt solid #FCA5A5;
+    padding-bottom: 4px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.content-table th, .content-table td {
+    border: 1pt solid #94A3B8;
+    padding: 8px 10px;
+    text-align: right;
+    font-size: 12pt;
+}
+.content-table th {
+    background-color: #1E293B;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.total-row {
+    background-color: #FEF2F2;
+    font-weight: bold;
+    color: #8B1E2D;
+}
+.footer-text {
+    border-top: 1.5pt solid #8B1E2D;
+    padding-top: 10px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 10pt;
+    color: #475569;
+}
+.page-break {
+    page-break-before: always;
+}
+</style>
+</head>
+<body>
+
+<table class="header-table" dir="rtl">
+    <tr>
+        <td class="header-ar" style="width: 45%;">
+            <span class="title-ar">شركة حسن محمد علي فقيه</span><br>
+            <strong style="color: #475569; font-size: 12pt;">للإستشارات الهندسية</strong><br>
+            <span style="font-size: 10pt; color: #64748B;">مهندسون - معماريون - مخططون</span>
+        </td>
+        <td style="width: 10%; text-align: center;">
+            <div style="background-color: #8B1E2D; color: #FFFFFF; font-weight: bold; font-size: 16pt; padding: 4px 8px; border-radius: 4px;">HMF</div>
+        </td>
+        <td class="header-en" style="width: 45%;">
+            <span class="title-en">HASSAN MOHAMED Ali FAQIH Co.</span><br>
+            <strong style="color: #475569; font-size: 9pt;">FOR ENGINEERING CONSULTANTS</strong><br>
+            <span style="font-size: 8pt; color: #64748B;">ARCHITECTS - ENGINEERS - PLANNERS</span>
+        </td>
+    </tr>
+</table>
+
+<table class="meta-box" dir="rtl">
+    <tr>
+        <td style="width: 35%;"><strong>التاريخ:</strong> 28 / 10 / 2026 م</td>
+        <td style="width: 35%;"><strong>رقم العرض:</strong> HMF-QT-2026-104</td>
+        <td style="width: 30%;"><strong>الموقع:</strong> وادي جيزان - منطقة جازان</td>
+    </tr>
+</table>
+
+<p style="font-size: 16pt; font-weight: bold; color: #8B1E2D; margin-bottom: 4px;">
+    المكرم الشيخ / عصام ................................. المحترم
+</p>
+<p style="font-weight: bold; margin-bottom: 15px;">السلام عليكم ورحمة الله وبركاته ،،،</p>
+
+<div class="project-box">
+    الموضوع: عرض فني ومالي لتقديم الخدمات الهندسية المتكاملة لإجراء الرفع المساحي وإعداد الدراسات والتصاميم الهندسية لإعادة تأهيل وتطوير مبنى بلدية الريان القائم وتحويله إلى مدرسة خاصة (رياض أطفال، روضة، وفصول من 1 إلى 3 ابتدائي) بمساحة أرض 6,444.37 م² بوادي جيزان - منطقة جازان.
+</div>
+
+<p style="text-align: justify; margin-bottom: 15px;">
+    يشرف شركة <strong>حسن محمد فقيه للاستشارات الهندسية</strong> أن تتقدم لسعادتكم بعرضنا الفني والمالي لمشروعكم الطموح. ويهدف هذا العرض إلى تقديم دراسات وتصاميم هندسية متكاملة تواكب أعلى المعايير وتتوافق تماماً مع اشتراطات وزارة التعليم والدفاع المدني وكود البناء السعودي (SBC)، لإعادة تأهيل مبنى بلدية الريان القائم وتوظيفه بكفاءة كصرح تعليمي حديث وآمن، ويسعدنا البدء بالعمل على هذا المشروع الحيوي.
+</p>
+
+<div class="section-title">أولاً: نطاق الأعمال (العرض الفني)</div>
+
+<p><strong>1. أعمال الرفوعات المساحية والموقع العام (As-Built Survey):</strong></p>
+<p style="margin-right: 15px; color: #334155;">
+    • إجراء رفع مساحي طبوغرافي متكامل لكامل الموقع العام وحدود الأرض البالغة مساحتها (6,444.37 م²).<br>
+    • إجراء رفع معماري وإنشائي تفصيلي للوضع القائم للمباني القائمة على الطبيعة شاملاً المحاور، الفراغات، الفتحات، ومناسيب الأسقف والكمرات.<br>
+    • استخراج وتحديث القرار المساحي للمشروع.
+</p>
+
+<p><strong>2. الفحص والتقييم والسلامة الإنشائية:</strong></p>
+<p style="margin-right: 15px; color: #334155;">
+    • فحص العناصر الإنشائية القائمة وتقييم كفاءتها الإنشائية لتحمل الأحمال التعليمية الحية طبقاً لكود البناء السعودي للمنشآت التعليمية.<br>
+    • إعداد تقرير سلامة إنشائية معتمد يتضمن توصيات التدعيم والمعالجة الإنشائية إن دعت الحاجة.
+</p>
+
+<p><strong>3. التصميمات المعمارية وإعادة تخطيط الفراغات التعليمية:</strong></p>
+<p style="margin-right: 15px; color: #334155;">
+    • مراجعة وإعادة توزيع المساقط الأفقية بما يتطابق مع اشتراطات وزارة التعليم وكود المدارس لرياض الأطفال والصفوف الأولية.<br>
+    • تصميم الواجهات الخارجية (2D) والمناظير ثلاثية الأبعاد (3D Perspectives) لإضفاء هوية مدرسية حديثة وجذابة للمبنى.<br>
+    • تصميم الموقع العام والساحات المظللة ومناطق ألعاب الأطفال وحركة الباصات والنزول الآمن للطلاب.
+</p>
+
+<p><strong>4. التصميمات الإنشائية والتنفيذية:</strong></p>
+<p style="margin-right: 15px; color: #334155;">
+    • إعداد المخططات الإنشائية التنفيذية للتعديلات الإنشائية والفتحات المستحدثة والأسوار والخزانات ومظلات الساحات.
+</p>
+
+<p><strong>5. التصميمات الكهروميكانيكية المتكاملة (MEP):</strong></p>
+<p style="margin-right: 15px; color: #334155;">
+    • تصميم الأعمال الكهربائية (الإنارة المريحة، مخارج القوى، لوحات التوزيع).<br>
+    • أنظمة التيار الخفيف (كاميرات المراقبة، النداء الصوتي، الإذاعة المدرسية، شبكات الاتصالات والداتا).<br>
+    • تصميم الأعمال الميكانيكية (مخططات التكييف والتهوية HVAC، أنظمة التغذية والصرف الصحي المناسبة للأطفال).
+</p>
+
+<p><strong>6. أنظمة السلامة والدفاع المدني:</strong></p>
+<p style="margin-right: 15px; color: #334155;">
+    • تصميم واعتماد أنظمة الإنذار المبكر ومكافحة الحريق ومخارج الطوارئ طبقاً لاشتراطات الدفاع المدني للمنشآت التعليمية.
+</p>
+
+<p><strong>7. جداول الكميات (BOQ) والتراخيص:</strong></p>
+<p style="margin-right: 15px; color: #334155;">
+    • إعداد جداول الكميات والمواصفات العامة لجميع بنود أعمال الترميم والتعديل للطرح والتنفيذ.<br>
+    • متابعة استخراج رخصة البناء / التعديل والترميم وتغيير الاستخدام عبر منصة بلدي.
+</p>
+
+<div class="page-break"></div>
+
+<div class="section-title">ثانياً: الخطة الزمنية المقترحة للمشروع</div>
+
+<table class="content-table" dir="rtl">
+    <tr>
+        <th style="width: 75%;">المرحلة وبيان العمل</th>
+        <th style="width: 25%; text-align: center;">المدة المقترحة</th>
+    </tr>
+    <tr>
+        <td><strong>المرحلة الأولى:</strong> أعمال الرفع المساحي للموقع والمباني القائمة (As-Built) والمساقط الأولية</td>
+        <td style="text-align: center;">8 أيام عمل</td>
+    </tr>
+    <tr>
+        <td><strong>المرحلة الثانية:</strong> إعداد المقترح المعماري والواجهات ثلاثية الأبعاد (3D) وعرضه للاعتماد</td>
+        <td style="text-align: center;">12 يوم عمل</td>
+    </tr>
+    <tr>
+        <td><strong>المرحلة الثالثة:</strong> مراجعة البلدية والأمانة للاعتماد المعماري المبدئي</td>
+        <td style="text-align: center;">7 أيام عمل</td>
+    </tr>
+    <tr>
+        <td><strong>المرحلة الرابعة:</strong> إعداد المخططات التنفيذية التفصيلية لجميع التخصصات (إنشائي، ميكانيكا، كهرباء، دفاع مدني)</td>
+        <td style="text-align: center;">25 يوم عمل</td>
+    </tr>
+    <tr>
+        <td><strong>المرحلة الخامسة:</strong> إعداد جداول الكميات واستخراج رخصة البناء عبر منصة بلدي</td>
+        <td style="text-align: center;">7 أيام عمل</td>
+    </tr>
+</table>
+
+<div class="section-title">ثالثاً: العرض المالي (الأتعاب)</div>
+
+<table class="content-table" dir="rtl">
+    <tr>
+        <th style="width: 8%; text-align: center;">م</th>
+        <th style="width: 67%;">الوصف</th>
+        <th style="width: 25%; text-align: center;">التكلفة (ريال)</th>
+    </tr>
+    <tr>
+        <td style="text-align: center; font-weight: bold;">1</td>
+        <td>
+            <strong>أعمال الرفع المساحي الشامل والتصاميم الهندسية المتكاملة:</strong><br>
+            • أعمال الرفع المساحي للموقع العام والمباني القائمة واستخراج القرار المساحي.<br>
+            • تقرير تقييم السلامة الإنشائية للمباني القائمة.<br>
+            • إعداد جميع المخططات المعمارية (مساقط، مناظير 3D، واجهات، قطاعات، تفاصيل).<br>
+            • إعداد المخططات الإنشائية والكهروميكانيكية ومخططات الدفاع المدني.<br>
+            • إعداد جداول الكميات لجميع بنود المشروع (BOQ).
+        </td>
+        <td style="text-align: center; font-weight: bold; font-size: 13pt;">125,000</td>
+    </tr>
+    <tr>
+        <td style="text-align: center; font-weight: bold;">2</td>
+        <td>
+            <strong>استخراج رخصة البناء / التعديل:</strong><br>
+            متابعة المعاملة وإصدار رخصة التعديل والترميم وتغيير الاستخدام عبر منصة بلدي.
+        </td>
+        <td style="text-align: center; font-weight: bold; font-size: 13pt;">5,000</td>
+    </tr>
+    <tr class="total-row">
+        <td colspan="2" style="text-align: left; font-size: 13pt; padding-left: 20px;">
+            إجمالي أتعاب الأعمال السابقة مبلغ وقدره (مائة وثلاثون ألف ريال فقط لا غير):
+        </td>
+        <td style="text-align: center; font-size: 14pt; color: #8B1E2D;">130,000 ريال</td>
+    </tr>
+</table>
+
+<p style="color: #92400E; background-color: #FEF3C7; padding: 8px 12px; border-right: 3pt solid #D97706; font-size: 11pt;">
+    <strong>ملاحظات العرض المالي:</strong><br>
+    • الأتعاب السابقة لا تشمل ضريبة القيمة المضافة (15%).<br>
+    • لا تشمل الأتعاب الرسوم الحكومية أو تقرير فحص التربة أو عقد الإشراف وحاوية المخلفات.<br>
+    • كل ما لم يرد ذكره في هذا العرض يخضع لاتفاق ملحق بين الطرفين.
+</p>
+
+<div class="section-title">رابعاً: طريقة السداد</div>
+<p style="line-height: 1.8;">
+    • <strong>دفعة أولى:</strong> 25% (32,500 ريال) مقدم تعاقد والبدء بأعمال الرفع المساحي.<br>
+    • <strong>دفعة ثانية:</strong> 35% (45,500 ريال) مع اعتماد التصميم المعماري والواجهات 3D من المالك والبلدية.<br>
+    • <strong>دفعة ثالثة:</strong> 30% (39,000 ريال) مع انتهاء المخططات التنفيذية (إنشائي، كهرباء، ميكانيكا، وسلامة).<br>
+    • <strong>الدفعة الرابعة:</strong> 10% (13,000 ريال) عند رفع طلب الرخصة على النظام الإلكتروني.
+</p>
+
+<p><strong>• هذا العرض سارٍ لمدة 15 يوماً من تاريخه.</strong></p>
+
+<table style="width: 100%; margin-top: 35px;" dir="rtl">
+    <tr>
+        <td style="width: 50%; text-align: center;">
+            <p style="font-weight: bold;">اعتماد وقبول الطرف الثاني (المالك):</p>
+            <p>الشيخ / عصام .................................</p>
+            <br>
+            <p>التوقيع: ...........................</p>
+        </td>
+        <td style="width: 50%; text-align: center;">
+            <p style="font-weight: bold;">الطرف الأول (الاستشاري الهندسي):</p>
+            <p style="color: #8B1E2D; font-weight: bold;">شركة حسن محمد فقيه للاستشارات الهندسية</p>
+            <br>
+            <p style="font-weight: bold;">م / حسن محمد فقيه</p>
+        </td>
+    </tr>
+</table>
+
+<div class="footer-text">
+    جازان - حي الصفا شارع الملك فيصل (الستين) - بجوار وقت اللياقة | ص.ب: (58) | تليفاكس: 017/3311114<br>
+    جوال: 0505768890 - 0551932629 | البريد: info@hmfaqih.com | الموقع: www.hmfaqih.com | س.ت: 5900018320
+</div>
+
+</body>
+</html>

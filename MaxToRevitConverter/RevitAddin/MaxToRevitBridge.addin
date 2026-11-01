@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>MaxToRevit Bridge Pro</Name>
+    <Assembly>C:\Users\faqih\.gemini\antigravity\scratch\MaxToRevitConverter\RevitAddin\bin\Release\net10.0-windows\MaxToRevitBridge.dll</Assembly>
+    <AddInId>8D8A4762-9F53-42E6-B8C2-9A5E14B12026</AddInId>
+    <FullClassName>MaxToRevitBridge.App</FullClassName>
+    <VendorId>M2RB</VendorId>
+    <VendorDescription>MaxToRevit Bridge Pro — 3ds Max to Revit Family/Project Converter</VendorDescription>
+  </AddIn>
+</RevitAddIns>

@@ -1,0 +1,317 @@
+<Window x:Class="ORTools.UI.OrGridWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GOAT BIM | GOAT GRIDS — Parametric Grid Generator"
+        Height="820" Width="1120"
+        MinHeight="720" MinWidth="980"
+        WindowStartupLocation="CenterOwner"
+        Background="#F8FAFC"
+        FontFamily="Segoe UI"
+        FontSize="12">
+    <Window.Resources>
+        <Style x:Key="ClashingRowStyle" TargetType="DataGridRow">
+            <Setter Property="Background" Value="White"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding HasNameIssue}" Value="True">
+                    <Setter Property="Background" Value="#FDEFD8"/>
+                </DataTrigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#DBEAFE"/>
+                    <Setter Property="Foreground" Value="#0F172A"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#0F172A" CornerRadius="8" Padding="14,10" Margin="0,0,0,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="pack://application:,,,/ORTools;component/Resources/GRIDS.jpg" Width="44" Height="44" Margin="0,0,14,0"/>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="GOAT GRIDS — Parametric Horizontal, Vertical &amp; Radial Grid Generator" Foreground="White" FontSize="16" FontWeight="Bold"/>
+                    <TextBlock Text="Multi-Spacing Formulas · Automatic Name Clash Detection · Live Interactive Canvas Preview" Foreground="#CBD5E1" FontSize="12" Margin="0,2,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="475"/>
+                <ColumnDefinition Width="14"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Padding="0,0,6,0">
+                <StackPanel>
+                    <GroupBox Header="1 · Horizontal grids  (lines run left–right, stacked upward)" Margin="0,0,0,10" Padding="10" Background="White" BorderBrush="#CBD5E1" Foreground="#0F172A" FontWeight="SemiBold">
+                        <StackPanel TextBlock.FontWeight="Normal">
+                            <Grid Margin="0,2,0,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Count" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtHCount" Text="4" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="HorizontalInputs_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Spacing (mm)" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtHSpacing" Text="6000" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="HorizontalInputs_Changed"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Margin="0,0,0,8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="12"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Start" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtHStart" Text="A" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="HorizontalInputs_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Prefix" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtHPrefix" Text="" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="HorizontalInputs_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="4">
+                                    <TextBlock Text="Suffix" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtHSuffix" Text="" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="HorizontalInputs_Changed"/>
+                                </StackPanel>
+                                <CheckBox x:Name="ChkHSkipIO" Grid.Column="6" Content="Skip I and O" IsChecked="True" VerticalAlignment="Bottom" Margin="0,0,0,4" Checked="HorizontalInputs_Changed" Unchecked="HorizontalInputs_Changed"/>
+                            </Grid>
+
+                            <DataGrid x:Name="DgHorizontal" Height="128" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" RowStyle="{StaticResource ClashingRowStyle}" GridLinesVisibility="All" HorizontalGridLinesBrush="#E2E8F0" VerticalGridLinesBrush="#E2E8F0" BorderBrush="#CBD5E1" RowHeight="24">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="#" Binding="{Binding Index}" Width="35" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="165"/>
+                                    <DataGridTextColumn Header="From previous (mm)" Binding="{Binding FromPreviousMm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <TextBlock Text="Row 1's value is its offset from the base point. Edit any name or distance in the table; changing the fields above rebuilds the table." Foreground="#64748B" FontSize="11" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="2 · Vertical grids  (lines run bottom–top, stacked rightward)" Margin="0,0,0,10" Padding="10" Background="White" BorderBrush="#CBD5E1" Foreground="#0F172A" FontWeight="SemiBold">
+                        <StackPanel TextBlock.FontWeight="Normal">
+                            <Grid Margin="0,2,0,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Count" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtVCount" Text="5" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="VerticalInputs_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Spacing (mm)" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtVSpacing" Text="3*7200, 6000" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="VerticalInputs_Changed"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Margin="0,0,0,8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="12"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Start" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtVStart" Text="1" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="VerticalInputs_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Prefix" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtVPrefix" Text="" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="VerticalInputs_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="4">
+                                    <TextBlock Text="Suffix" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtVSuffix" Text="" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="VerticalInputs_Changed"/>
+                                </StackPanel>
+                                <CheckBox x:Name="ChkVSkipIO" Grid.Column="6" Content="Skip I and O" IsChecked="True" VerticalAlignment="Bottom" Margin="0,0,0,4" Checked="VerticalInputs_Changed" Unchecked="VerticalInputs_Changed"/>
+                            </Grid>
+
+                            <DataGrid x:Name="DgVertical" Height="145" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" RowStyle="{StaticResource ClashingRowStyle}" GridLinesVisibility="All" HorizontalGridLinesBrush="#E2E8F0" VerticalGridLinesBrush="#E2E8F0" BorderBrush="#CBD5E1" RowHeight="24">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="#" Binding="{Binding Index}" Width="35" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="165"/>
+                                    <DataGridTextColumn Header="From previous (mm)" Binding="{Binding FromPreviousMm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <TextBlock Text="Row 1's value is its offset from the base point. Edit any name or distance in the table; changing the fields above rebuilds the table." Foreground="#64748B" FontSize="11" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Margin="0,0,0,6" Padding="10" Background="White" BorderBrush="#CBD5E1" Foreground="#0F172A">
+                        <GroupBox.Header>
+                            <CheckBox x:Name="ChkEnableSpecial" Content="3 · Special grids  (rotated linear or radial array)" IsChecked="False" Checked="SpecialToggle_Changed" Unchecked="SpecialToggle_Changed" FontWeight="SemiBold"/>
+                        </GroupBox.Header>
+                        <StackPanel x:Name="PnlSpecialContent" IsEnabled="False" TextBlock.FontWeight="Normal">
+                            <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                                <RadioButton x:Name="RbLinearArray" Content="Linear array" IsChecked="True" Margin="0,0,18,0" Checked="SpecialMode_Changed"/>
+                                <RadioButton x:Name="RbRadialArray" Content="Radial array (lines from a centre)" Checked="SpecialMode_Changed"/>
+                            </StackPanel>
+
+                            <Grid Margin="0,0,0,8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="160"/>
+                                    <ColumnDefinition Width="12"/>
+                                    <ColumnDefinition Width="160"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock x:Name="LblSpecialAngle" Text="Rotation (°)" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtSpecialRotation" Text="30" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="SpecialPreview_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Grid length (mm)" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtSpecialLength" Text="20000" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="SpecialPreview_Changed"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <TextBlock Text="Base point:" Foreground="#334155" VerticalAlignment="Center" Margin="0,0,12,0"/>
+                                <RadioButton x:Name="RbSpecialSameBase" Content="Same as main grids" IsChecked="True" Margin="0,0,16,0"/>
+                                <RadioButton x:Name="RbSpecialOwnBase" Content="Pick its own point"/>
+                            </StackPanel>
+
+                            <Grid Margin="0,0,0,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Count" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtSCount" Text="3" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="SpecialInputs_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock x:Name="LblSpecialSpacing" Text="Spacing (mm)" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtSSpacing" Text="4000" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="SpecialInputs_Changed"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Margin="0,0,0,8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="12"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Start" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtSStart" Text="R1" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="SpecialInputs_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Prefix" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtSPrefix" Text="" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="SpecialInputs_Changed"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="4">
+                                    <TextBlock Text="Suffix" Foreground="#334155" Margin="0,0,0,3"/>
+                                    <TextBox x:Name="TxtSSuffix" Text="" Height="26" VerticalContentAlignment="Center" Padding="4,0" TextChanged="SpecialInputs_Changed"/>
+                                </StackPanel>
+                                <CheckBox x:Name="ChkSSkipIO" Grid.Column="6" Content="Skip I and O" IsChecked="True" VerticalAlignment="Bottom" Margin="0,0,0,4" Checked="SpecialInputs_Changed" Unchecked="SpecialInputs_Changed"/>
+                            </Grid>
+
+                            <DataGrid x:Name="DgSpecial" Height="105" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" RowStyle="{StaticResource ClashingRowStyle}" GridLinesVisibility="All" HorizontalGridLinesBrush="#E2E8F0" VerticalGridLinesBrush="#E2E8F0" BorderBrush="#CBD5E1" RowHeight="24">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="#" Binding="{Binding Index}" Width="35" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="165"/>
+                                    <DataGridTextColumn Header="From previous (mm)" Binding="{Binding FromPreviousMm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <TextBlock Text="Row 1's value is its perpendicular offset from the base point. Lines are centred on the base point." Foreground="#64748B" FontSize="11" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Live Interactive Preview" Foreground="#0F172A" FontWeight="Bold" Margin="0,0,0,6"/>
+
+                <Border Grid.Row="1" Background="White" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="6" ClipToBounds="True">
+                    <Canvas x:Name="CnvPreview" SizeChanged="CnvPreview_SizeChanged"/>
+                </Border>
+
+                <TextBlock x:Name="TxtSummaryCounts" Grid.Row="2" Text="4 horizontal · 5 vertical · 0 special = 9 grids" Foreground="#0F172A" FontWeight="SemiBold" Margin="0,8,0,8"/>
+
+                <Grid Grid.Row="3" Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.4*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="1.4*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="0.8*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Grid type" Foreground="#334155" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                        <ComboBox x:Name="CbGridType" Height="28" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Bubbles in active view" Foreground="#334155" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                        <ComboBox x:Name="CbBubblesMode" Height="28" VerticalContentAlignment="Center" SelectionChanged="CbBubblesMode_SelectionChanged">
+                            <ComboBoxItem Content="Grid type default" IsSelected="True"/>
+                            <ComboBoxItem Content="Both ends"/>
+                            <ComboBoxItem Content="End 1 only (Left / Bottom)"/>
+                            <ComboBoxItem Content="End 2 only (Top / Right)"/>
+                            <ComboBoxItem Content="None"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="4">
+                        <TextBlock Text="Extension (mm)" Foreground="#334155" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                        <TextBox x:Name="TxtExtensionMm" Text="2000" Height="28" VerticalContentAlignment="Center" Padding="4,0" TextChanged="Extension_Changed"/>
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock x:Name="TxtClashWarning" Grid.Row="4" Text="0 name issue(s) highlighted in the tables." Foreground="#854D0E" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,0,10"/>
+
+                <Border Grid.Row="5" Background="#E2E8F0" CornerRadius="6" Padding="12,8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Next: dialog closes and you pick the base point in plan view (Esc cancels)." Foreground="#0F172A" FontWeight="SemiBold" FontSize="11.5" VerticalAlignment="Center"/>
+                        <Button x:Name="BtnCancel" Grid.Column="1" Content="Cancel" Width="105" Height="34" Margin="0,0,8,0" Background="White" BorderBrush="#94A3B8" FontWeight="SemiBold" Click="BtnCancel_Click"/>
+                        <Button x:Name="BtnPickAndCreate" Grid.Column="2" Content="🚀 Pick point and create" Width="175" Height="34" Background="#0F172A" Foreground="White" FontWeight="Bold" Click="BtnPickAndCreate_Click"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

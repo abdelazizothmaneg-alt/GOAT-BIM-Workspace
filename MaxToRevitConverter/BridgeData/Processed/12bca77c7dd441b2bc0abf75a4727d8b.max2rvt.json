@@ -1,0 +1,22 @@
+{
+  "JobId": "12bca77c7dd441b2bc0abf75a4727d8b",
+  "OutputMode": "RFA",
+  "TargetRevitVersion": "2026",
+  "FamilyTemplatePath": "C:\\ProgramData\\Autodesk\\RVT 2026\\Family Templates\\English\\Metric Window.rft",
+  "ProjectTemplatePath": "C:\\ProgramData\\Autodesk\\RVT 2026\\Templates\\English\\DefaultMetric.rte",
+  "CategoryName": "Windows",
+  "GeometryFormat": "NATIVE",
+  "ImportUnits": "mm",
+  "HideMeshEdges": true,
+  "OpenInRevitAfterSave": true,
+  "FamilyParameters": {
+    "WorkPlaneBased": false,
+    "AlwaysVertical": true,
+    "CutWithVoidsWhenLoaded": false,
+    "CanHostRebar": false,
+    "Shared": false,
+    "RoomCalculationPoint": false
+  },
+  "Materials": [{"LayerName":"Mat_Material #-2147483641","MaterialName":"Material #-2147483641","R":185,"G":185,"B":185,"Transparency":0,"Shininess":50},{"LayerName":"Mat_Material #-2147483640","MaterialName":"Material #-2147483640","R":185,"G":185,"B":185,"Transparency":0,"Shininess":50}],
+  "Items": [{"ObjectName":"Shape13968","GeometryFilePath":"C:\\Users\\faqih\\.gemini\\antigravity\\scratch\\MaxToRevitConverter\\BridgeData\\Staging\\12bca77c7dd441b2bc0abf75a4727d8b_Shape13968.m2r","TargetOutputPath":"C:\\Users\\faqih\\AppData\\Local\\Temp\\MaxToRevit_Exports\\Shape13968.rfa","WidthMm":1100.0,"DepthMm":50.0004,"HeightMm":2500.0}]
+}
