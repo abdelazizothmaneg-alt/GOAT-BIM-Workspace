@@ -50,7 +50,13 @@ All active projects are located in this directory (`C:\Users\faqih\.gemini\antig
 - All user-facing documentation, proposals, and schedules must support Arabic RTL formatting and layout conventions.
 - When generating reports, quotation templates, or technical specifications, adhere to GCC / Middle East architectural codes (SBC, MOMRAH / Balady, Saudi Civil Defense).
 
-### 3. Agent Interop & Synchronization Protocol
+### 3. Agent Interop & Synchronization Protocol (Parallel Safety)
+- **Git Version Control & Safety Net:** 
+  - This repository is tracked by Git. Always check `git status` when beginning a session.
+  - After completing tasks, either commit directly (`git commit -m "..."`) or ask the user to run `commit_session.bat`.
+  - Never overwrite files blindly if there are uncommitted changes from Antigravity.
+- **Task & Project Partitioning:**
+  - If working concurrently with Antigravity, divide work by project subfolders (e.g., Claude works on `SbcBaladyChecker` or `CAD-AI`, while Antigravity works on `GOAT_BIM_Suite_2026_2027` or `goat-bim-web`) to avoid write collision.
 - **Shared Filesystem:** Always write changes directly to this workspace. Do not store project code in temp folders.
 - **Logging Changes:** After completing any major feature or code edit, append a brief entry to `PROJECTS_SHARED_CHANGELOG.md` stating what was added or changed. This allows Antigravity and the user to immediately see your progress.
 - **Preserve Existing Integrity:** Never overwrite or delete existing documentation, docstrings, or architectural setups without explicit user approval.
