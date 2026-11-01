@@ -25,7 +25,9 @@
 | 17 | `2026-10-30` | @[\\192.168.0.199\f\salem\Othman\New folder (5)] ايه الملفات اللي هنا   <ADDITIO | 9 | [17_2026-10-30_@[192.168.0.199fsalemOthmanNew_folder_(5.md](./17_2026-10-30_@[192.168.0.199fsalemOthmanNew_folder_(5.md) |
 | 18 | `2026-10-30` | General Architectural & BIM Task | 1 | [18_2026-10-30_General_Architectural_&_BIM_Task.md](./18_2026-10-30_General_Architectural_&_BIM_Task.md) |
 | 19 | `2026-10-30` | @[f:\التشطيبات المعمارية] ايه الملفات اللي موجوده هنا  <ADDITIONAL_METADATA> The | 4 | [19_2026-10-30_@[fالتشطيبات_المعمارية]_ايه_الملفات_اللي.md](./19_2026-10-30_@[fالتشطيبات_المعمارية]_ايه_الملفات_اللي.md) |
-| 20 | `2026-10-31` | لو انت معماري أو إنشائي، الـ MEP مش شغلك، لكن مشاكله هتوصلك أنت.  سقف ما يكفيش | 2 | [20_2026-10-31_لو_انت_معماري_أو_إنشائي،_الـ_MEP_مش_شغلك.md](./20_2026-10-31_لو_انت_معماري_أو_إنشائي،_الـ_MEP_مش_شغلك.md) |
+| 20 | `2026-10-31` | لو انت معماري أو إنشائي، الـ MEP مش شغلك، لكن مشاكله هتوصلك أنت.
+ 
+ سقف ما يكفيش | 2 | [20_2026-10-31_لو_انت_معماري_أو_إنشائي،_الـ_MEP_مش_شغلك.md](./20_2026-10-31_لو_انت_معماري_أو_إنشائي،_الـ_MEP_مش_شغلك.md) |
 | 21 | `2026-10-31` | https://www.youtube.com/watch?v=js-a4tHYZRo  الكلام على ايه هنا   <ADDITIONAL_ME | 12 | [21_2026-10-31_httpswww.youtube.comwatchv=js-a4tHYZRo_ا.md](./21_2026-10-31_httpswww.youtube.comwatchv=js-a4tHYZRo_ا.md) |
 | 22 | `2026-10-31` | ايه اللي موجود في الملف   <ADDITIONAL_METADATA> The current local time is: 2026- | 9 | [22_2026-10-31_ايه_اللي_موجود_في_الملف_ADDITIONAL_METAD.md](./22_2026-10-31_ايه_اللي_موجود_في_الملف_ADDITIONAL_METAD.md) |
 | 23 | `2026-10-31` | @[d:\_Course\CAD-AI\New folder] ذاكر ده و عرفني ]i hdi   <ADDITIONAL_METADATA> T | 19 | [23_2026-10-31_@[d_CourseCAD-AINew_folder]_ذاكر_ده_و_عر.md](./23_2026-10-31_@[d_CourseCAD-AINew_folder]_ذاكر_ده_و_عر.md) |
@@ -43,9 +45,11 @@
 | 35 | `2026-10-29` | @[d:\_Course\GOAT\Full_Conversation_History.md]   <ADDITIONAL_METADATA> The curr | 303 | [35_2026-10-29_@[d_CourseGOATFull_Conversation_History..md](./35_2026-10-29_@[d_CourseGOATFull_Conversation_History..md) |
 | 36 | `2026-11-01` | General Architectural & BIM Task | 1 | [36_2026-11-01_General_Architectural_&_BIM_Task.md](./36_2026-11-01_General_Architectural_&_BIM_Task.md) |
 | 37 | `2026-11-01` | General Architectural & BIM Task | 1 | [37_2026-11-01_General_Architectural_&_BIM_Task.md](./37_2026-11-01_General_Architectural_&_BIM_Task.md) |
-| 38 | `2026-11-01` | ازاس استفاد من API ده هنا sk-proj-Yk5I3tnvoOyixm2b3rGsiZPoyeFkFYSg55AGfCwS4fwlOC | 8 | [38_2026-11-01_ازاس_استفاد_من_API_ده_هنا_sk-proj-Yk5I3t.md](./38_2026-11-01_ازاس_استفاد_من_API_ده_هنا_sk-proj-Yk5I3t.md) |
+| 38 | `2026-11-01` | ازاس استفاد من API ده هنا [REDACTED_API_KEY] | 8 | [38_2026-11-01_ازاس_استفاد_من_API_ده_هنا_[REDACTED_API_KEY].md](./38_2026-11-01_ازاس_استفاد_من_API_ده_هنا_[REDACTED_API_KEY].md) |
 | 39 | `2026-11-01` | ارسم قطعه الارض دي POLYLINE قفي ملف الاوتوكاد اللي مفتوح  <ADDITIONAL_METADATA>  | 3 | [39_2026-11-01_ارسم_قطعه_الارض_دي_POLYLINE_قفي_ملف_الاو.md](./39_2026-11-01_ارسم_قطعه_الارض_دي_POLYLINE_قفي_ملف_الاو.md) |
-| 40 | `2026-11-01` | هل الهندسة رايحة لنفس مصير الكشك؟ زمان كان في كشك على كل ناصية، والنهارده الـ H | 13 | [40_2026-11-01_هل_الهندسة_رايحة_لنفس_مصير_الكشك؟_زمان_ك.md](./40_2026-11-01_هل_الهندسة_رايحة_لنفس_مصير_الكشك؟_زمان_ك.md) |
-| 41 | `2026-11-01` | I need an inventory of all my projects and where their data lives.  This is a R | 2 | [41_2026-11-01_I_need_an_inventory_of_all_my_projects_a.md](./41_2026-11-01_I_need_an_inventory_of_all_my_projects_a.md) |
+| 40 | `2026-11-01` | هل الهندسة رايحة لنفس مصير الكشك؟
+ زمان كان في كشك على كل ناصية، والنهارده الـ H | 13 | [40_2026-11-01_هل_الهندسة_رايحة_لنفس_مصير_الكشك؟_زمان_ك.md](./40_2026-11-01_هل_الهندسة_رايحة_لنفس_مصير_الكشك؟_زمان_ك.md) |
+| 41 | `2026-11-01` | I need an inventory of all my projects and where their data lives. 
+ This is a R | 2 | [41_2026-11-01_I_need_an_inventory_of_all_my_projects_a.md](./41_2026-11-01_I_need_an_inventory_of_all_my_projects_a.md) |
 | 42 | `2026-11-01` | عايز اخد كل حاجه عملناها هنا و ابعتا ل كلود علشان يربط نفس المشاريع و المحادثات  | 34 | [42_2026-11-01_عايز_اخد_كل_حاجه_عملناها_هنا_و_ابعتا_ل_ك.md](./42_2026-11-01_عايز_اخد_كل_حاجه_عملناها_هنا_و_ابعتا_ل_ك.md) |
 | 43 | `2026-10-31` | https://lnkd.in/p/dYdZVXn3 الكلام على ايه هنا  <ADDITIONAL_METADATA> The current | 234 | [43_2026-10-31_httpslnkd.inpdYdZVXn3_الكلام_على_ايه_هنا.md](./43_2026-10-31_httpslnkd.inpdYdZVXn3_الكلام_على_ايه_هنا.md) |
