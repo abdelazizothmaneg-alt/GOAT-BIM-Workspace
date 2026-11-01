@@ -21,6 +21,7 @@ namespace SbcBaladyChecker.Services
             _rules.Add(new SetbackAndZoningRule());
             _rules.Add(new ParkingQuotaRule());
             _rules.Add(new BeamDoorClashRule());
+            _rules.Add(new BaladyFARAndCoverageRule());
         }
 
         public AuditSummary RunFullAudit(Document doc, AuditSettings settings = null)

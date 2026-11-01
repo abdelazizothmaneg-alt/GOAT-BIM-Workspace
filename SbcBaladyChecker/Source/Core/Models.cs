@@ -35,6 +35,7 @@ namespace SbcBaladyChecker.Core
         public BuildingTypology Typology { get; set; } = BuildingTypology.ResidentialVilla;
         public double StreetWidthMeters { get; set; } = 15.0; // عرض الشارع
         public bool HasSprinklerSystem { get; set; } = false; // هل المبنى محمي بنظام رش آلي
+        public double? PlotAreaSqMeters { get; set; } = null; // مساحة الأرض الصك (م²)
 
         public string TypologyLabel => Typology switch
         {

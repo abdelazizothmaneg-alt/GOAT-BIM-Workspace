@@ -14,6 +14,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Demo\**" />
+    <Page Remove="Demo\**" />
+    <ApplicationDefinition Remove="Demo\**" />
+    <EmbeddedResource Remove="Demo\**" />
+    <None Remove="Demo\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="RevitAPI">
       <HintPath>C:\Program Files\Autodesk\Revit 2026\RevitAPI.dll</HintPath>
       <Private>False</Private>
