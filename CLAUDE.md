@@ -60,3 +60,6 @@ All active projects are located in this directory (`C:\Users\faqih\.gemini\antig
 - **Shared Filesystem:** Always write changes directly to this workspace. Do not store project code in temp folders.
 - **Logging Changes:** After completing any major feature or code edit, append a brief entry to `PROJECTS_SHARED_CHANGELOG.md` stating what was added or changed. This allows Antigravity and the user to immediately see your progress.
 - **Preserve Existing Integrity:** Never overwrite or delete existing documentation, docstrings, or architectural setups without explicit user approval.
+
+
+@AGENTS.md
